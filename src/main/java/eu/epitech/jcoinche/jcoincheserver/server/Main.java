@@ -1,4 +1,5 @@
 package eu.epitech.jcoinche.jcoincheserver.server;
+
 public class Main {
     public static void main(String[] args) throws Exception {
         int port;
@@ -7,7 +8,5 @@ public class Main {
         } else {
             port = 8080;
         }
-       server.DiscardServer newToto = new server.DiscardServer(port);
-        newToto.run();
     }
 }
