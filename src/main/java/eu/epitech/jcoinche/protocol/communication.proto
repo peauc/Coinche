@@ -6,26 +6,20 @@ option java_outer_classname = "Coinche";
 
 message Message {
     enum Type {
-        PLAYER = 0;
-        CARD = 1;
-        HAND = 2;
-        CONTRACT = 3;
-        EVENT = 4;
-        PROMPT = 5;
-        REPLY = 6;
+        CARD = 0;
+        HAND = 1;
+        CONTRACT = 2;
+        EVENT = 3;
+        PROMPT = 4;
+        REPLY = 5;
     }
     Type type = 1;
-    Player player = 2;
-    Card card = 3;
-    Hand hand = 4;
-    Contract contract = 5;
-    Event event = 6;
-    Prompt prompt = 7;
-    Reply reply = 8;
-}
-
-message Player {
-     string name = 1;
+    Card card = 2;
+    Hand hand = 3;
+    Contract contract = 4;
+    Event event = 5;
+    Prompt prompt = 6;
+    Reply reply = 7;
 }
 
 message Card {
@@ -93,4 +87,5 @@ message Prompt {
 
 message Reply {
     uint32 number = 1;
+    string message = 2;
 }

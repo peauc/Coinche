@@ -28,93 +28,80 @@ public final class Coinche {
     eu.epitech.jcoinche.protocol.Coinche.Message.Type getType();
 
     /**
-     * <code>.protobuf.Player player = 2;</code>
-     */
-    boolean hasPlayer();
-    /**
-     * <code>.protobuf.Player player = 2;</code>
-     */
-    eu.epitech.jcoinche.protocol.Coinche.Player getPlayer();
-    /**
-     * <code>.protobuf.Player player = 2;</code>
-     */
-    eu.epitech.jcoinche.protocol.Coinche.PlayerOrBuilder getPlayerOrBuilder();
-
-    /**
-     * <code>.protobuf.Card card = 3;</code>
+     * <code>.protobuf.Card card = 2;</code>
      */
     boolean hasCard();
     /**
-     * <code>.protobuf.Card card = 3;</code>
+     * <code>.protobuf.Card card = 2;</code>
      */
     eu.epitech.jcoinche.protocol.Coinche.Card getCard();
     /**
-     * <code>.protobuf.Card card = 3;</code>
+     * <code>.protobuf.Card card = 2;</code>
      */
     eu.epitech.jcoinche.protocol.Coinche.CardOrBuilder getCardOrBuilder();
 
     /**
-     * <code>.protobuf.Hand hand = 4;</code>
+     * <code>.protobuf.Hand hand = 3;</code>
      */
     boolean hasHand();
     /**
-     * <code>.protobuf.Hand hand = 4;</code>
+     * <code>.protobuf.Hand hand = 3;</code>
      */
     eu.epitech.jcoinche.protocol.Coinche.Hand getHand();
     /**
-     * <code>.protobuf.Hand hand = 4;</code>
+     * <code>.protobuf.Hand hand = 3;</code>
      */
     eu.epitech.jcoinche.protocol.Coinche.HandOrBuilder getHandOrBuilder();
 
     /**
-     * <code>.protobuf.Contract contract = 5;</code>
+     * <code>.protobuf.Contract contract = 4;</code>
      */
     boolean hasContract();
     /**
-     * <code>.protobuf.Contract contract = 5;</code>
+     * <code>.protobuf.Contract contract = 4;</code>
      */
     eu.epitech.jcoinche.protocol.Coinche.Contract getContract();
     /**
-     * <code>.protobuf.Contract contract = 5;</code>
+     * <code>.protobuf.Contract contract = 4;</code>
      */
     eu.epitech.jcoinche.protocol.Coinche.ContractOrBuilder getContractOrBuilder();
 
     /**
-     * <code>.protobuf.Event event = 6;</code>
+     * <code>.protobuf.Event event = 5;</code>
      */
     boolean hasEvent();
     /**
-     * <code>.protobuf.Event event = 6;</code>
+     * <code>.protobuf.Event event = 5;</code>
      */
     eu.epitech.jcoinche.protocol.Coinche.Event getEvent();
     /**
-     * <code>.protobuf.Event event = 6;</code>
+     * <code>.protobuf.Event event = 5;</code>
      */
     eu.epitech.jcoinche.protocol.Coinche.EventOrBuilder getEventOrBuilder();
 
     /**
-     * <code>.protobuf.Prompt prompt = 7;</code>
+     * <code>.protobuf.Prompt prompt = 6;</code>
      */
     boolean hasPrompt();
     /**
-     * <code>.protobuf.Prompt prompt = 7;</code>
+     * <code>.protobuf.Prompt prompt = 6;</code>
      */
     eu.epitech.jcoinche.protocol.Coinche.Prompt getPrompt();
     /**
-     * <code>.protobuf.Prompt prompt = 7;</code>
+     * <code>.protobuf.Prompt prompt = 6;</code>
      */
     eu.epitech.jcoinche.protocol.Coinche.PromptOrBuilder getPromptOrBuilder();
 
     /**
-     * <code>.protobuf.Reply reply = 8;</code>
+     * <code>.protobuf.Reply reply = 7;</code>
      */
     boolean hasReply();
     /**
-     * <code>.protobuf.Reply reply = 8;</code>
+     * <code>.protobuf.Reply reply = 7;</code>
      */
     eu.epitech.jcoinche.protocol.Coinche.Reply getReply();
     /**
-     * <code>.protobuf.Reply reply = 8;</code>
+     * <code>.protobuf.Reply reply = 7;</code>
      */
     eu.epitech.jcoinche.protocol.Coinche.ReplyOrBuilder getReplyOrBuilder();
   }
@@ -169,19 +156,6 @@ public final class Coinche {
               break;
             }
             case 18: {
-              eu.epitech.jcoinche.protocol.Coinche.Player.Builder subBuilder = null;
-              if (player_ != null) {
-                subBuilder = player_.toBuilder();
-              }
-              player_ = input.readMessage(eu.epitech.jcoinche.protocol.Coinche.Player.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(player_);
-                player_ = subBuilder.buildPartial();
-              }
-
-              break;
-            }
-            case 26: {
               eu.epitech.jcoinche.protocol.Coinche.Card.Builder subBuilder = null;
               if (card_ != null) {
                 subBuilder = card_.toBuilder();
@@ -194,7 +168,7 @@ public final class Coinche {
 
               break;
             }
-            case 34: {
+            case 26: {
               eu.epitech.jcoinche.protocol.Coinche.Hand.Builder subBuilder = null;
               if (hand_ != null) {
                 subBuilder = hand_.toBuilder();
@@ -207,7 +181,7 @@ public final class Coinche {
 
               break;
             }
-            case 42: {
+            case 34: {
               eu.epitech.jcoinche.protocol.Coinche.Contract.Builder subBuilder = null;
               if (contract_ != null) {
                 subBuilder = contract_.toBuilder();
@@ -220,7 +194,7 @@ public final class Coinche {
 
               break;
             }
-            case 50: {
+            case 42: {
               eu.epitech.jcoinche.protocol.Coinche.Event.Builder subBuilder = null;
               if (event_ != null) {
                 subBuilder = event_.toBuilder();
@@ -233,7 +207,7 @@ public final class Coinche {
 
               break;
             }
-            case 58: {
+            case 50: {
               eu.epitech.jcoinche.protocol.Coinche.Prompt.Builder subBuilder = null;
               if (prompt_ != null) {
                 subBuilder = prompt_.toBuilder();
@@ -246,7 +220,7 @@ public final class Coinche {
 
               break;
             }
-            case 66: {
+            case 58: {
               eu.epitech.jcoinche.protocol.Coinche.Reply.Builder subBuilder = null;
               if (reply_ != null) {
                 subBuilder = reply_.toBuilder();
@@ -289,64 +263,56 @@ public final class Coinche {
     public enum Type
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>PLAYER = 0;</code>
+       * <code>CARD = 0;</code>
        */
-      PLAYER(0),
+      CARD(0),
       /**
-       * <code>CARD = 1;</code>
+       * <code>HAND = 1;</code>
        */
-      CARD(1),
+      HAND(1),
       /**
-       * <code>HAND = 2;</code>
+       * <code>CONTRACT = 2;</code>
        */
-      HAND(2),
+      CONTRACT(2),
       /**
-       * <code>CONTRACT = 3;</code>
+       * <code>EVENT = 3;</code>
        */
-      CONTRACT(3),
+      EVENT(3),
       /**
-       * <code>EVENT = 4;</code>
+       * <code>PROMPT = 4;</code>
        */
-      EVENT(4),
+      PROMPT(4),
       /**
-       * <code>PROMPT = 5;</code>
+       * <code>REPLY = 5;</code>
        */
-      PROMPT(5),
-      /**
-       * <code>REPLY = 6;</code>
-       */
-      REPLY(6),
+      REPLY(5),
       UNRECOGNIZED(-1),
       ;
 
       /**
-       * <code>PLAYER = 0;</code>
+       * <code>CARD = 0;</code>
        */
-      public static final int PLAYER_VALUE = 0;
+      public static final int CARD_VALUE = 0;
       /**
-       * <code>CARD = 1;</code>
+       * <code>HAND = 1;</code>
        */
-      public static final int CARD_VALUE = 1;
+      public static final int HAND_VALUE = 1;
       /**
-       * <code>HAND = 2;</code>
+       * <code>CONTRACT = 2;</code>
        */
-      public static final int HAND_VALUE = 2;
+      public static final int CONTRACT_VALUE = 2;
       /**
-       * <code>CONTRACT = 3;</code>
+       * <code>EVENT = 3;</code>
        */
-      public static final int CONTRACT_VALUE = 3;
+      public static final int EVENT_VALUE = 3;
       /**
-       * <code>EVENT = 4;</code>
+       * <code>PROMPT = 4;</code>
        */
-      public static final int EVENT_VALUE = 4;
+      public static final int PROMPT_VALUE = 4;
       /**
-       * <code>PROMPT = 5;</code>
+       * <code>REPLY = 5;</code>
        */
-      public static final int PROMPT_VALUE = 5;
-      /**
-       * <code>REPLY = 6;</code>
-       */
-      public static final int REPLY_VALUE = 6;
+      public static final int REPLY_VALUE = 5;
 
 
       public final int getNumber() {
@@ -367,13 +333,12 @@ public final class Coinche {
 
       public static Type forNumber(int value) {
         switch (value) {
-          case 0: return PLAYER;
-          case 1: return CARD;
-          case 2: return HAND;
-          case 3: return CONTRACT;
-          case 4: return EVENT;
-          case 5: return PROMPT;
-          case 6: return REPLY;
+          case 0: return CARD;
+          case 1: return HAND;
+          case 2: return CONTRACT;
+          case 3: return EVENT;
+          case 4: return PROMPT;
+          case 5: return REPLY;
           default: return null;
         }
       }
@@ -442,148 +407,127 @@ public final class Coinche {
       return result == null ? eu.epitech.jcoinche.protocol.Coinche.Message.Type.UNRECOGNIZED : result;
     }
 
-    public static final int PLAYER_FIELD_NUMBER = 2;
-    private eu.epitech.jcoinche.protocol.Coinche.Player player_;
-    /**
-     * <code>.protobuf.Player player = 2;</code>
-     */
-    public boolean hasPlayer() {
-      return player_ != null;
-    }
-    /**
-     * <code>.protobuf.Player player = 2;</code>
-     */
-    public eu.epitech.jcoinche.protocol.Coinche.Player getPlayer() {
-      return player_ == null ? eu.epitech.jcoinche.protocol.Coinche.Player.getDefaultInstance() : player_;
-    }
-    /**
-     * <code>.protobuf.Player player = 2;</code>
-     */
-    public eu.epitech.jcoinche.protocol.Coinche.PlayerOrBuilder getPlayerOrBuilder() {
-      return getPlayer();
-    }
-
-    public static final int CARD_FIELD_NUMBER = 3;
+    public static final int CARD_FIELD_NUMBER = 2;
     private eu.epitech.jcoinche.protocol.Coinche.Card card_;
     /**
-     * <code>.protobuf.Card card = 3;</code>
+     * <code>.protobuf.Card card = 2;</code>
      */
     public boolean hasCard() {
       return card_ != null;
     }
     /**
-     * <code>.protobuf.Card card = 3;</code>
+     * <code>.protobuf.Card card = 2;</code>
      */
     public eu.epitech.jcoinche.protocol.Coinche.Card getCard() {
       return card_ == null ? eu.epitech.jcoinche.protocol.Coinche.Card.getDefaultInstance() : card_;
     }
     /**
-     * <code>.protobuf.Card card = 3;</code>
+     * <code>.protobuf.Card card = 2;</code>
      */
     public eu.epitech.jcoinche.protocol.Coinche.CardOrBuilder getCardOrBuilder() {
       return getCard();
     }
 
-    public static final int HAND_FIELD_NUMBER = 4;
+    public static final int HAND_FIELD_NUMBER = 3;
     private eu.epitech.jcoinche.protocol.Coinche.Hand hand_;
     /**
-     * <code>.protobuf.Hand hand = 4;</code>
+     * <code>.protobuf.Hand hand = 3;</code>
      */
     public boolean hasHand() {
       return hand_ != null;
     }
     /**
-     * <code>.protobuf.Hand hand = 4;</code>
+     * <code>.protobuf.Hand hand = 3;</code>
      */
     public eu.epitech.jcoinche.protocol.Coinche.Hand getHand() {
       return hand_ == null ? eu.epitech.jcoinche.protocol.Coinche.Hand.getDefaultInstance() : hand_;
     }
     /**
-     * <code>.protobuf.Hand hand = 4;</code>
+     * <code>.protobuf.Hand hand = 3;</code>
      */
     public eu.epitech.jcoinche.protocol.Coinche.HandOrBuilder getHandOrBuilder() {
       return getHand();
     }
 
-    public static final int CONTRACT_FIELD_NUMBER = 5;
+    public static final int CONTRACT_FIELD_NUMBER = 4;
     private eu.epitech.jcoinche.protocol.Coinche.Contract contract_;
     /**
-     * <code>.protobuf.Contract contract = 5;</code>
+     * <code>.protobuf.Contract contract = 4;</code>
      */
     public boolean hasContract() {
       return contract_ != null;
     }
     /**
-     * <code>.protobuf.Contract contract = 5;</code>
+     * <code>.protobuf.Contract contract = 4;</code>
      */
     public eu.epitech.jcoinche.protocol.Coinche.Contract getContract() {
       return contract_ == null ? eu.epitech.jcoinche.protocol.Coinche.Contract.getDefaultInstance() : contract_;
     }
     /**
-     * <code>.protobuf.Contract contract = 5;</code>
+     * <code>.protobuf.Contract contract = 4;</code>
      */
     public eu.epitech.jcoinche.protocol.Coinche.ContractOrBuilder getContractOrBuilder() {
       return getContract();
     }
 
-    public static final int EVENT_FIELD_NUMBER = 6;
+    public static final int EVENT_FIELD_NUMBER = 5;
     private eu.epitech.jcoinche.protocol.Coinche.Event event_;
     /**
-     * <code>.protobuf.Event event = 6;</code>
+     * <code>.protobuf.Event event = 5;</code>
      */
     public boolean hasEvent() {
       return event_ != null;
     }
     /**
-     * <code>.protobuf.Event event = 6;</code>
+     * <code>.protobuf.Event event = 5;</code>
      */
     public eu.epitech.jcoinche.protocol.Coinche.Event getEvent() {
       return event_ == null ? eu.epitech.jcoinche.protocol.Coinche.Event.getDefaultInstance() : event_;
     }
     /**
-     * <code>.protobuf.Event event = 6;</code>
+     * <code>.protobuf.Event event = 5;</code>
      */
     public eu.epitech.jcoinche.protocol.Coinche.EventOrBuilder getEventOrBuilder() {
       return getEvent();
     }
 
-    public static final int PROMPT_FIELD_NUMBER = 7;
+    public static final int PROMPT_FIELD_NUMBER = 6;
     private eu.epitech.jcoinche.protocol.Coinche.Prompt prompt_;
     /**
-     * <code>.protobuf.Prompt prompt = 7;</code>
+     * <code>.protobuf.Prompt prompt = 6;</code>
      */
     public boolean hasPrompt() {
       return prompt_ != null;
     }
     /**
-     * <code>.protobuf.Prompt prompt = 7;</code>
+     * <code>.protobuf.Prompt prompt = 6;</code>
      */
     public eu.epitech.jcoinche.protocol.Coinche.Prompt getPrompt() {
       return prompt_ == null ? eu.epitech.jcoinche.protocol.Coinche.Prompt.getDefaultInstance() : prompt_;
     }
     /**
-     * <code>.protobuf.Prompt prompt = 7;</code>
+     * <code>.protobuf.Prompt prompt = 6;</code>
      */
     public eu.epitech.jcoinche.protocol.Coinche.PromptOrBuilder getPromptOrBuilder() {
       return getPrompt();
     }
 
-    public static final int REPLY_FIELD_NUMBER = 8;
+    public static final int REPLY_FIELD_NUMBER = 7;
     private eu.epitech.jcoinche.protocol.Coinche.Reply reply_;
     /**
-     * <code>.protobuf.Reply reply = 8;</code>
+     * <code>.protobuf.Reply reply = 7;</code>
      */
     public boolean hasReply() {
       return reply_ != null;
     }
     /**
-     * <code>.protobuf.Reply reply = 8;</code>
+     * <code>.protobuf.Reply reply = 7;</code>
      */
     public eu.epitech.jcoinche.protocol.Coinche.Reply getReply() {
       return reply_ == null ? eu.epitech.jcoinche.protocol.Coinche.Reply.getDefaultInstance() : reply_;
     }
     /**
-     * <code>.protobuf.Reply reply = 8;</code>
+     * <code>.protobuf.Reply reply = 7;</code>
      */
     public eu.epitech.jcoinche.protocol.Coinche.ReplyOrBuilder getReplyOrBuilder() {
       return getReply();
@@ -601,29 +545,26 @@ public final class Coinche {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Message.Type.PLAYER.getNumber()) {
+      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Message.Type.CARD.getNumber()) {
         output.writeEnum(1, type_);
       }
-      if (player_ != null) {
-        output.writeMessage(2, getPlayer());
-      }
       if (card_ != null) {
-        output.writeMessage(3, getCard());
+        output.writeMessage(2, getCard());
       }
       if (hand_ != null) {
-        output.writeMessage(4, getHand());
+        output.writeMessage(3, getHand());
       }
       if (contract_ != null) {
-        output.writeMessage(5, getContract());
+        output.writeMessage(4, getContract());
       }
       if (event_ != null) {
-        output.writeMessage(6, getEvent());
+        output.writeMessage(5, getEvent());
       }
       if (prompt_ != null) {
-        output.writeMessage(7, getPrompt());
+        output.writeMessage(6, getPrompt());
       }
       if (reply_ != null) {
-        output.writeMessage(8, getReply());
+        output.writeMessage(7, getReply());
       }
       unknownFields.writeTo(output);
     }
@@ -633,37 +574,33 @@ public final class Coinche {
       if (size != -1) return size;
 
       size = 0;
-      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Message.Type.PLAYER.getNumber()) {
+      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Message.Type.CARD.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, type_);
       }
-      if (player_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getPlayer());
-      }
       if (card_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getCard());
+          .computeMessageSize(2, getCard());
       }
       if (hand_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(4, getHand());
+          .computeMessageSize(3, getHand());
       }
       if (contract_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, getContract());
+          .computeMessageSize(4, getContract());
       }
       if (event_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, getEvent());
+          .computeMessageSize(5, getEvent());
       }
       if (prompt_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, getPrompt());
+          .computeMessageSize(6, getPrompt());
       }
       if (reply_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(8, getReply());
+          .computeMessageSize(7, getReply());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -682,11 +619,6 @@ public final class Coinche {
 
       boolean result = true;
       result = result && type_ == other.type_;
-      result = result && (hasPlayer() == other.hasPlayer());
-      if (hasPlayer()) {
-        result = result && getPlayer()
-            .equals(other.getPlayer());
-      }
       result = result && (hasCard() == other.hasCard());
       if (hasCard()) {
         result = result && getCard()
@@ -730,10 +662,6 @@ public final class Coinche {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
       hash = (53 * hash) + type_;
-      if (hasPlayer()) {
-        hash = (37 * hash) + PLAYER_FIELD_NUMBER;
-        hash = (53 * hash) + getPlayer().hashCode();
-      }
       if (hasCard()) {
         hash = (37 * hash) + CARD_FIELD_NUMBER;
         hash = (53 * hash) + getCard().hashCode();
@@ -889,12 +817,6 @@ public final class Coinche {
         super.clear();
         type_ = 0;
 
-        if (playerBuilder_ == null) {
-          player_ = null;
-        } else {
-          player_ = null;
-          playerBuilder_ = null;
-        }
         if (cardBuilder_ == null) {
           card_ = null;
         } else {
@@ -954,11 +876,6 @@ public final class Coinche {
       public eu.epitech.jcoinche.protocol.Coinche.Message buildPartial() {
         eu.epitech.jcoinche.protocol.Coinche.Message result = new eu.epitech.jcoinche.protocol.Coinche.Message(this);
         result.type_ = type_;
-        if (playerBuilder_ == null) {
-          result.player_ = player_;
-        } else {
-          result.player_ = playerBuilder_.build();
-        }
         if (cardBuilder_ == null) {
           result.card_ = card_;
         } else {
@@ -1032,9 +949,6 @@ public final class Coinche {
         if (other == eu.epitech.jcoinche.protocol.Coinche.Message.getDefaultInstance()) return this;
         if (other.type_ != 0) {
           setTypeValue(other.getTypeValue());
-        }
-        if (other.hasPlayer()) {
-          mergePlayer(other.getPlayer());
         }
         if (other.hasCard()) {
           mergeCard(other.getCard());
@@ -1125,134 +1039,17 @@ public final class Coinche {
         return this;
       }
 
-      private eu.epitech.jcoinche.protocol.Coinche.Player player_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          eu.epitech.jcoinche.protocol.Coinche.Player, eu.epitech.jcoinche.protocol.Coinche.Player.Builder, eu.epitech.jcoinche.protocol.Coinche.PlayerOrBuilder> playerBuilder_;
-      /**
-       * <code>.protobuf.Player player = 2;</code>
-       */
-      public boolean hasPlayer() {
-        return playerBuilder_ != null || player_ != null;
-      }
-      /**
-       * <code>.protobuf.Player player = 2;</code>
-       */
-      public eu.epitech.jcoinche.protocol.Coinche.Player getPlayer() {
-        if (playerBuilder_ == null) {
-          return player_ == null ? eu.epitech.jcoinche.protocol.Coinche.Player.getDefaultInstance() : player_;
-        } else {
-          return playerBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.protobuf.Player player = 2;</code>
-       */
-      public Builder setPlayer(eu.epitech.jcoinche.protocol.Coinche.Player value) {
-        if (playerBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          player_ = value;
-          onChanged();
-        } else {
-          playerBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.protobuf.Player player = 2;</code>
-       */
-      public Builder setPlayer(
-          eu.epitech.jcoinche.protocol.Coinche.Player.Builder builderForValue) {
-        if (playerBuilder_ == null) {
-          player_ = builderForValue.build();
-          onChanged();
-        } else {
-          playerBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.protobuf.Player player = 2;</code>
-       */
-      public Builder mergePlayer(eu.epitech.jcoinche.protocol.Coinche.Player value) {
-        if (playerBuilder_ == null) {
-          if (player_ != null) {
-            player_ =
-              eu.epitech.jcoinche.protocol.Coinche.Player.newBuilder(player_).mergeFrom(value).buildPartial();
-          } else {
-            player_ = value;
-          }
-          onChanged();
-        } else {
-          playerBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.protobuf.Player player = 2;</code>
-       */
-      public Builder clearPlayer() {
-        if (playerBuilder_ == null) {
-          player_ = null;
-          onChanged();
-        } else {
-          player_ = null;
-          playerBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.protobuf.Player player = 2;</code>
-       */
-      public eu.epitech.jcoinche.protocol.Coinche.Player.Builder getPlayerBuilder() {
-        
-        onChanged();
-        return getPlayerFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.protobuf.Player player = 2;</code>
-       */
-      public eu.epitech.jcoinche.protocol.Coinche.PlayerOrBuilder getPlayerOrBuilder() {
-        if (playerBuilder_ != null) {
-          return playerBuilder_.getMessageOrBuilder();
-        } else {
-          return player_ == null ?
-              eu.epitech.jcoinche.protocol.Coinche.Player.getDefaultInstance() : player_;
-        }
-      }
-      /**
-       * <code>.protobuf.Player player = 2;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          eu.epitech.jcoinche.protocol.Coinche.Player, eu.epitech.jcoinche.protocol.Coinche.Player.Builder, eu.epitech.jcoinche.protocol.Coinche.PlayerOrBuilder> 
-          getPlayerFieldBuilder() {
-        if (playerBuilder_ == null) {
-          playerBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              eu.epitech.jcoinche.protocol.Coinche.Player, eu.epitech.jcoinche.protocol.Coinche.Player.Builder, eu.epitech.jcoinche.protocol.Coinche.PlayerOrBuilder>(
-                  getPlayer(),
-                  getParentForChildren(),
-                  isClean());
-          player_ = null;
-        }
-        return playerBuilder_;
-      }
-
       private eu.epitech.jcoinche.protocol.Coinche.Card card_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
           eu.epitech.jcoinche.protocol.Coinche.Card, eu.epitech.jcoinche.protocol.Coinche.Card.Builder, eu.epitech.jcoinche.protocol.Coinche.CardOrBuilder> cardBuilder_;
       /**
-       * <code>.protobuf.Card card = 3;</code>
+       * <code>.protobuf.Card card = 2;</code>
        */
       public boolean hasCard() {
         return cardBuilder_ != null || card_ != null;
       }
       /**
-       * <code>.protobuf.Card card = 3;</code>
+       * <code>.protobuf.Card card = 2;</code>
        */
       public eu.epitech.jcoinche.protocol.Coinche.Card getCard() {
         if (cardBuilder_ == null) {
@@ -1262,7 +1059,7 @@ public final class Coinche {
         }
       }
       /**
-       * <code>.protobuf.Card card = 3;</code>
+       * <code>.protobuf.Card card = 2;</code>
        */
       public Builder setCard(eu.epitech.jcoinche.protocol.Coinche.Card value) {
         if (cardBuilder_ == null) {
@@ -1278,7 +1075,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Card card = 3;</code>
+       * <code>.protobuf.Card card = 2;</code>
        */
       public Builder setCard(
           eu.epitech.jcoinche.protocol.Coinche.Card.Builder builderForValue) {
@@ -1292,7 +1089,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Card card = 3;</code>
+       * <code>.protobuf.Card card = 2;</code>
        */
       public Builder mergeCard(eu.epitech.jcoinche.protocol.Coinche.Card value) {
         if (cardBuilder_ == null) {
@@ -1310,7 +1107,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Card card = 3;</code>
+       * <code>.protobuf.Card card = 2;</code>
        */
       public Builder clearCard() {
         if (cardBuilder_ == null) {
@@ -1324,7 +1121,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Card card = 3;</code>
+       * <code>.protobuf.Card card = 2;</code>
        */
       public eu.epitech.jcoinche.protocol.Coinche.Card.Builder getCardBuilder() {
         
@@ -1332,7 +1129,7 @@ public final class Coinche {
         return getCardFieldBuilder().getBuilder();
       }
       /**
-       * <code>.protobuf.Card card = 3;</code>
+       * <code>.protobuf.Card card = 2;</code>
        */
       public eu.epitech.jcoinche.protocol.Coinche.CardOrBuilder getCardOrBuilder() {
         if (cardBuilder_ != null) {
@@ -1343,7 +1140,7 @@ public final class Coinche {
         }
       }
       /**
-       * <code>.protobuf.Card card = 3;</code>
+       * <code>.protobuf.Card card = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           eu.epitech.jcoinche.protocol.Coinche.Card, eu.epitech.jcoinche.protocol.Coinche.Card.Builder, eu.epitech.jcoinche.protocol.Coinche.CardOrBuilder> 
@@ -1363,13 +1160,13 @@ public final class Coinche {
       private com.google.protobuf.SingleFieldBuilderV3<
           eu.epitech.jcoinche.protocol.Coinche.Hand, eu.epitech.jcoinche.protocol.Coinche.Hand.Builder, eu.epitech.jcoinche.protocol.Coinche.HandOrBuilder> handBuilder_;
       /**
-       * <code>.protobuf.Hand hand = 4;</code>
+       * <code>.protobuf.Hand hand = 3;</code>
        */
       public boolean hasHand() {
         return handBuilder_ != null || hand_ != null;
       }
       /**
-       * <code>.protobuf.Hand hand = 4;</code>
+       * <code>.protobuf.Hand hand = 3;</code>
        */
       public eu.epitech.jcoinche.protocol.Coinche.Hand getHand() {
         if (handBuilder_ == null) {
@@ -1379,7 +1176,7 @@ public final class Coinche {
         }
       }
       /**
-       * <code>.protobuf.Hand hand = 4;</code>
+       * <code>.protobuf.Hand hand = 3;</code>
        */
       public Builder setHand(eu.epitech.jcoinche.protocol.Coinche.Hand value) {
         if (handBuilder_ == null) {
@@ -1395,7 +1192,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Hand hand = 4;</code>
+       * <code>.protobuf.Hand hand = 3;</code>
        */
       public Builder setHand(
           eu.epitech.jcoinche.protocol.Coinche.Hand.Builder builderForValue) {
@@ -1409,7 +1206,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Hand hand = 4;</code>
+       * <code>.protobuf.Hand hand = 3;</code>
        */
       public Builder mergeHand(eu.epitech.jcoinche.protocol.Coinche.Hand value) {
         if (handBuilder_ == null) {
@@ -1427,7 +1224,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Hand hand = 4;</code>
+       * <code>.protobuf.Hand hand = 3;</code>
        */
       public Builder clearHand() {
         if (handBuilder_ == null) {
@@ -1441,7 +1238,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Hand hand = 4;</code>
+       * <code>.protobuf.Hand hand = 3;</code>
        */
       public eu.epitech.jcoinche.protocol.Coinche.Hand.Builder getHandBuilder() {
         
@@ -1449,7 +1246,7 @@ public final class Coinche {
         return getHandFieldBuilder().getBuilder();
       }
       /**
-       * <code>.protobuf.Hand hand = 4;</code>
+       * <code>.protobuf.Hand hand = 3;</code>
        */
       public eu.epitech.jcoinche.protocol.Coinche.HandOrBuilder getHandOrBuilder() {
         if (handBuilder_ != null) {
@@ -1460,7 +1257,7 @@ public final class Coinche {
         }
       }
       /**
-       * <code>.protobuf.Hand hand = 4;</code>
+       * <code>.protobuf.Hand hand = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           eu.epitech.jcoinche.protocol.Coinche.Hand, eu.epitech.jcoinche.protocol.Coinche.Hand.Builder, eu.epitech.jcoinche.protocol.Coinche.HandOrBuilder> 
@@ -1480,13 +1277,13 @@ public final class Coinche {
       private com.google.protobuf.SingleFieldBuilderV3<
           eu.epitech.jcoinche.protocol.Coinche.Contract, eu.epitech.jcoinche.protocol.Coinche.Contract.Builder, eu.epitech.jcoinche.protocol.Coinche.ContractOrBuilder> contractBuilder_;
       /**
-       * <code>.protobuf.Contract contract = 5;</code>
+       * <code>.protobuf.Contract contract = 4;</code>
        */
       public boolean hasContract() {
         return contractBuilder_ != null || contract_ != null;
       }
       /**
-       * <code>.protobuf.Contract contract = 5;</code>
+       * <code>.protobuf.Contract contract = 4;</code>
        */
       public eu.epitech.jcoinche.protocol.Coinche.Contract getContract() {
         if (contractBuilder_ == null) {
@@ -1496,7 +1293,7 @@ public final class Coinche {
         }
       }
       /**
-       * <code>.protobuf.Contract contract = 5;</code>
+       * <code>.protobuf.Contract contract = 4;</code>
        */
       public Builder setContract(eu.epitech.jcoinche.protocol.Coinche.Contract value) {
         if (contractBuilder_ == null) {
@@ -1512,7 +1309,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Contract contract = 5;</code>
+       * <code>.protobuf.Contract contract = 4;</code>
        */
       public Builder setContract(
           eu.epitech.jcoinche.protocol.Coinche.Contract.Builder builderForValue) {
@@ -1526,7 +1323,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Contract contract = 5;</code>
+       * <code>.protobuf.Contract contract = 4;</code>
        */
       public Builder mergeContract(eu.epitech.jcoinche.protocol.Coinche.Contract value) {
         if (contractBuilder_ == null) {
@@ -1544,7 +1341,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Contract contract = 5;</code>
+       * <code>.protobuf.Contract contract = 4;</code>
        */
       public Builder clearContract() {
         if (contractBuilder_ == null) {
@@ -1558,7 +1355,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Contract contract = 5;</code>
+       * <code>.protobuf.Contract contract = 4;</code>
        */
       public eu.epitech.jcoinche.protocol.Coinche.Contract.Builder getContractBuilder() {
         
@@ -1566,7 +1363,7 @@ public final class Coinche {
         return getContractFieldBuilder().getBuilder();
       }
       /**
-       * <code>.protobuf.Contract contract = 5;</code>
+       * <code>.protobuf.Contract contract = 4;</code>
        */
       public eu.epitech.jcoinche.protocol.Coinche.ContractOrBuilder getContractOrBuilder() {
         if (contractBuilder_ != null) {
@@ -1577,7 +1374,7 @@ public final class Coinche {
         }
       }
       /**
-       * <code>.protobuf.Contract contract = 5;</code>
+       * <code>.protobuf.Contract contract = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           eu.epitech.jcoinche.protocol.Coinche.Contract, eu.epitech.jcoinche.protocol.Coinche.Contract.Builder, eu.epitech.jcoinche.protocol.Coinche.ContractOrBuilder> 
@@ -1597,13 +1394,13 @@ public final class Coinche {
       private com.google.protobuf.SingleFieldBuilderV3<
           eu.epitech.jcoinche.protocol.Coinche.Event, eu.epitech.jcoinche.protocol.Coinche.Event.Builder, eu.epitech.jcoinche.protocol.Coinche.EventOrBuilder> eventBuilder_;
       /**
-       * <code>.protobuf.Event event = 6;</code>
+       * <code>.protobuf.Event event = 5;</code>
        */
       public boolean hasEvent() {
         return eventBuilder_ != null || event_ != null;
       }
       /**
-       * <code>.protobuf.Event event = 6;</code>
+       * <code>.protobuf.Event event = 5;</code>
        */
       public eu.epitech.jcoinche.protocol.Coinche.Event getEvent() {
         if (eventBuilder_ == null) {
@@ -1613,7 +1410,7 @@ public final class Coinche {
         }
       }
       /**
-       * <code>.protobuf.Event event = 6;</code>
+       * <code>.protobuf.Event event = 5;</code>
        */
       public Builder setEvent(eu.epitech.jcoinche.protocol.Coinche.Event value) {
         if (eventBuilder_ == null) {
@@ -1629,7 +1426,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Event event = 6;</code>
+       * <code>.protobuf.Event event = 5;</code>
        */
       public Builder setEvent(
           eu.epitech.jcoinche.protocol.Coinche.Event.Builder builderForValue) {
@@ -1643,7 +1440,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Event event = 6;</code>
+       * <code>.protobuf.Event event = 5;</code>
        */
       public Builder mergeEvent(eu.epitech.jcoinche.protocol.Coinche.Event value) {
         if (eventBuilder_ == null) {
@@ -1661,7 +1458,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Event event = 6;</code>
+       * <code>.protobuf.Event event = 5;</code>
        */
       public Builder clearEvent() {
         if (eventBuilder_ == null) {
@@ -1675,7 +1472,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Event event = 6;</code>
+       * <code>.protobuf.Event event = 5;</code>
        */
       public eu.epitech.jcoinche.protocol.Coinche.Event.Builder getEventBuilder() {
         
@@ -1683,7 +1480,7 @@ public final class Coinche {
         return getEventFieldBuilder().getBuilder();
       }
       /**
-       * <code>.protobuf.Event event = 6;</code>
+       * <code>.protobuf.Event event = 5;</code>
        */
       public eu.epitech.jcoinche.protocol.Coinche.EventOrBuilder getEventOrBuilder() {
         if (eventBuilder_ != null) {
@@ -1694,7 +1491,7 @@ public final class Coinche {
         }
       }
       /**
-       * <code>.protobuf.Event event = 6;</code>
+       * <code>.protobuf.Event event = 5;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           eu.epitech.jcoinche.protocol.Coinche.Event, eu.epitech.jcoinche.protocol.Coinche.Event.Builder, eu.epitech.jcoinche.protocol.Coinche.EventOrBuilder> 
@@ -1714,13 +1511,13 @@ public final class Coinche {
       private com.google.protobuf.SingleFieldBuilderV3<
           eu.epitech.jcoinche.protocol.Coinche.Prompt, eu.epitech.jcoinche.protocol.Coinche.Prompt.Builder, eu.epitech.jcoinche.protocol.Coinche.PromptOrBuilder> promptBuilder_;
       /**
-       * <code>.protobuf.Prompt prompt = 7;</code>
+       * <code>.protobuf.Prompt prompt = 6;</code>
        */
       public boolean hasPrompt() {
         return promptBuilder_ != null || prompt_ != null;
       }
       /**
-       * <code>.protobuf.Prompt prompt = 7;</code>
+       * <code>.protobuf.Prompt prompt = 6;</code>
        */
       public eu.epitech.jcoinche.protocol.Coinche.Prompt getPrompt() {
         if (promptBuilder_ == null) {
@@ -1730,7 +1527,7 @@ public final class Coinche {
         }
       }
       /**
-       * <code>.protobuf.Prompt prompt = 7;</code>
+       * <code>.protobuf.Prompt prompt = 6;</code>
        */
       public Builder setPrompt(eu.epitech.jcoinche.protocol.Coinche.Prompt value) {
         if (promptBuilder_ == null) {
@@ -1746,7 +1543,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Prompt prompt = 7;</code>
+       * <code>.protobuf.Prompt prompt = 6;</code>
        */
       public Builder setPrompt(
           eu.epitech.jcoinche.protocol.Coinche.Prompt.Builder builderForValue) {
@@ -1760,7 +1557,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Prompt prompt = 7;</code>
+       * <code>.protobuf.Prompt prompt = 6;</code>
        */
       public Builder mergePrompt(eu.epitech.jcoinche.protocol.Coinche.Prompt value) {
         if (promptBuilder_ == null) {
@@ -1778,7 +1575,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Prompt prompt = 7;</code>
+       * <code>.protobuf.Prompt prompt = 6;</code>
        */
       public Builder clearPrompt() {
         if (promptBuilder_ == null) {
@@ -1792,7 +1589,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Prompt prompt = 7;</code>
+       * <code>.protobuf.Prompt prompt = 6;</code>
        */
       public eu.epitech.jcoinche.protocol.Coinche.Prompt.Builder getPromptBuilder() {
         
@@ -1800,7 +1597,7 @@ public final class Coinche {
         return getPromptFieldBuilder().getBuilder();
       }
       /**
-       * <code>.protobuf.Prompt prompt = 7;</code>
+       * <code>.protobuf.Prompt prompt = 6;</code>
        */
       public eu.epitech.jcoinche.protocol.Coinche.PromptOrBuilder getPromptOrBuilder() {
         if (promptBuilder_ != null) {
@@ -1811,7 +1608,7 @@ public final class Coinche {
         }
       }
       /**
-       * <code>.protobuf.Prompt prompt = 7;</code>
+       * <code>.protobuf.Prompt prompt = 6;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           eu.epitech.jcoinche.protocol.Coinche.Prompt, eu.epitech.jcoinche.protocol.Coinche.Prompt.Builder, eu.epitech.jcoinche.protocol.Coinche.PromptOrBuilder> 
@@ -1831,13 +1628,13 @@ public final class Coinche {
       private com.google.protobuf.SingleFieldBuilderV3<
           eu.epitech.jcoinche.protocol.Coinche.Reply, eu.epitech.jcoinche.protocol.Coinche.Reply.Builder, eu.epitech.jcoinche.protocol.Coinche.ReplyOrBuilder> replyBuilder_;
       /**
-       * <code>.protobuf.Reply reply = 8;</code>
+       * <code>.protobuf.Reply reply = 7;</code>
        */
       public boolean hasReply() {
         return replyBuilder_ != null || reply_ != null;
       }
       /**
-       * <code>.protobuf.Reply reply = 8;</code>
+       * <code>.protobuf.Reply reply = 7;</code>
        */
       public eu.epitech.jcoinche.protocol.Coinche.Reply getReply() {
         if (replyBuilder_ == null) {
@@ -1847,7 +1644,7 @@ public final class Coinche {
         }
       }
       /**
-       * <code>.protobuf.Reply reply = 8;</code>
+       * <code>.protobuf.Reply reply = 7;</code>
        */
       public Builder setReply(eu.epitech.jcoinche.protocol.Coinche.Reply value) {
         if (replyBuilder_ == null) {
@@ -1863,7 +1660,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Reply reply = 8;</code>
+       * <code>.protobuf.Reply reply = 7;</code>
        */
       public Builder setReply(
           eu.epitech.jcoinche.protocol.Coinche.Reply.Builder builderForValue) {
@@ -1877,7 +1674,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Reply reply = 8;</code>
+       * <code>.protobuf.Reply reply = 7;</code>
        */
       public Builder mergeReply(eu.epitech.jcoinche.protocol.Coinche.Reply value) {
         if (replyBuilder_ == null) {
@@ -1895,7 +1692,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Reply reply = 8;</code>
+       * <code>.protobuf.Reply reply = 7;</code>
        */
       public Builder clearReply() {
         if (replyBuilder_ == null) {
@@ -1909,7 +1706,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>.protobuf.Reply reply = 8;</code>
+       * <code>.protobuf.Reply reply = 7;</code>
        */
       public eu.epitech.jcoinche.protocol.Coinche.Reply.Builder getReplyBuilder() {
         
@@ -1917,7 +1714,7 @@ public final class Coinche {
         return getReplyFieldBuilder().getBuilder();
       }
       /**
-       * <code>.protobuf.Reply reply = 8;</code>
+       * <code>.protobuf.Reply reply = 7;</code>
        */
       public eu.epitech.jcoinche.protocol.Coinche.ReplyOrBuilder getReplyOrBuilder() {
         if (replyBuilder_ != null) {
@@ -1928,7 +1725,7 @@ public final class Coinche {
         }
       }
       /**
-       * <code>.protobuf.Reply reply = 8;</code>
+       * <code>.protobuf.Reply reply = 7;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           eu.epitech.jcoinche.protocol.Coinche.Reply, eu.epitech.jcoinche.protocol.Coinche.Reply.Builder, eu.epitech.jcoinche.protocol.Coinche.ReplyOrBuilder> 
@@ -1987,528 +1784,6 @@ public final class Coinche {
     }
 
     public eu.epitech.jcoinche.protocol.Coinche.Message getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface PlayerOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:protobuf.Player)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>string name = 1;</code>
-     */
-    java.lang.String getName();
-    /**
-     * <code>string name = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getNameBytes();
-  }
-  /**
-   * Protobuf type {@code protobuf.Player}
-   */
-  public  static final class Player extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:protobuf.Player)
-      PlayerOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use Player.newBuilder() to construct.
-    private Player(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private Player() {
-      name_ = "";
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private Player(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!parseUnknownFieldProto3(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              name_ = s;
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return eu.epitech.jcoinche.protocol.Coinche.internal_static_protobuf_Player_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return eu.epitech.jcoinche.protocol.Coinche.internal_static_protobuf_Player_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              eu.epitech.jcoinche.protocol.Coinche.Player.class, eu.epitech.jcoinche.protocol.Coinche.Player.Builder.class);
-    }
-
-    public static final int NAME_FIELD_NUMBER = 1;
-    private volatile java.lang.Object name_;
-    /**
-     * <code>string name = 1;</code>
-     */
-    public java.lang.String getName() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        name_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string name = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getNameBytes() {
-      java.lang.Object ref = name_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        name_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!getNameBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, name_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!getNameBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, name_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof eu.epitech.jcoinche.protocol.Coinche.Player)) {
-        return super.equals(obj);
-      }
-      eu.epitech.jcoinche.protocol.Coinche.Player other = (eu.epitech.jcoinche.protocol.Coinche.Player) obj;
-
-      boolean result = true;
-      result = result && getName()
-          .equals(other.getName());
-      result = result && unknownFields.equals(other.unknownFields);
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + NAME_FIELD_NUMBER;
-      hash = (53 * hash) + getName().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static eu.epitech.jcoinche.protocol.Coinche.Player parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static eu.epitech.jcoinche.protocol.Coinche.Player parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static eu.epitech.jcoinche.protocol.Coinche.Player parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static eu.epitech.jcoinche.protocol.Coinche.Player parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static eu.epitech.jcoinche.protocol.Coinche.Player parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static eu.epitech.jcoinche.protocol.Coinche.Player parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static eu.epitech.jcoinche.protocol.Coinche.Player parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static eu.epitech.jcoinche.protocol.Coinche.Player parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static eu.epitech.jcoinche.protocol.Coinche.Player parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static eu.epitech.jcoinche.protocol.Coinche.Player parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static eu.epitech.jcoinche.protocol.Coinche.Player parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static eu.epitech.jcoinche.protocol.Coinche.Player parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(eu.epitech.jcoinche.protocol.Coinche.Player prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code protobuf.Player}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:protobuf.Player)
-        eu.epitech.jcoinche.protocol.Coinche.PlayerOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return eu.epitech.jcoinche.protocol.Coinche.internal_static_protobuf_Player_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return eu.epitech.jcoinche.protocol.Coinche.internal_static_protobuf_Player_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                eu.epitech.jcoinche.protocol.Coinche.Player.class, eu.epitech.jcoinche.protocol.Coinche.Player.Builder.class);
-      }
-
-      // Construct using eu.epitech.jcoinche.protocol.Coinche.Player.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        name_ = "";
-
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return eu.epitech.jcoinche.protocol.Coinche.internal_static_protobuf_Player_descriptor;
-      }
-
-      public eu.epitech.jcoinche.protocol.Coinche.Player getDefaultInstanceForType() {
-        return eu.epitech.jcoinche.protocol.Coinche.Player.getDefaultInstance();
-      }
-
-      public eu.epitech.jcoinche.protocol.Coinche.Player build() {
-        eu.epitech.jcoinche.protocol.Coinche.Player result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public eu.epitech.jcoinche.protocol.Coinche.Player buildPartial() {
-        eu.epitech.jcoinche.protocol.Coinche.Player result = new eu.epitech.jcoinche.protocol.Coinche.Player(this);
-        result.name_ = name_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof eu.epitech.jcoinche.protocol.Coinche.Player) {
-          return mergeFrom((eu.epitech.jcoinche.protocol.Coinche.Player)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(eu.epitech.jcoinche.protocol.Coinche.Player other) {
-        if (other == eu.epitech.jcoinche.protocol.Coinche.Player.getDefaultInstance()) return this;
-        if (!other.getName().isEmpty()) {
-          name_ = other.name_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        eu.epitech.jcoinche.protocol.Coinche.Player parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (eu.epitech.jcoinche.protocol.Coinche.Player) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object name_ = "";
-      /**
-       * <code>string name = 1;</code>
-       */
-      public java.lang.String getName() {
-        java.lang.Object ref = name_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          name_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>string name = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getNameBytes() {
-        java.lang.Object ref = name_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          name_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string name = 1;</code>
-       */
-      public Builder setName(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        name_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string name = 1;</code>
-       */
-      public Builder clearName() {
-        
-        name_ = getDefaultInstance().getName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string name = 1;</code>
-       */
-      public Builder setNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        name_ = value;
-        onChanged();
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFieldsProto3(unknownFields);
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:protobuf.Player)
-    }
-
-    // @@protoc_insertion_point(class_scope:protobuf.Player)
-    private static final eu.epitech.jcoinche.protocol.Coinche.Player DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new eu.epitech.jcoinche.protocol.Coinche.Player();
-    }
-
-    public static eu.epitech.jcoinche.protocol.Coinche.Player getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<Player>
-        PARSER = new com.google.protobuf.AbstractParser<Player>() {
-      public Player parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Player(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<Player> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Player> getParserForType() {
-      return PARSER;
-    }
-
-    public eu.epitech.jcoinche.protocol.Coinche.Player getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2739,9 +2014,9 @@ public final class Coinche {
     public enum Value
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>AS = 0;</code>
+       * <code>ACE = 0;</code>
        */
-      AS(0),
+      ACE(0),
       /**
        * <code>KING = 1;</code>
        */
@@ -2774,9 +2049,9 @@ public final class Coinche {
       ;
 
       /**
-       * <code>AS = 0;</code>
+       * <code>ACE = 0;</code>
        */
-      public static final int AS_VALUE = 0;
+      public static final int ACE_VALUE = 0;
       /**
        * <code>KING = 1;</code>
        */
@@ -2825,7 +2100,7 @@ public final class Coinche {
 
       public static Value forNumber(int value) {
         switch (value) {
-          case 0: return AS;
+          case 0: return ACE;
           case 1: return KING;
           case 2: return QUEEN;
           case 3: return JACK;
@@ -2932,7 +2207,7 @@ public final class Coinche {
       if (type_ != eu.epitech.jcoinche.protocol.Coinche.Card.Type.DIAMONDS.getNumber()) {
         output.writeEnum(1, type_);
       }
-      if (value_ != eu.epitech.jcoinche.protocol.Coinche.Card.Value.AS.getNumber()) {
+      if (value_ != eu.epitech.jcoinche.protocol.Coinche.Card.Value.ACE.getNumber()) {
         output.writeEnum(2, value_);
       }
       unknownFields.writeTo(output);
@@ -2947,7 +2222,7 @@ public final class Coinche {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, type_);
       }
-      if (value_ != eu.epitech.jcoinche.protocol.Coinche.Card.Value.AS.getNumber()) {
+      if (value_ != eu.epitech.jcoinche.protocol.Coinche.Card.Value.ACE.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, value_);
       }
@@ -6610,6 +5885,16 @@ public final class Coinche {
      * <code>uint32 number = 1;</code>
      */
     int getNumber();
+
+    /**
+     * <code>string message = 2;</code>
+     */
+    java.lang.String getMessage();
+    /**
+     * <code>string message = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getMessageBytes();
   }
   /**
    * Protobuf type {@code protobuf.Reply}
@@ -6625,6 +5910,7 @@ public final class Coinche {
     }
     private Reply() {
       number_ = 0;
+      message_ = "";
     }
 
     @java.lang.Override
@@ -6660,6 +5946,12 @@ public final class Coinche {
               number_ = input.readUInt32();
               break;
             }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              message_ = s;
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -6693,6 +5985,40 @@ public final class Coinche {
       return number_;
     }
 
+    public static final int MESSAGE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object message_;
+    /**
+     * <code>string message = 2;</code>
+     */
+    public java.lang.String getMessage() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        message_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string message = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getMessageBytes() {
+      java.lang.Object ref = message_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        message_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -6708,6 +6034,9 @@ public final class Coinche {
       if (number_ != 0) {
         output.writeUInt32(1, number_);
       }
+      if (!getMessageBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, message_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -6719,6 +6048,9 @@ public final class Coinche {
       if (number_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1, number_);
+      }
+      if (!getMessageBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, message_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -6738,6 +6070,8 @@ public final class Coinche {
       boolean result = true;
       result = result && (getNumber()
           == other.getNumber());
+      result = result && getMessage()
+          .equals(other.getMessage());
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -6751,6 +6085,8 @@ public final class Coinche {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + NUMBER_FIELD_NUMBER;
       hash = (53 * hash) + getNumber();
+      hash = (37 * hash) + MESSAGE_FIELD_NUMBER;
+      hash = (53 * hash) + getMessage().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -6882,6 +6218,8 @@ public final class Coinche {
         super.clear();
         number_ = 0;
 
+        message_ = "";
+
         return this;
       }
 
@@ -6905,6 +6243,7 @@ public final class Coinche {
       public eu.epitech.jcoinche.protocol.Coinche.Reply buildPartial() {
         eu.epitech.jcoinche.protocol.Coinche.Reply result = new eu.epitech.jcoinche.protocol.Coinche.Reply(this);
         result.number_ = number_;
+        result.message_ = message_;
         onBuilt();
         return result;
       }
@@ -6948,6 +6287,10 @@ public final class Coinche {
         if (other == eu.epitech.jcoinche.protocol.Coinche.Reply.getDefaultInstance()) return this;
         if (other.getNumber() != 0) {
           setNumber(other.getNumber());
+        }
+        if (!other.getMessage().isEmpty()) {
+          message_ = other.message_;
+          onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -6998,6 +6341,75 @@ public final class Coinche {
       public Builder clearNumber() {
         
         number_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object message_ = "";
+      /**
+       * <code>string message = 2;</code>
+       */
+      public java.lang.String getMessage() {
+        java.lang.Object ref = message_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          message_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string message = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getMessageBytes() {
+        java.lang.Object ref = message_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          message_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string message = 2;</code>
+       */
+      public Builder setMessage(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        message_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string message = 2;</code>
+       */
+      public Builder clearMessage() {
+        
+        message_ = getDefaultInstance().getMessage();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string message = 2;</code>
+       */
+      public Builder setMessageBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        message_ = value;
         onChanged();
         return this;
       }
@@ -7056,11 +6468,6 @@ public final class Coinche {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protobuf_Message_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protobuf_Player_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_protobuf_Player_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protobuf_Card_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -7100,37 +6507,36 @@ public final class Coinche {
   static {
     java.lang.String[] descriptorData = {
       "\n>src/main/java/eu/epitech/jcoinche/prot" +
-      "ocol/communication.proto\022\010protobuf\"\355\002\n\007M" +
+      "ocol/communication.proto\022\010protobuf\"\277\002\n\007M" +
       "essage\022$\n\004type\030\001 \001(\0162\026.protobuf.Message." +
-      "Type\022 \n\006player\030\002 \001(\0132\020.protobuf.Player\022\034" +
-      "\n\004card\030\003 \001(\0132\016.protobuf.Card\022\034\n\004hand\030\004 \001" +
-      "(\0132\016.protobuf.Hand\022$\n\010contract\030\005 \001(\0132\022.p" +
-      "rotobuf.Contract\022\036\n\005event\030\006 \001(\0132\017.protob" +
-      "uf.Event\022 \n\006prompt\030\007 \001(\0132\020.protobuf.Prom" +
-      "pt\022\036\n\005reply\030\010 \001(\0132\017.protobuf.Reply\"V\n\004Ty" +
-      "pe\022\n\n\006PLAYER\020\000\022\010\n\004CARD\020\001\022\010\n\004HAND\020\002\022\014\n\010CO",
-      "NTRACT\020\003\022\t\n\005EVENT\020\004\022\n\n\006PROMPT\020\005\022\t\n\005REPLY" +
-      "\020\006\"\026\n\006Player\022\014\n\004name\030\001 \001(\t\"\340\001\n\004Card\022!\n\004t" +
-      "ype\030\001 \001(\0162\023.protobuf.Card.Type\022#\n\005value\030" +
-      "\002 \001(\0162\024.protobuf.Card.Value\"7\n\004Type\022\014\n\010D" +
-      "IAMONDS\020\000\022\n\n\006HEARTS\020\001\022\t\n\005CLUBS\020\002\022\n\n\006SPAD" +
-      "ES\020\003\"W\n\005Value\022\006\n\002AS\020\000\022\010\n\004KING\020\001\022\t\n\005QUEEN" +
-      "\020\002\022\010\n\004JACK\020\003\022\007\n\003TEN\020\004\022\010\n\004NINE\020\005\022\t\n\005EIGHT" +
-      "\020\006\022\t\n\005SEVEN\020\007\"$\n\004Hand\022\034\n\004card\030\001 \003(\0132\016.pr" +
-      "otobuf.Card\"\211\001\n\010Contract\022\r\n\005score\030\001 \001(\r\022" +
-      "%\n\004type\030\002 \001(\0162\027.protobuf.Contract.Type\"G",
-      "\n\004Type\022\014\n\010DIAMONDS\020\000\022\n\n\006HEARTS\020\001\022\t\n\005CLUB" +
-      "S\020\002\022\n\n\006SPADES\020\003\022\006\n\002AA\020\004\022\006\n\002NA\020\005\"\231\002\n\005Even" +
-      "t\022\"\n\004type\030\001 \001(\0162\024.protobuf.Event.Type\022\034\n" +
-      "\004card\030\002 \001(\0132\016.protobuf.Card\022$\n\010contract\030" +
-      "\003 \001(\0132\022.protobuf.Contract\022\020\n\010argument\030\004 " +
-      "\003(\t\"\225\001\n\004Type\022\010\n\004NAME\020\000\022\010\n\004HAND\020\001\022\010\n\004QUIT" +
-      "\020\002\022\014\n\010CONTRACT\020\003\022\010\n\004PASS\020\004\022\013\n\007COINCHE\020\005\022" +
-      "\016\n\nSURCOINCHE\020\006\022\010\n\004PLAY\020\007\022\010\n\004LAST\020\010\022\014\n\010A" +
-      "NNOUNCE\020\t\022\n\n\006BELOTE\020\n\022\014\n\010REBELOTE\020\013\"\034\n\006P" +
-      "rompt\022\022\n\nto_display\030\001 \003(\t\"\027\n\005Reply\022\016\n\006nu",
-      "mber\030\001 \001(\rB\'\n\034eu.epitech.jcoinche.protoc" +
-      "olB\007Coincheb\006proto3"
+      "Type\022\034\n\004card\030\002 \001(\0132\016.protobuf.Card\022\034\n\004ha" +
+      "nd\030\003 \001(\0132\016.protobuf.Hand\022$\n\010contract\030\004 \001" +
+      "(\0132\022.protobuf.Contract\022\036\n\005event\030\005 \001(\0132\017." +
+      "protobuf.Event\022 \n\006prompt\030\006 \001(\0132\020.protobu" +
+      "f.Prompt\022\036\n\005reply\030\007 \001(\0132\017.protobuf.Reply" +
+      "\"J\n\004Type\022\010\n\004CARD\020\000\022\010\n\004HAND\020\001\022\014\n\010CONTRACT" +
+      "\020\002\022\t\n\005EVENT\020\003\022\n\n\006PROMPT\020\004\022\t\n\005REPLY\020\005\"\341\001\n",
+      "\004Card\022!\n\004type\030\001 \001(\0162\023.protobuf.Card.Type" +
+      "\022#\n\005value\030\002 \001(\0162\024.protobuf.Card.Value\"7\n" +
+      "\004Type\022\014\n\010DIAMONDS\020\000\022\n\n\006HEARTS\020\001\022\t\n\005CLUBS" +
+      "\020\002\022\n\n\006SPADES\020\003\"X\n\005Value\022\007\n\003ACE\020\000\022\010\n\004KING" +
+      "\020\001\022\t\n\005QUEEN\020\002\022\010\n\004JACK\020\003\022\007\n\003TEN\020\004\022\010\n\004NINE" +
+      "\020\005\022\t\n\005EIGHT\020\006\022\t\n\005SEVEN\020\007\"$\n\004Hand\022\034\n\004card" +
+      "\030\001 \003(\0132\016.protobuf.Card\"\211\001\n\010Contract\022\r\n\005s" +
+      "core\030\001 \001(\r\022%\n\004type\030\002 \001(\0162\027.protobuf.Cont" +
+      "ract.Type\"G\n\004Type\022\014\n\010DIAMONDS\020\000\022\n\n\006HEART" +
+      "S\020\001\022\t\n\005CLUBS\020\002\022\n\n\006SPADES\020\003\022\006\n\002AA\020\004\022\006\n\002NA",
+      "\020\005\"\231\002\n\005Event\022\"\n\004type\030\001 \001(\0162\024.protobuf.Ev" +
+      "ent.Type\022\034\n\004card\030\002 \001(\0132\016.protobuf.Card\022$" +
+      "\n\010contract\030\003 \001(\0132\022.protobuf.Contract\022\020\n\010" +
+      "argument\030\004 \003(\t\"\225\001\n\004Type\022\010\n\004NAME\020\000\022\010\n\004HAN" +
+      "D\020\001\022\010\n\004QUIT\020\002\022\014\n\010CONTRACT\020\003\022\010\n\004PASS\020\004\022\013\n" +
+      "\007COINCHE\020\005\022\016\n\nSURCOINCHE\020\006\022\010\n\004PLAY\020\007\022\010\n\004" +
+      "LAST\020\010\022\014\n\010ANNOUNCE\020\t\022\n\n\006BELOTE\020\n\022\014\n\010REBE" +
+      "LOTE\020\013\"\034\n\006Prompt\022\022\n\nto_display\030\001 \003(\t\"(\n\005" +
+      "Reply\022\016\n\006number\030\001 \001(\r\022\017\n\007message\030\002 \001(\tB\'" +
+      "\n\034eu.epitech.jcoinche.protocolB\007Coincheb",
+      "\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -7149,49 +6555,43 @@ public final class Coinche {
     internal_static_protobuf_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_Message_descriptor,
-        new java.lang.String[] { "Type", "Player", "Card", "Hand", "Contract", "Event", "Prompt", "Reply", });
-    internal_static_protobuf_Player_descriptor =
-      getDescriptor().getMessageTypes().get(1);
-    internal_static_protobuf_Player_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_protobuf_Player_descriptor,
-        new java.lang.String[] { "Name", });
+        new java.lang.String[] { "Type", "Card", "Hand", "Contract", "Event", "Prompt", "Reply", });
     internal_static_protobuf_Card_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_protobuf_Card_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_Card_descriptor,
         new java.lang.String[] { "Type", "Value", });
     internal_static_protobuf_Hand_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_protobuf_Hand_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_Hand_descriptor,
         new java.lang.String[] { "Card", });
     internal_static_protobuf_Contract_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(3);
     internal_static_protobuf_Contract_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_Contract_descriptor,
         new java.lang.String[] { "Score", "Type", });
     internal_static_protobuf_Event_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_protobuf_Event_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_Event_descriptor,
         new java.lang.String[] { "Type", "Card", "Contract", "Argument", });
     internal_static_protobuf_Prompt_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_protobuf_Prompt_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_Prompt_descriptor,
         new java.lang.String[] { "ToDisplay", });
     internal_static_protobuf_Reply_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_protobuf_Reply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protobuf_Reply_descriptor,
-        new java.lang.String[] { "Number", });
+        new java.lang.String[] { "Number", "Message", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
