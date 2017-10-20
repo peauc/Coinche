@@ -1,8 +1,8 @@
-syntax = "proto2";
+syntax = "proto3";
 package protobuf;
 
-option java_package = "eu.epitech.jcoinche.protobuf";
-option java_outer_classname = "Communication";
+option java_package = "eu.epitech.jcoinche.protocol";
+option java_outer_classname = "Coinche";
 
 message Message {
     enum Type {
@@ -12,18 +12,20 @@ message Message {
         CONTRACT = 3;
         EVENT = 4;
         PROMPT = 5;
+        REPLY = 6;
     }
-    required Type type = 1;
-    optional Player player = 2;
-    optional Card card = 3;
-    optional Hand hand = 4;
-    optional Contract contract = 5;
-    optional Event event = 6;
-    optional Prompt prompt = 7;
+    Type type = 1;
+    Player player = 2;
+    Card card = 3;
+    Hand hand = 4;
+    Contract contract = 5;
+    Event event = 6;
+    Prompt prompt = 7;
+    Reply reply = 8;
 }
 
 message Player {
-    required string name = 1;
+     string name = 1;
 }
 
 message Card {
@@ -34,7 +36,7 @@ message Card {
         SPADES = 3;
     }
     enum Value {
-        AS = 0;
+        ACE = 0;
         KING = 1;
         QUEEN = 2;
         JACK = 3;
@@ -43,8 +45,8 @@ message Card {
         EIGHT = 6;
         SEVEN = 7;
     }
-    required Type type = 1;
-    required Value value = 2;
+    Type type = 1;
+    Value value = 2;
 }
 
 message Hand {
@@ -60,8 +62,8 @@ message Contract {
         AA = 4;
         NA = 5;
     }
-    required uint32 score = 1;
-    required Type type = 2;
+    uint32 score = 1;
+    Type type = 2;
 }
 
 message Event {
@@ -79,12 +81,16 @@ message Event {
         BELOTE = 10;
         REBELOTE = 11;
     }
-    required Type type = 1;
-    optional Card card = 2;
-    optional Contract contract = 3;
+    Type type = 1;
+    Card card = 2;
+    Contract contract = 3;
     repeated string argument = 4;
 }
 
 message Prompt {
     repeated string to_display = 1;
+}
+
+message Reply {
+    uint32 number = 1;
 }
