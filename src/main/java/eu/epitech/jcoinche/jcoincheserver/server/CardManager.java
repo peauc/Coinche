@@ -17,7 +17,7 @@ public class CardManager {
 	}
 
 	private ArrayList<Coinche.Card> cardList = new ArrayList<>();
-	private Map<scoreScale, HashMap<Integer, Integer>> correspondenceTable = new HashMap<scoreScale, HashMap<Integer, Integer>>();
+	private Map<scoreScale, Map<Integer, Integer>> correspondenceTable = new HashMap<>();
 
 	public CardManager() {
 		List<String> typeList = Arrays.asList("DIAMONDS", "HEARTS", "CLUBS", "SPADES");

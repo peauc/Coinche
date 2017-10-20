@@ -48,15 +48,39 @@ public class Team {
 		return nbTricksRealised;
 	}
 
+	public void setNbTricksRealised(int nbTricksRealised) {
+		this.nbTricksRealised = nbTricksRealised;
+	}
+
 	public boolean isCapot() {
 		return isCapot;
+	}
+
+	public void setCapot(boolean capot) {
+		isCapot = capot;
 	}
 
 	public boolean HasCoinched() {
 		return hasCoinched;
 	}
 
+	public void setHasCoinched(boolean hasCoinched) {
+		this.hasCoinched = hasCoinched;
+	}
+
 	public boolean HasSurcoinched() {
 		return hasSurcoinched;
+	}
+
+	public void setHasSurcoinched(boolean hasSurcoinched) {
+		this.hasSurcoinched = hasSurcoinched;
+	}
+
+	public Optional<Coinche.Contract> getContractOptional() {
+		return contractOptional;
+	}
+
+	public void setContractOptional(Optional<Coinche.Contract> contractOptional) {
+		this.contractOptional = contractOptional;
 	}
 }

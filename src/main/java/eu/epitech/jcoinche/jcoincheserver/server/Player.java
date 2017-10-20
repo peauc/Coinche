@@ -16,6 +16,12 @@ public class Player {
 		this.name = name;
 	}
 
+	public void sendHand() {
+		Coinche.Hand hand = Coinche.Hand.newBuilder()
+				.addAllCard(this.hand)
+				.build();
+	}
+
 	public ChannelHandlerContext getChctx() {
 		return chctx;
 	}
