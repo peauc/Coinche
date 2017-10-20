@@ -15,18 +15,20 @@ public class ClientInitializer extends ChannelInitializer<SocketChannel> {
     private final SslContext ssc;
 
     public ClientInitializer(SslContext sslCtx) {
+        System.out.println("Client is initializing");
         this.ssc = sslCtx;
     }
 
     @Override
     protected void initChannel(SocketChannel ch) throws Exception {
         ChannelPipeline pipeline = ch.pipeline();
-        if (ssc != null) {
-            //pipeline.addLast(ssc.newHandler(ch.alloc(), Connection.getPort(), Integer.parseInt(Connection.getHost())));
-        }
-        pipeline.addLast("framer", new DelimiterBasedFrameDecoder(8192, Delimiters.lineDelimiter()));
-        pipeline.addLast("decoder", new StringDecoder());
-        pipeline.addLast("encoder", new StringEncoder());
-        pipeline.addLast("clientHandler", new ClientHandler(ssc));
+//        if (ssc != null) {
+//            //pipeline.addLast(ssc.newHandler(ch.alloc(), Connection.getPort(), Integer.parseInt(Connection.getHost())));
+//        }
+//
+        pipeline.addLast(new DelimiterBasedFrameDecoder(8192, Delimiters.lineDelimiter()));
+        pipeline.addLast(new StringDecoder());
+        pipeline.addLast(new StringEncoder());
+        pipeline.addLast("clientHandler", new ClientHandler());
     }
 }
