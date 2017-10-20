@@ -1,5 +1,5 @@
 syntax = "proto3";
-package protobuf;
+package protocol;
 
 option java_package = "eu.epitech.jcoinche.protocol";
 option java_outer_classname = "Coinche";
