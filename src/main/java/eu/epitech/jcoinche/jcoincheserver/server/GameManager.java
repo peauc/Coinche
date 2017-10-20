@@ -10,7 +10,7 @@ public class GameManager {
     private void createNewGame() {
         gameList.add(new Game());
     }
-    public Game isAGameFree() {
+    public Game getFreeGame() {
         for (Game g : gameList) {
             if (!g.isFull())
                 return (g);
@@ -19,15 +19,12 @@ public class GameManager {
     }
 
     public void addPlayerToGame(Player p) {
-        Boolean hasFoundAGame = false;
+        Game g;
 
-        for (Game g : gameList) {
-            if (!(g.isFull())) {
-                g.addPlayer(p);
-                hasFoundAGame = true;
-            }
+        if ((g = getFreeGame()) != null) {
+            g.addPlayer(p);
         }
-        if (!hasFoundAGame) {
+        else {
             createNewGame();
             addPlayerToGame(p);
         }
