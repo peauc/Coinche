@@ -1,10 +1,14 @@
 package eu.epitech.jcoinche.jcoincheserver.server;
 
+import eu.epitech.jcoinche.protocol.Coinche;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
-public class    PlayerHandler extends SimpleChannelInboundHandler<String> {
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+
+public class    PlayerHandler extends SimpleChannelInboundHandler<Coinche.Message> {
 
     private static GameManager gm = new GameManager();
     @Override
@@ -15,20 +19,22 @@ public class    PlayerHandler extends SimpleChannelInboundHandler<String> {
     @Override
     public void channelUnregistered(ChannelHandlerContext ctx) throws Exception {
         super.channelUnregistered(ctx);
-        System.out.print("Client is going away :'(");
+        System.out.println("Client is going away :'(");
         gm.removePlayerAndStopGame(ctx);
     }
 
+    //Welcome to our Coinche Server hosted by " + InetAddress.getLocalHost().getHostName() + "\nRemember to chose a nickname by using \"NICKNAME yourNickname\""
     @Override
-    public void channelActive(final ChannelHandlerContext ctx) {
+    public void channelActive(final ChannelHandlerContext ctx) throws UnknownHostException {
         Player p = new Player(ctx, "");
-
         gm.addPlayerToGame(p);
-        ctx.writeAndFlush("Hello from server :)\n");
-        System.out.print("Channel Active\n");
+        Coinche.Message message = Coinche.Message.newBuilder().setType(Coinche.Message.Type.PROMPT).setPrompt(Coinche.Prompt.newBuilder().addToDisplay("Welcome to our Coinche Server hosted by " + InetAddress.getLocalHost().getHostName() + "\nRemember to chose a nickname by using \"NICKNAME yourNickname\"").build()).build();
+        ctx.writeAndFlush(message);
+        System.out.println("New client connected and greeted\n");
     }
     @Override
-    public void channelRead0(ChannelHandlerContext channelHandlerContext, String message) throws Exception {
-        System.out.println(message);
+    public void channelRead0(ChannelHandlerContext channelHandlerContext, Coinche.Message message) throws Exception {
+
+        System.out.println(message.toString());
     }
 }

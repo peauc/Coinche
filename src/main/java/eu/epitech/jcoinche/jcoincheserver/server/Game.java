@@ -25,6 +25,7 @@ public class Game {
 
 	public void resetGame() {
             teams = null;
+            state = GameState.AWAITING_PLAYERS;
     }
 
 	public void removePlayer(Player p) {
