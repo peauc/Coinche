@@ -13,13 +13,13 @@ public class Trick {
 	private Map<Team, ArrayList<String>> toPrompt;
 	private Coinche.Reply reply;
 	private Team[] teams = new Team[2];
-	private boolean isFirstTrick;
+	private int turn;
 	private CardManager cm;
 
-	public Trick(Team team1, Team team2, boolean isFirstTrick, CardManager cm) {
+	public Trick(Team team1, Team team2, int turn, CardManager cm) {
 		this.teams[0] = team1;
 		this.teams[1] = team2;
-		this.isFirstTrick = isFirstTrick;
+		this.turn = turn;
 		this.cm = cm;
 	}
 
@@ -88,10 +88,65 @@ public class Trick {
 	}
 
 	private void handleAnnounce(Coinche.Event message, Player player) {
+		Team ownTeam;
+		Team oppositeTeam;
 
+		ownTeam = (teams[0].isMember(player)) ? teams[0] : teams[1];
+		oppositeTeam = (ownTeam == teams[0]) ? teams[1] : teams[0];
+		if (this.turn != 0) {
+			this.reply = Coinche.Reply.newBuilder()
+					.setNumber(461)
+					.setMessage("You can only ANNOUNCE at trick 1.")
+					.build();
+			return;
+		} else if (message.getArgumentCount() != 1 || !message.hasCard()) {
+			this.reply = Coinche.Reply.newBuilder()
+					.setNumber(462)
+					.setMessage("Invalid ANNOUNCE.")
+					.build();
+			return;
+		} else if (!player.hasInHand(message.getCard())) {
+			this.reply = Coinche.Reply.newBuilder()
+					.setNumber(463)
+					.setMessage("You don't have this card in your hand.")
+					.build();
+			return;
+		}
+		Announce announce;
+		switch (message.getArgument(0)) {
+			case "CARRE":
+				announce = new Announce(Announce.Type.CARRE, message.getCard(), player);
+				break;
+			case "CENT":
+				announce = new Announce(Announce.Type.CENT, message.getCard(), player);
+				break;
+			case "CINQUANTE":
+				announce = new Announce(Announce.Type.CINQUANTE, message.getCard(), player);
+				break;
+			case "TIERCE":
+				announce = new Announce(Announce.Type.TIERCE, message.getCard(), player);
+				break;
+			default:
+				this.reply = Coinche.Reply.newBuilder()
+						.setNumber(462)
+						.setMessage("Invalid ANNOUNCE.")
+						.build();
+				return;
+		}
+		ownTeam.addAnnounce(announce);
+		this.toPrompt.get(ownTeam).add(player.getName() + " has just made an ANNOUNCE of strength " + announce.getReward());
+		this.toPrompt.get(oppositeTeam).add(player.getName() + " has just made an ANNOUNCE of strength " + announce.getReward());
 	}
 
 	private void handlePlay(Coinche.Event message, Player player) {
+		
+	}
 
+	public void addToPrompt(Team team, String message) {
+		this.toPrompt.get(team).add(message);
+	}
+
+	public Map<Team, ArrayList<String>> getToPrompt() {
+		return toPrompt;
 	}
 }
