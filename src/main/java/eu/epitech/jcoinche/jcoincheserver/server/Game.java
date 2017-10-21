@@ -1,6 +1,7 @@
 package eu.epitech.jcoinche.jcoincheserver.server;
 
 import eu.epitech.jcoinche.protocol.Coinche;
+import jdk.nashorn.internal.runtime.linker.Bootstrap;
 
 import java.util.ArrayList;
 
@@ -18,6 +19,14 @@ public class Game {
 	private GameState state = GameState.AWAITING_PLAYERS;
 
 	public void run() {
+	}
+
+	public Boolean countainPlayer(Player pl) {
+		for (Player p : players) {
+			if (p == pl)
+				return (true);
+		}
+		return (false);
 	}
 
 	public boolean isReady() {
