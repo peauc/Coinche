@@ -16,6 +16,7 @@ public class Team {
 	private Optional<Coinche.Contract> contractOptional;
 	private int totalScore;
 	private int roundScore;
+	private int tricksWon;
 	private ArrayList<Announce> announces;
 
 	public Team(Player player1, Player player2) {
@@ -115,6 +116,14 @@ public class Team {
 
 	public void addAnnounce(Announce announce) {
 		this.announces.add(announce);
+	}
+
+	public int getTricksWon() {
+		return tricksWon;
+	}
+
+	public void setTricksWon(int tricksWon) {
+		this.tricksWon = tricksWon;
 	}
 
 	public Announce getBestAnnounce() {

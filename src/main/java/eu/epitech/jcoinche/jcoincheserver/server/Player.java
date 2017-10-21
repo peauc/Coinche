@@ -5,6 +5,7 @@ import eu.epitech.jcoinche.protocol.Coinche;
 import io.netty.channel.ChannelHandlerContext;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Player {
 	private ChannelHandlerContext chctx;
@@ -63,6 +64,30 @@ public class Player {
 			if (card.getType() == aHand.getType() && card.getValue() == aHand.getValue()) {
 				return (true);
 			}
+		}
+		return (false);
+	}
+
+	public boolean hasEntameInHand(Coinche.Card.Type entame) {
+		for (Coinche.Card card : this.hand) {
+			if (card.getType() == entame)
+				return (true);
+		}
+		return (false);
+	}
+
+	public boolean hasTrumpInHand(CardManager.Trump trump) {
+		for (Coinche.Card card : this.hand) {
+			if (Objects.equals(card.getType().name(), trump.name()))
+				return (true);
+		}
+		return (false);
+	}
+
+	public boolean hasHigherTrumpInHand(CardManager cm, Coinche.Card other) {
+		for (Coinche.Card card : this.hand) {
+			if (Objects.equals(cm.getCurrentTrump().name(), card.getType().name()) && cm.compareCards(card, other) > 0)
+				return (true);
 		}
 		return (false);
 	}

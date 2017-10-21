@@ -126,6 +126,31 @@ public class CardManager {
 		}
 	}
 
+	public int compareCards(Coinche.Card card1, Coinche.Card card2) {
+		if (Objects.equals(card1.getType().name(), this.currentTrump.name()) &&
+				!Objects.equals(card2.getType().name(), this.currentTrump.name()))
+			return (1);
+		else if (Objects.equals(card2.getType().name(), this.currentTrump.name()) &&
+				!Objects.equals(card1.getType().name(), this.currentTrump.name()))
+			return (-1);
+		else
+			return (this.getCardScore(card1) - this.getCardScore(card2));
+	}
+
+	public Player getHighestCard(Map<Player, Coinche.Card> cards) {
+		if (cards.size() == 0)
+			return (null);
+		Player max = null;
+		for (Map.Entry<Player, Coinche.Card> entry : cards.entrySet()) {
+			if (max == null)
+				max = entry.getKey();
+			if (this.compareCards(cards.get(max), entry.getValue()) < 0) {
+				max = entry.getKey();
+			}
+		}
+		return (max);
+	}
+
 	public Trump getCurrentTrump() {
 		return currentTrump;
 	}
