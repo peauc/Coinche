@@ -10,16 +10,28 @@ public class Player {
 	private ChannelHandlerContext chctx;
 	private String name;
 	private ArrayList<Coinche.Card> hand = new ArrayList<>();
+	private boolean belote;
+	private boolean rebelote;
 
 	public Player(ChannelHandlerContext chctx, String name) {
 		this.chctx = chctx;
 		this.name = name;
+		this.belote = false;
+	}
+
+	public void sendMessage(Coinche.Message message) {
+		this.chctx.writeAndFlush(message);
 	}
 
 	public void sendHand() {
 		Coinche.Hand hand = Coinche.Hand.newBuilder()
 				.addAllCard(this.hand)
 				.build();
+		Coinche.Message message = Coinche.Message.newBuilder()
+				.setType(Coinche.Message.Type.HAND)
+				.setHand(hand)
+				.build();
+		this.sendMessage(message);
 	}
 
 	public ChannelHandlerContext getChctx() {
@@ -61,5 +73,21 @@ public class Player {
 
 	public void removeFromHand(Coinche.Card card) {
 		this.hand.remove(card);
+	}
+
+	public boolean isBelote() {
+		return belote;
+	}
+
+	public void setBelote(boolean belote) {
+		this.belote = belote;
+	}
+
+	public boolean isRebelote() {
+		return rebelote;
+	}
+
+	public void setRebelote(boolean rebelote) {
+		this.rebelote = rebelote;
 	}
 }

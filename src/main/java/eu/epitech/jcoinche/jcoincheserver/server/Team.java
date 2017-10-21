@@ -13,6 +13,8 @@ public class Team {
 	private boolean hasCoinched;
 	private boolean hasSurcoinched;
 	private Optional<Coinche.Contract> contractOptional;
+	private int totalScore;
+	private int roundScore;
 
 	public Team(Player player1, Player player2) {
 		this.players[0] = player1;
@@ -82,5 +84,21 @@ public class Team {
 
 	public void setContractOptional(Optional<Coinche.Contract> contractOptional) {
 		this.contractOptional = contractOptional;
+	}
+
+	public int getTotalScore() {
+		return totalScore;
+	}
+
+	public void setTotalScore(int totalScore) {
+		this.totalScore = totalScore;
+	}
+
+	public int getRoundScore() {
+		return roundScore;
+	}
+
+	public void setRoundScore(int roundScore) {
+		this.roundScore = roundScore;
 	}
 }

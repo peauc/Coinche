@@ -15,13 +15,25 @@ public class CardManager {
 		ALL_TRUMPS,
 		NO_TRUMPS;
 	}
+	
+	public enum Trump {
+		UNDEFINED,
+		DIAMONDS,
+		HEARTS,
+		CLUBS,
+		SPADES,
+		ALL_TRUMPS,
+		NO_TRUMPS;
+	}
 
 	private ArrayList<Coinche.Card> cardList = new ArrayList<>();
-	private Map<scoreScale, Map<Integer, Integer>> correspondenceTable = new HashMap<>();
+	private Map<scoreScale, Map<Coinche.Card.Value, Integer>> correspondenceTable = new HashMap<>();
+	private Trump currentTrump;
 
 	public CardManager() {
 		List<String> typeList = Arrays.asList("DIAMONDS", "HEARTS", "CLUBS", "SPADES");
 		List<String> valueList = Arrays.asList("ACE", "KING", "QUEEN", "JACK", "TEN", "NINE", "EIGHT", "SEVEN");
+		this.currentTrump = Trump.UNDEFINED;
 
 		for (String aTypeList : typeList) {
 			for (String aValueList : valueList) {
@@ -33,45 +45,45 @@ public class CardManager {
 			}
 		}
 
-		correspondenceTable.put(STANDARD, new HashMap<Integer, Integer>());
-		correspondenceTable.get(STANDARD).put(0, 11);
-		correspondenceTable.get(STANDARD).put(1, 4);
-		correspondenceTable.get(STANDARD).put(2, 3);
-		correspondenceTable.get(STANDARD).put(3, 2);
-		correspondenceTable.get(STANDARD).put(4, 10);
-		correspondenceTable.get(STANDARD).put(5, 0);
-		correspondenceTable.get(STANDARD).put(6, 0);
-		correspondenceTable.get(STANDARD).put(7, 0);
+		correspondenceTable.put(STANDARD, new HashMap<Coinche.Card.Value, Integer>());
+		correspondenceTable.get(STANDARD).put(Coinche.Card.Value.ACE, 11);
+		correspondenceTable.get(STANDARD).put(Coinche.Card.Value.KING, 4);
+		correspondenceTable.get(STANDARD).put(Coinche.Card.Value.QUEEN, 3);
+		correspondenceTable.get(STANDARD).put(Coinche.Card.Value.JACK, 2);
+		correspondenceTable.get(STANDARD).put(Coinche.Card.Value.TEN, 10);
+		correspondenceTable.get(STANDARD).put(Coinche.Card.Value.NINE, 0);
+		correspondenceTable.get(STANDARD).put(Coinche.Card.Value.EIGHT, 0);
+		correspondenceTable.get(STANDARD).put(Coinche.Card.Value.SEVEN, 0);
 
-		correspondenceTable.put(TRUMP, new HashMap<Integer, Integer>());
-		correspondenceTable.get(TRUMP).put(0, 11);
-		correspondenceTable.get(TRUMP).put(1, 4);
-		correspondenceTable.get(TRUMP).put(2, 3);
-		correspondenceTable.get(TRUMP).put(3, 20);
-		correspondenceTable.get(TRUMP).put(4, 10);
-		correspondenceTable.get(TRUMP).put(5, 14);
-		correspondenceTable.get(TRUMP).put(6, 0);
-		correspondenceTable.get(TRUMP).put(7, 0);
+		correspondenceTable.put(TRUMP, new HashMap<Coinche.Card.Value, Integer>());
+		correspondenceTable.get(TRUMP).put(Coinche.Card.Value.ACE, 11);
+		correspondenceTable.get(TRUMP).put(Coinche.Card.Value.KING, 4);
+		correspondenceTable.get(TRUMP).put(Coinche.Card.Value.QUEEN, 3);
+		correspondenceTable.get(TRUMP).put(Coinche.Card.Value.JACK, 20);
+		correspondenceTable.get(TRUMP).put(Coinche.Card.Value.TEN, 10);
+		correspondenceTable.get(TRUMP).put(Coinche.Card.Value.NINE, 14);
+		correspondenceTable.get(TRUMP).put(Coinche.Card.Value.EIGHT, 0);
+		correspondenceTable.get(TRUMP).put(Coinche.Card.Value.SEVEN, 0);
 
-		correspondenceTable.put(ALL_TRUMPS, new HashMap<Integer, Integer>());
-		correspondenceTable.get(ALL_TRUMPS).put(0, 6);
-		correspondenceTable.get(ALL_TRUMPS).put(1, 3);
-		correspondenceTable.get(ALL_TRUMPS).put(2, 1);
-		correspondenceTable.get(ALL_TRUMPS).put(3, 14);
-		correspondenceTable.get(ALL_TRUMPS).put(4, 5);
-		correspondenceTable.get(ALL_TRUMPS).put(5, 9);
-		correspondenceTable.get(ALL_TRUMPS).put(6, 0);
-		correspondenceTable.get(ALL_TRUMPS).put(7, 0);
+		correspondenceTable.put(ALL_TRUMPS, new HashMap<Coinche.Card.Value, Integer>());
+		correspondenceTable.get(ALL_TRUMPS).put(Coinche.Card.Value.ACE, 6);
+		correspondenceTable.get(ALL_TRUMPS).put(Coinche.Card.Value.KING, 3);
+		correspondenceTable.get(ALL_TRUMPS).put(Coinche.Card.Value.QUEEN, 1);
+		correspondenceTable.get(ALL_TRUMPS).put(Coinche.Card.Value.JACK, 14);
+		correspondenceTable.get(ALL_TRUMPS).put(Coinche.Card.Value.TEN, 5);
+		correspondenceTable.get(ALL_TRUMPS).put(Coinche.Card.Value.NINE, 9);
+		correspondenceTable.get(ALL_TRUMPS).put(Coinche.Card.Value.EIGHT, 0);
+		correspondenceTable.get(ALL_TRUMPS).put(Coinche.Card.Value.SEVEN, 0);
 
-		correspondenceTable.put(NO_TRUMPS, new HashMap<Integer, Integer>());
-		correspondenceTable.get(NO_TRUMPS).put(0, 19);
-		correspondenceTable.get(NO_TRUMPS).put(1, 4);
-		correspondenceTable.get(NO_TRUMPS).put(2, 3);
-		correspondenceTable.get(NO_TRUMPS).put(3, 2);
-		correspondenceTable.get(NO_TRUMPS).put(4, 10);
-		correspondenceTable.get(NO_TRUMPS).put(5, 0);
-		correspondenceTable.get(NO_TRUMPS).put(6, 0);
-		correspondenceTable.get(NO_TRUMPS).put(7, 0);
+		correspondenceTable.put(NO_TRUMPS, new HashMap<Coinche.Card.Value, Integer>());
+		correspondenceTable.get(NO_TRUMPS).put(Coinche.Card.Value.ACE, 19);
+		correspondenceTable.get(NO_TRUMPS).put(Coinche.Card.Value.KING, 4);
+		correspondenceTable.get(NO_TRUMPS).put(Coinche.Card.Value.QUEEN, 3);
+		correspondenceTable.get(NO_TRUMPS).put(Coinche.Card.Value.JACK, 2);
+		correspondenceTable.get(NO_TRUMPS).put(Coinche.Card.Value.TEN, 10);
+		correspondenceTable.get(NO_TRUMPS).put(Coinche.Card.Value.NINE, 0);
+		correspondenceTable.get(NO_TRUMPS).put(Coinche.Card.Value.EIGHT, 0);
+		correspondenceTable.get(NO_TRUMPS).put(Coinche.Card.Value.SEVEN, 0);
 	}
 
 	public void mix() {
@@ -97,5 +109,28 @@ public class CardManager {
 				}
 			}
 		}
+	}
+	
+	public int getCardScore(Coinche.Card card) {
+		if (this.currentTrump == Trump.UNDEFINED)
+			return (-1);
+		else {
+			scoreScale trumpType;
+			if (this.currentTrump == Trump.DIAMONDS || this.currentTrump == Trump.HEARTS || this.currentTrump == Trump.CLUBS || this.currentTrump == Trump.SPADES)
+				trumpType = STANDARD;
+			else if (this.currentTrump == Trump.ALL_TRUMPS)
+				trumpType = ALL_TRUMPS;
+			else
+				trumpType = NO_TRUMPS;
+			return (this.correspondenceTable.get(trumpType).get(card.getValue()));
+		}
+	}
+
+	public Trump getCurrentTrump() {
+		return currentTrump;
+	}
+
+	public void setCurrentTrump(Trump currentTrump) {
+		this.currentTrump = currentTrump;
 	}
 }
