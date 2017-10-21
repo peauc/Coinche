@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 import static eu.epitech.jcoinche.jcoincheserver.server.Game.GameState.BIDDING;
+import java.util.Optional;
 
 public class Game {
 
@@ -77,7 +78,8 @@ public class Game {
 	}
 
 	public void removePlayer(Player p) {
-		players.remove(p);
+	    players.remove(p);
+	    resetGame();
 	}
 
 	public Boolean countainPlayer(ChannelHandlerContext ctx) {
