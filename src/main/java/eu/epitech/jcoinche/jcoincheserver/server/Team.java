@@ -13,6 +13,8 @@ public class Team {
 	private boolean hasCoinched;
 	private boolean hasSurcoinched;
 	private Optional<Coinche.Contract> contractOptional;
+	private int totalScore;
+	private int roundScore;
 
 	public Team(Player player1, Player player2) {
 		this.players[0] = player1;
@@ -48,15 +50,55 @@ public class Team {
 		return nbTricksRealised;
 	}
 
+	public void setNbTricksRealised(int nbTricksRealised) {
+		this.nbTricksRealised = nbTricksRealised;
+	}
+
 	public boolean isCapot() {
 		return isCapot;
+	}
+
+	public void setCapot(boolean capot) {
+		isCapot = capot;
 	}
 
 	public boolean HasCoinched() {
 		return hasCoinched;
 	}
 
+	public void setHasCoinched(boolean hasCoinched) {
+		this.hasCoinched = hasCoinched;
+	}
+
 	public boolean HasSurcoinched() {
 		return hasSurcoinched;
+	}
+
+	public void setHasSurcoinched(boolean hasSurcoinched) {
+		this.hasSurcoinched = hasSurcoinched;
+	}
+
+	public Optional<Coinche.Contract> getContractOptional() {
+		return contractOptional;
+	}
+
+	public void setContractOptional(Optional<Coinche.Contract> contractOptional) {
+		this.contractOptional = contractOptional;
+	}
+
+	public int getTotalScore() {
+		return totalScore;
+	}
+
+	public void setTotalScore(int totalScore) {
+		this.totalScore = totalScore;
+	}
+
+	public int getRoundScore() {
+		return roundScore;
+	}
+
+	public void setRoundScore(int roundScore) {
+		this.roundScore = roundScore;
 	}
 }
