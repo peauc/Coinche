@@ -1,6 +1,7 @@
 package eu.epitech.jcoinche.jcoincheserver.server;
 
 import eu.epitech.jcoinche.protocol.Coinche;
+import io.netty.channel.ChannelHandlerContext;
 
 import java.util.ArrayList;
 import java.util.Map;
@@ -74,7 +75,20 @@ public class Game {
 		this.teams[1] = new Team(this.players.get(1), this.players.get(3));
 	}
 
-	public Boolean containsPlayer(Player pl) {
+	public void removePlayer(Player p) {
+		players.remove(p);
+	}
+
+	public Boolean countainPlayer(ChannelHandlerContext ctx) {
+		for (Player p : players) {
+			if (p.getChctx() == ctx) {
+				return (true);
+			}
+		}
+		return (false);
+	}
+
+	public Boolean countainPlayer(Player pl) {
 		for (Player p : players) {
 			if (p == pl)
 				return (true);
