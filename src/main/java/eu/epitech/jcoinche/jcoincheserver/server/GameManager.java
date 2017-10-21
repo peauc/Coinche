@@ -1,5 +1,6 @@
 package eu.epitech.jcoinche.jcoincheserver.server;
 
+import io.netty.channel.ChannelHandlerContext;
 import jdk.nashorn.internal.runtime.linker.Bootstrap;
 
 import java.util.ArrayList;
@@ -36,5 +37,13 @@ public class GameManager {
                 return (g);
         }
         return (null);
+    }
+
+    public void removePlayerAndStopGame(ChannelHandlerContext ctx) {
+        for (Game g : gameList) {
+            if (g.countainPlayer(ctx)) {
+
+            }
+        }
     }
 }
