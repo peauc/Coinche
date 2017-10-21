@@ -6,20 +6,16 @@ option java_outer_classname = "Coinche";
 
 message Message {
     enum Type {
-        CARD = 0;
-        HAND = 1;
-        CONTRACT = 2;
-        EVENT = 3;
-        PROMPT = 4;
-        REPLY = 5;
+        HAND = 0;
+        EVENT = 1;
+        PROMPT = 2;
+        REPLY = 3;
     }
     Type type = 1;
-    Card card = 2;
-    Hand hand = 3;
-    Contract contract = 4;
-    Event event = 5;
-    Prompt prompt = 6;
-    Reply reply = 7;
+    Hand hand = 2;
+    Event event = 3;
+    Prompt prompt = 4;
+    Reply reply = 5;
 }
 
 message Card {
