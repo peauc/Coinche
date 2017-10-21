@@ -5,6 +5,7 @@ import io.netty.channel.ChannelHandlerContext;
 import jdk.nashorn.internal.runtime.linker.Bootstrap;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class Game {
 
@@ -22,8 +23,13 @@ public class Game {
 	public void run() {
 	}
 
+	public void resetGame() {
+            teams = null;
+    }
+
 	public void removePlayer(Player p) {
-		players.remove(p);
+	    players.remove(p);
+	    resetGame();
 	}
 
 	public Boolean countainPlayer(ChannelHandlerContext ctx) {
