@@ -46,6 +46,8 @@ public class Game {
 		this.cm.mix();
 		this.cm.distributeToAll(players);
 		this.state = BIDDING;
+		this.promptToAll("Bidding phase start.");
+		this.players.get(this.currentPlayerIndex).prompt("It's your turn to play:");
 	}
 
 	public void handlePlay(Coinche.Message message, Player player) {
@@ -72,6 +74,7 @@ public class Game {
 					if (this.bm.getHasEnded()) {
 						this.currentPlayerIndex = 0;
 						this.state = GAME;
+						this.promptToAll("Game phase start.");
 					} else if (this.bm.isOperationSuccess()) {
 						this.currentPlayerIndex++;
 						if (this.currentPlayerIndex >= this.players.size())
@@ -254,8 +257,9 @@ public class Game {
 		}
 		if (takers.hasValidatedContract()) {
 			takers.validateContract();
-			promptToAll("The contract ");
+			promptToAll("The contract has been fulfilled");
 		} else {
+			promptToAll("The contract has not been fulfilled.");
 			temp = takersMult;
 			takersMult = passersMult;
 			passersMult = temp;
@@ -263,7 +267,7 @@ public class Game {
 		takers.setTotalScore(takers.getTotalScore() + takers.getRoundScore() * takersMult + takers.getBonusRoundScore());
 		takers.setRoundScore(0);
 		takers.setBonusRoundScore(0);
-		passers.setTotalScore(passers.getTotalScore() + passers.getRoundScore() * passersMult + passers.getBonusRoundScore());
+		passers.setTotalScore(passers.getTotalScore() + (passers.getRoundScore() + takers.getContractOptional().get().getScore() + ((takers.isCapot()) ? 250 : 0)) * passersMult + passers.getBonusRoundScore());
 		passers.setRoundScore(0);
 		passers.setBonusRoundScore(0);
 	}

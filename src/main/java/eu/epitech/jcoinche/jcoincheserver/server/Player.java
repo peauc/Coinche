@@ -101,6 +101,16 @@ public class Player {
 		return (false);
 	}
 
+	public void prompt(String toPrompt) {
+		Coinche.Message message = Coinche.Message.newBuilder()
+				.setType(Coinche.Message.Type.PROMPT)
+				.setPrompt(Coinche.Prompt.newBuilder()
+						.addToDisplay(toPrompt)
+						.build())
+				.build();
+		this.sendMessage(message);
+	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (obj == null) {
