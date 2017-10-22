@@ -11,6 +11,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 public class Parser {
     private BufferedReader _in = new BufferedReader(new InputStreamReader(System.in));
@@ -135,19 +136,27 @@ public class Parser {
         String[] input = string.split(" ");
         Coinche.Card.Value v = null;
         Coinche.Card.Type t = null;
+        System.out.println("\n");
+        for (String s : input) {
+            System.out.println(s);
+        }
+        System.out.println("\n");
         for (Map.Entry<Coinche.Card.Value, String> e : _number.entrySet()) {
-            if (input[1].contains(e.getValue())) {
+            System.out.println(e.getValue());
+            if (Objects.equals(input[0], e.getValue())) {
+
                 v = e.getKey();
             }
         }
         for (Map.Entry<Coinche.Card.Type, String> e : _color.entrySet()) {
-            if (input[0].contains(e.getValue())) {
+            System.out.println(e.getValue());
+            if (Objects.equals(input[1], e.getValue())) {
                 t = e.getKey();
             }
         }
         if (t != null && v != null) {
             System.out.println(v + " " + t);
-            Coinche.Message m = Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT).setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.PLAY).setCard(Coinche.Card.newBuilder().setTypeValue(v.getNumber()).setValueValue(v.getNumber()).build()).build()).build();
+            Coinche.Message m = Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT).setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.PLAY).setCard(Coinche.Card.newBuilder().setTypeValue(t.getNumber()).setValueValue(v.getNumber()).build()).build()).build();
             _channel.writeAndFlush(m);
         }
         else {
