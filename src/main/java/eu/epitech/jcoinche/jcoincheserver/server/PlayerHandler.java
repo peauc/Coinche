@@ -30,7 +30,7 @@ public class    PlayerHandler extends SimpleChannelInboundHandler<Coinche.Messag
         gm.addPlayerToGame(p);
         Coinche.Message message = Coinche.Message.newBuilder().setType(Coinche.Message.Type.PROMPT).setPrompt(Coinche.Prompt.newBuilder().addToDisplay("Welcome to our Coinche Server hosted by " + InetAddress.getLocalHost().getHostName() + "\nRemember to chose a nickname by using \"NICKNAME yourNickname\"").build()).build();
         ctx.writeAndFlush(message);
-        System.out.println("New client connected and greeted\n");
+        System.out.println("New client connected and greeted");
     }
     @Override
     public void channelRead0(ChannelHandlerContext channelHandlerContext, Coinche.Message message) throws Exception {
