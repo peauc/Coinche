@@ -103,10 +103,10 @@ public class Connection {
             bootsrap = new Bootstrap();
             loopGroup = new NioEventLoopGroup();
             bootsrap.group(loopGroup).channel(NioSocketChannel.class).handler(new ClientInitializer(sslCtx));
-            System.out.println("Please input server's host (enter set default values)");
-            setHost(in.readLine());
-            System.out.println("Please input server's port (enter set default values)");
-            setPort(in.readLine());
+//            System.out.println("Please input server's host (enter set default values)");
+//            setHost(in.readLine());
+//            System.out.println("Please input server's port (enter set default values)");
+//            setPort(in.readLine());
             channel = bootsrap.connect(Host, Integer.parseInt(Port)).sync().channel();
 
         }
