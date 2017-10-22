@@ -12,7 +12,6 @@ public class Player {
 	public enum beloteState {
 		UNDECLARED,
 		DECLARED,
-		AWAITING_VALIDATION,
 		DONE
 	}
 

@@ -100,7 +100,7 @@ public class Game {
 					.setMessage("SUCCESS")
 					.build();
 			this.sendReply(reply, player);
-			this.players.get(this.currentPlayerIndex).sendHand();
+			player.sendHand();
 			return (true);
 		}
 		return (false);
@@ -232,8 +232,11 @@ public class Game {
 		Team takers;
 		Team passers;
 		int bonus = 0;
+		int takersMult = 1;
+		int passersMult = 1;
+		int temp;
 
-		bonus = this.teams[0].validateAnnounces(this.teams[1].validateAnnounces(bonus));
+		bonus = this.teams[0].validateAnnounces(this.teams[1].validateAnnounces(bonus, 2, this.players), 1, this.players);
 		this.teams[0].setRoundScore(this.teams[0].getRoundScore() + bonus);
 		if (this.teams[0].getContractOptional().isPresent()) {
 			takers = this.teams[0];
@@ -242,10 +245,26 @@ public class Game {
 			takers = this.teams[1];
 			passers = this.teams[0];
 		}
-		if (takers.hasValidatedContract()) {
-			takers.validateContract(passers.hasCoinched(), passers.hasSurcoinched());
-			takers.setTotalScore(takers.getTotalScore() + takers.getRoundScore() * 2 + takers.getBonusRoundScore());
-			takers.setRoundScore(0);
+		if (passers.hasCoinched()) {
+			takersMult = 2;
+			passersMult = 0;
+		} else if (takers.hasSurcoinched()) {
+			takersMult = 4;
+			passersMult = 0;
 		}
+		if (takers.hasValidatedContract()) {
+			takers.validateContract();
+			promptToAll("The contract ");
+		} else {
+			temp = takersMult;
+			takersMult = passersMult;
+			passersMult = temp;
+		}
+		takers.setTotalScore(takers.getTotalScore() + takers.getRoundScore() * takersMult + takers.getBonusRoundScore());
+		takers.setRoundScore(0);
+		takers.setBonusRoundScore(0);
+		passers.setTotalScore(passers.getTotalScore() + passers.getRoundScore() * passersMult + passers.getBonusRoundScore());
+		passers.setRoundScore(0);
+		passers.setBonusRoundScore(0);
 	}
 }

@@ -149,13 +149,29 @@ public class Team {
 		this.bonusRoundScore = bonusRoundScore;
 	}
 
-	public int validateAnnounces(int bonus) {
+	public int validateAnnounces(int bonus, int teamNb, ArrayList<Player> players) {
 		int ownScore = 0;
 		int otherScore = 0;
 		for (Announce announce : this.announces) {
 			if (announce.isComplete()) {
+				for (Player player : players) {
+					player.sendMessage(Coinche.Message.newBuilder()
+							.setType(Coinche.Message.Type.PROMPT)
+							.setPrompt(Coinche.Prompt.newBuilder()
+								.addToDisplay("Team " + String.valueOf(teamNb) + "has completed an announce (type:" +announce.getType().name() + ", reward: " + announce.getReward() + ")")
+								.build())
+							.build());
+				}
 				ownScore += announce.getReward();
 			} else {
+				for (Player player : players) {
+					player.sendMessage(Coinche.Message.newBuilder()
+							.setType(Coinche.Message.Type.PROMPT)
+							.setPrompt(Coinche.Prompt.newBuilder()
+									.addToDisplay("Team " + String.valueOf(teamNb) + "has NOT completed an announce (type:" +announce.getType().name() + ", reward: " + announce.getReward() + "). Reward will be given to the other team.")
+									.build())
+							.build());
+				}
 				otherScore += announce.getReward();
 			}
 		}
@@ -165,7 +181,7 @@ public class Team {
 
 	public boolean hasValidatedContract() {
 		if (this.contractOptional.isPresent()) {
-			if (this.isCapot == true) {
+			if (this.isCapot) {
 				return this.nbTricksRealised == 8;
 			} else {
 				return this.roundScore >= this.contractOptional.get().getScore();
@@ -175,18 +191,13 @@ public class Team {
 		}
 	}
 
-	public void validateContract(boolean hasCoinched, boolean hasSurcoinched) {
+	public void validateContract() {
 		int score = 0;
 
-		if (this.isCapot == true) {
+		if (this.isCapot) {
 			score = this.roundScore + 500;
 		} else {
 			score += this.roundScore + this.contractOptional.get().getScore();
-		}
-		if (hasCoinched) {
-			score *= 2;
-		} else if (hasSurcoinched) {
-			score *= 4;
 		}
 		this.totalScore += score;
 	}
