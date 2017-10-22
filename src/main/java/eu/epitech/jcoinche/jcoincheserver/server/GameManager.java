@@ -52,7 +52,7 @@ public class GameManager {
     public void removePlayerAndStopGame(ChannelHandlerContext ctx) {
         for (Game g : gameList) {
             if (g.countainPlayer(ctx) != null) {
-
+                g.removePlayer(g.countainPlayer(ctx));
             }
         }
     }

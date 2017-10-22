@@ -133,6 +133,10 @@ public class Player {
 		this.hand.add(card);
 	}
 
+	public void revoveHand() {
+		this.hand.clear();
+	}
+
 	public void removeFromHand(Coinche.Card card) {
 		this.hand.remove(card);
 	}

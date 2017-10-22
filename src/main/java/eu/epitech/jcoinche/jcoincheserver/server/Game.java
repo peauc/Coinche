@@ -21,7 +21,7 @@ public class Game {
 		SCORES;
 	}
 
-	private ArrayList<Player> players;
+	private ArrayList<Player> players = new ArrayList<>();
 	private Team[] teams;
 	private GameState state;
 	private CardManager cm;
@@ -31,13 +31,7 @@ public class Game {
 	private int roundNb;
 
 	public Game() {
-		this.players = new ArrayList<>();
-		this.teams = new Team[2];
-		this.state = GameState.AWAITING_PLAYERS;
-		this.cm = new CardManager();
-		this.currentPlayerIndex = 0;
-		this.tricks = new ArrayList<>();
-		this.roundNb = 0;
+		resetGame();
 	}
 
 	public void start() {
@@ -191,13 +185,22 @@ public class Game {
 		this.teams[1] = new Team(this.players.get(1), this.players.get(3));
 	}
 
-	//TODO
 	private void resetGame() {
+		this.teams = new Team[2];
+		this.state = GameState.AWAITING_PLAYERS;
+		this.cm = new CardManager();
+		this.currentPlayerIndex = 0;
+		this.tricks = new ArrayList<>();
+		this.roundNb = 0;
+		for (Player p : players) {
 
+			p.revoveHand();
+		}
 	}
 
 	public void removePlayer(Player p) {
 	    players.remove(p);
+	    promptToAll("Player " + p.getName() + " left the game.\nGame is stopping\n");
 	    resetGame();
 	}
 
