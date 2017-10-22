@@ -19,7 +19,7 @@ public class ServerInitializer extends ChannelInitializer<SocketChannel> {
     private final SslContext ctx;
 
     public ServerInitializer(SslContext ctx) {
-        System.out.print("Server is initializing\n");
+        System.out.println("Server is initializing");
         this.ctx = ctx;
     }
 

@@ -28,13 +28,23 @@ public class    PlayerHandler extends SimpleChannelInboundHandler<Coinche.Messag
     public void channelActive(final ChannelHandlerContext ctx) throws UnknownHostException {
         Player p = new Player(ctx, "");
         gm.addPlayerToGame(p);
-        Coinche.Message message = Coinche.Message.newBuilder().setType(Coinche.Message.Type.PROMPT).setPrompt(Coinche.Prompt.newBuilder().addToDisplay("Welcome to our Coinche Server hosted by " + InetAddress.getLocalHost().getHostName() + "\nRemember to chose a nickname by using \"NICKNAME yourNickname\"").build()).build();
+        Coinche.Message message = Coinche.Message.newBuilder().setType(Coinche.Message.Type.PROMPT).setPrompt(Coinche.Prompt.newBuilder().addToDisplay("Welcome to our Coinche Server hosted by " + InetAddress.getLocalHost().getHostName() + "\nRemember to chose a nickname by using \"NAME yourNickname\"").build()).build();
         ctx.writeAndFlush(message);
-        System.out.println("New client connected and greeted\n");
+        System.out.println("New client connected and greeted");
     }
     @Override
-    public void channelRead0(ChannelHandlerContext channelHandlerContext, Coinche.Message message) throws Exception {
+    public void channelRead0(ChannelHandlerContext ctx, Coinche.Message message) throws Exception {
+        Game g;
+        Player p;
 
+        if ((p = gm.findPlayerByCongext(ctx)) == null) {
+            System.out.println("Unknown player");
+            return;
+        }
+        if ((g = gm.findPlayerGame(p)) == null) {
+            System.out.println("Unknown game");
+            return;
+        }
         System.out.println(message.toString());
     }
 }

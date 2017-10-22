@@ -29,11 +29,21 @@ public class GameManager {
             createNewGame();
             addPlayerToGame(p);
         }
+        if (g != null && g.isReady()) {
+            g.start();
+        }
+    }
+
+    public Player findPlayerByCongext(ChannelHandlerContext ctx) {
+        for (Game g : gameList) {
+            return (g.countainPlayer(ctx));
+        }
+        return (null);
     }
 
     public Game findPlayerGame(Player p) {
         for (Game g : gameList) {
-            if (g.countainPlayer(p))
+            if (g.countainPlayer(p) != null)
                 return (g);
         }
         return (null);
@@ -41,7 +51,7 @@ public class GameManager {
 
     public void removePlayerAndStopGame(ChannelHandlerContext ctx) {
         for (Game g : gameList) {
-            if (g.countainPlayer(ctx)) {
+            if (g.countainPlayer(ctx) != null) {
 
             }
         }
