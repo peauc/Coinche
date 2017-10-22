@@ -2247,6 +2247,802 @@ public final class Coinche {
 
   }
 
+  public interface AnnounceOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protocol.Announce)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>.protocol.Announce.Type type = 1;</code>
+     */
+    int getTypeValue();
+    /**
+     * <code>.protocol.Announce.Type type = 1;</code>
+     */
+    eu.epitech.jcoinche.protocol.Coinche.Announce.Type getType();
+
+    /**
+     * <code>.protocol.Card card = 2;</code>
+     */
+    boolean hasCard();
+    /**
+     * <code>.protocol.Card card = 2;</code>
+     */
+    eu.epitech.jcoinche.protocol.Coinche.Card getCard();
+    /**
+     * <code>.protocol.Card card = 2;</code>
+     */
+    eu.epitech.jcoinche.protocol.Coinche.CardOrBuilder getCardOrBuilder();
+  }
+  /**
+   * Protobuf type {@code protocol.Announce}
+   */
+  public  static final class Announce extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:protocol.Announce)
+      AnnounceOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use Announce.newBuilder() to construct.
+    private Announce(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Announce() {
+      type_ = 0;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private Announce(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!parseUnknownFieldProto3(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+              int rawValue = input.readEnum();
+
+              type_ = rawValue;
+              break;
+            }
+            case 18: {
+              eu.epitech.jcoinche.protocol.Coinche.Card.Builder subBuilder = null;
+              if (card_ != null) {
+                subBuilder = card_.toBuilder();
+              }
+              card_ = input.readMessage(eu.epitech.jcoinche.protocol.Coinche.Card.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(card_);
+                card_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return eu.epitech.jcoinche.protocol.Coinche.internal_static_protocol_Announce_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return eu.epitech.jcoinche.protocol.Coinche.internal_static_protocol_Announce_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              eu.epitech.jcoinche.protocol.Coinche.Announce.class, eu.epitech.jcoinche.protocol.Coinche.Announce.Builder.class);
+    }
+
+    /**
+     * Protobuf enum {@code protocol.Announce.Type}
+     */
+    public enum Type
+        implements com.google.protobuf.ProtocolMessageEnum {
+      /**
+       * <code>UNDEFINED = 0;</code>
+       */
+      UNDEFINED(0),
+      /**
+       * <code>CARRE = 1;</code>
+       */
+      CARRE(1),
+      /**
+       * <code>CENT = 2;</code>
+       */
+      CENT(2),
+      /**
+       * <code>CINQUANTE = 3;</code>
+       */
+      CINQUANTE(3),
+      /**
+       * <code>TIERCE = 4;</code>
+       */
+      TIERCE(4),
+      UNRECOGNIZED(-1),
+      ;
+
+      /**
+       * <code>UNDEFINED = 0;</code>
+       */
+      public static final int UNDEFINED_VALUE = 0;
+      /**
+       * <code>CARRE = 1;</code>
+       */
+      public static final int CARRE_VALUE = 1;
+      /**
+       * <code>CENT = 2;</code>
+       */
+      public static final int CENT_VALUE = 2;
+      /**
+       * <code>CINQUANTE = 3;</code>
+       */
+      public static final int CINQUANTE_VALUE = 3;
+      /**
+       * <code>TIERCE = 4;</code>
+       */
+      public static final int TIERCE_VALUE = 4;
+
+
+      public final int getNumber() {
+        if (this == UNRECOGNIZED) {
+          throw new java.lang.IllegalArgumentException(
+              "Can't get the number of an unknown enum value.");
+        }
+        return value;
+      }
+
+      /**
+       * @deprecated Use {@link #forNumber(int)} instead.
+       */
+      @java.lang.Deprecated
+      public static Type valueOf(int value) {
+        return forNumber(value);
+      }
+
+      public static Type forNumber(int value) {
+        switch (value) {
+          case 0: return UNDEFINED;
+          case 1: return CARRE;
+          case 2: return CENT;
+          case 3: return CINQUANTE;
+          case 4: return TIERCE;
+          default: return null;
+        }
+      }
+
+      public static com.google.protobuf.Internal.EnumLiteMap<Type>
+          internalGetValueMap() {
+        return internalValueMap;
+      }
+      private static final com.google.protobuf.Internal.EnumLiteMap<
+          Type> internalValueMap =
+            new com.google.protobuf.Internal.EnumLiteMap<Type>() {
+              public Type findValueByNumber(int number) {
+                return Type.forNumber(number);
+              }
+            };
+
+      public final com.google.protobuf.Descriptors.EnumValueDescriptor
+          getValueDescriptor() {
+        return getDescriptor().getValues().get(ordinal());
+      }
+      public final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptorForType() {
+        return getDescriptor();
+      }
+      public static final com.google.protobuf.Descriptors.EnumDescriptor
+          getDescriptor() {
+        return eu.epitech.jcoinche.protocol.Coinche.Announce.getDescriptor().getEnumTypes().get(0);
+      }
+
+      private static final Type[] VALUES = values();
+
+      public static Type valueOf(
+          com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+        if (desc.getType() != getDescriptor()) {
+          throw new java.lang.IllegalArgumentException(
+            "EnumValueDescriptor is not for this type.");
+        }
+        if (desc.getIndex() == -1) {
+          return UNRECOGNIZED;
+        }
+        return VALUES[desc.getIndex()];
+      }
+
+      private final int value;
+
+      private Type(int value) {
+        this.value = value;
+      }
+
+      // @@protoc_insertion_point(enum_scope:protocol.Announce.Type)
+    }
+
+    public static final int TYPE_FIELD_NUMBER = 1;
+    private int type_;
+    /**
+     * <code>.protocol.Announce.Type type = 1;</code>
+     */
+    public int getTypeValue() {
+      return type_;
+    }
+    /**
+     * <code>.protocol.Announce.Type type = 1;</code>
+     */
+    public eu.epitech.jcoinche.protocol.Coinche.Announce.Type getType() {
+      eu.epitech.jcoinche.protocol.Coinche.Announce.Type result = eu.epitech.jcoinche.protocol.Coinche.Announce.Type.valueOf(type_);
+      return result == null ? eu.epitech.jcoinche.protocol.Coinche.Announce.Type.UNRECOGNIZED : result;
+    }
+
+    public static final int CARD_FIELD_NUMBER = 2;
+    private eu.epitech.jcoinche.protocol.Coinche.Card card_;
+    /**
+     * <code>.protocol.Card card = 2;</code>
+     */
+    public boolean hasCard() {
+      return card_ != null;
+    }
+    /**
+     * <code>.protocol.Card card = 2;</code>
+     */
+    public eu.epitech.jcoinche.protocol.Coinche.Card getCard() {
+      return card_ == null ? eu.epitech.jcoinche.protocol.Coinche.Card.getDefaultInstance() : card_;
+    }
+    /**
+     * <code>.protocol.Card card = 2;</code>
+     */
+    public eu.epitech.jcoinche.protocol.Coinche.CardOrBuilder getCardOrBuilder() {
+      return getCard();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Announce.Type.UNDEFINED.getNumber()) {
+        output.writeEnum(1, type_);
+      }
+      if (card_ != null) {
+        output.writeMessage(2, getCard());
+      }
+      unknownFields.writeTo(output);
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Announce.Type.UNDEFINED.getNumber()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeEnumSize(1, type_);
+      }
+      if (card_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getCard());
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof eu.epitech.jcoinche.protocol.Coinche.Announce)) {
+        return super.equals(obj);
+      }
+      eu.epitech.jcoinche.protocol.Coinche.Announce other = (eu.epitech.jcoinche.protocol.Coinche.Announce) obj;
+
+      boolean result = true;
+      result = result && type_ == other.type_;
+      result = result && (hasCard() == other.hasCard());
+      if (hasCard()) {
+        result = result && getCard()
+            .equals(other.getCard());
+      }
+      result = result && unknownFields.equals(other.unknownFields);
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + TYPE_FIELD_NUMBER;
+      hash = (53 * hash) + type_;
+      if (hasCard()) {
+        hash = (37 * hash) + CARD_FIELD_NUMBER;
+        hash = (53 * hash) + getCard().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static eu.epitech.jcoinche.protocol.Coinche.Announce parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static eu.epitech.jcoinche.protocol.Coinche.Announce parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static eu.epitech.jcoinche.protocol.Coinche.Announce parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static eu.epitech.jcoinche.protocol.Coinche.Announce parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static eu.epitech.jcoinche.protocol.Coinche.Announce parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static eu.epitech.jcoinche.protocol.Coinche.Announce parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static eu.epitech.jcoinche.protocol.Coinche.Announce parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static eu.epitech.jcoinche.protocol.Coinche.Announce parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static eu.epitech.jcoinche.protocol.Coinche.Announce parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static eu.epitech.jcoinche.protocol.Coinche.Announce parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static eu.epitech.jcoinche.protocol.Coinche.Announce parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static eu.epitech.jcoinche.protocol.Coinche.Announce parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(eu.epitech.jcoinche.protocol.Coinche.Announce prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code protocol.Announce}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:protocol.Announce)
+        eu.epitech.jcoinche.protocol.Coinche.AnnounceOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return eu.epitech.jcoinche.protocol.Coinche.internal_static_protocol_Announce_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return eu.epitech.jcoinche.protocol.Coinche.internal_static_protocol_Announce_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                eu.epitech.jcoinche.protocol.Coinche.Announce.class, eu.epitech.jcoinche.protocol.Coinche.Announce.Builder.class);
+      }
+
+      // Construct using eu.epitech.jcoinche.protocol.Coinche.Announce.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        type_ = 0;
+
+        if (cardBuilder_ == null) {
+          card_ = null;
+        } else {
+          card_ = null;
+          cardBuilder_ = null;
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return eu.epitech.jcoinche.protocol.Coinche.internal_static_protocol_Announce_descriptor;
+      }
+
+      public eu.epitech.jcoinche.protocol.Coinche.Announce getDefaultInstanceForType() {
+        return eu.epitech.jcoinche.protocol.Coinche.Announce.getDefaultInstance();
+      }
+
+      public eu.epitech.jcoinche.protocol.Coinche.Announce build() {
+        eu.epitech.jcoinche.protocol.Coinche.Announce result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public eu.epitech.jcoinche.protocol.Coinche.Announce buildPartial() {
+        eu.epitech.jcoinche.protocol.Coinche.Announce result = new eu.epitech.jcoinche.protocol.Coinche.Announce(this);
+        result.type_ = type_;
+        if (cardBuilder_ == null) {
+          result.card_ = card_;
+        } else {
+          result.card_ = cardBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof eu.epitech.jcoinche.protocol.Coinche.Announce) {
+          return mergeFrom((eu.epitech.jcoinche.protocol.Coinche.Announce)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(eu.epitech.jcoinche.protocol.Coinche.Announce other) {
+        if (other == eu.epitech.jcoinche.protocol.Coinche.Announce.getDefaultInstance()) return this;
+        if (other.type_ != 0) {
+          setTypeValue(other.getTypeValue());
+        }
+        if (other.hasCard()) {
+          mergeCard(other.getCard());
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        eu.epitech.jcoinche.protocol.Coinche.Announce parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (eu.epitech.jcoinche.protocol.Coinche.Announce) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int type_ = 0;
+      /**
+       * <code>.protocol.Announce.Type type = 1;</code>
+       */
+      public int getTypeValue() {
+        return type_;
+      }
+      /**
+       * <code>.protocol.Announce.Type type = 1;</code>
+       */
+      public Builder setTypeValue(int value) {
+        type_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.protocol.Announce.Type type = 1;</code>
+       */
+      public eu.epitech.jcoinche.protocol.Coinche.Announce.Type getType() {
+        eu.epitech.jcoinche.protocol.Coinche.Announce.Type result = eu.epitech.jcoinche.protocol.Coinche.Announce.Type.valueOf(type_);
+        return result == null ? eu.epitech.jcoinche.protocol.Coinche.Announce.Type.UNRECOGNIZED : result;
+      }
+      /**
+       * <code>.protocol.Announce.Type type = 1;</code>
+       */
+      public Builder setType(eu.epitech.jcoinche.protocol.Coinche.Announce.Type value) {
+        if (value == null) {
+          throw new NullPointerException();
+        }
+        
+        type_ = value.getNumber();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>.protocol.Announce.Type type = 1;</code>
+       */
+      public Builder clearType() {
+        
+        type_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private eu.epitech.jcoinche.protocol.Coinche.Card card_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          eu.epitech.jcoinche.protocol.Coinche.Card, eu.epitech.jcoinche.protocol.Coinche.Card.Builder, eu.epitech.jcoinche.protocol.Coinche.CardOrBuilder> cardBuilder_;
+      /**
+       * <code>.protocol.Card card = 2;</code>
+       */
+      public boolean hasCard() {
+        return cardBuilder_ != null || card_ != null;
+      }
+      /**
+       * <code>.protocol.Card card = 2;</code>
+       */
+      public eu.epitech.jcoinche.protocol.Coinche.Card getCard() {
+        if (cardBuilder_ == null) {
+          return card_ == null ? eu.epitech.jcoinche.protocol.Coinche.Card.getDefaultInstance() : card_;
+        } else {
+          return cardBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.protocol.Card card = 2;</code>
+       */
+      public Builder setCard(eu.epitech.jcoinche.protocol.Coinche.Card value) {
+        if (cardBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          card_ = value;
+          onChanged();
+        } else {
+          cardBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.Card card = 2;</code>
+       */
+      public Builder setCard(
+          eu.epitech.jcoinche.protocol.Coinche.Card.Builder builderForValue) {
+        if (cardBuilder_ == null) {
+          card_ = builderForValue.build();
+          onChanged();
+        } else {
+          cardBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.Card card = 2;</code>
+       */
+      public Builder mergeCard(eu.epitech.jcoinche.protocol.Coinche.Card value) {
+        if (cardBuilder_ == null) {
+          if (card_ != null) {
+            card_ =
+              eu.epitech.jcoinche.protocol.Coinche.Card.newBuilder(card_).mergeFrom(value).buildPartial();
+          } else {
+            card_ = value;
+          }
+          onChanged();
+        } else {
+          cardBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.Card card = 2;</code>
+       */
+      public Builder clearCard() {
+        if (cardBuilder_ == null) {
+          card_ = null;
+          onChanged();
+        } else {
+          card_ = null;
+          cardBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.Card card = 2;</code>
+       */
+      public eu.epitech.jcoinche.protocol.Coinche.Card.Builder getCardBuilder() {
+        
+        onChanged();
+        return getCardFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.protocol.Card card = 2;</code>
+       */
+      public eu.epitech.jcoinche.protocol.Coinche.CardOrBuilder getCardOrBuilder() {
+        if (cardBuilder_ != null) {
+          return cardBuilder_.getMessageOrBuilder();
+        } else {
+          return card_ == null ?
+              eu.epitech.jcoinche.protocol.Coinche.Card.getDefaultInstance() : card_;
+        }
+      }
+      /**
+       * <code>.protocol.Card card = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          eu.epitech.jcoinche.protocol.Coinche.Card, eu.epitech.jcoinche.protocol.Coinche.Card.Builder, eu.epitech.jcoinche.protocol.Coinche.CardOrBuilder> 
+          getCardFieldBuilder() {
+        if (cardBuilder_ == null) {
+          cardBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              eu.epitech.jcoinche.protocol.Coinche.Card, eu.epitech.jcoinche.protocol.Coinche.Card.Builder, eu.epitech.jcoinche.protocol.Coinche.CardOrBuilder>(
+                  getCard(),
+                  getParentForChildren(),
+                  isClean());
+          card_ = null;
+        }
+        return cardBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFieldsProto3(unknownFields);
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:protocol.Announce)
+    }
+
+    // @@protoc_insertion_point(class_scope:protocol.Announce)
+    private static final eu.epitech.jcoinche.protocol.Coinche.Announce DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new eu.epitech.jcoinche.protocol.Coinche.Announce();
+    }
+
+    public static eu.epitech.jcoinche.protocol.Coinche.Announce getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Announce>
+        PARSER = new com.google.protobuf.AbstractParser<Announce>() {
+      public Announce parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new Announce(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Announce> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Announce> getParserForType() {
+      return PARSER;
+    }
+
+    public eu.epitech.jcoinche.protocol.Coinche.Announce getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface HandOrBuilder extends
       // @@protoc_insertion_point(interface_extends:protocol.Hand)
       com.google.protobuf.MessageOrBuilder {
@@ -3724,20 +4520,33 @@ public final class Coinche {
     eu.epitech.jcoinche.protocol.Coinche.ContractOrBuilder getContractOrBuilder();
 
     /**
-     * <code>repeated string argument = 4;</code>
+     * <code>.protocol.Announce announce = 4;</code>
+     */
+    boolean hasAnnounce();
+    /**
+     * <code>.protocol.Announce announce = 4;</code>
+     */
+    eu.epitech.jcoinche.protocol.Coinche.Announce getAnnounce();
+    /**
+     * <code>.protocol.Announce announce = 4;</code>
+     */
+    eu.epitech.jcoinche.protocol.Coinche.AnnounceOrBuilder getAnnounceOrBuilder();
+
+    /**
+     * <code>repeated string argument = 5;</code>
      */
     java.util.List<java.lang.String>
         getArgumentList();
     /**
-     * <code>repeated string argument = 4;</code>
+     * <code>repeated string argument = 5;</code>
      */
     int getArgumentCount();
     /**
-     * <code>repeated string argument = 4;</code>
+     * <code>repeated string argument = 5;</code>
      */
     java.lang.String getArgument(int index);
     /**
-     * <code>repeated string argument = 4;</code>
+     * <code>repeated string argument = 5;</code>
      */
     com.google.protobuf.ByteString
         getArgumentBytes(int index);
@@ -3820,10 +4629,23 @@ public final class Coinche {
               break;
             }
             case 34: {
+              eu.epitech.jcoinche.protocol.Coinche.Announce.Builder subBuilder = null;
+              if (announce_ != null) {
+                subBuilder = announce_.toBuilder();
+              }
+              announce_ = input.readMessage(eu.epitech.jcoinche.protocol.Coinche.Announce.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(announce_);
+                announce_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 42: {
               java.lang.String s = input.readStringRequireUtf8();
-              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+              if (!((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
                 argument_ = new com.google.protobuf.LazyStringArrayList();
-                mutable_bitField0_ |= 0x00000008;
+                mutable_bitField0_ |= 0x00000010;
               }
               argument_.add(s);
               break;
@@ -3836,7 +4658,7 @@ public final class Coinche {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
-        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+        if (((mutable_bitField0_ & 0x00000010) == 0x00000010)) {
           argument_ = argument_.getUnmodifiableView();
         }
         this.unknownFields = unknownFields.build();
@@ -4111,29 +4933,50 @@ public final class Coinche {
       return getContract();
     }
 
-    public static final int ARGUMENT_FIELD_NUMBER = 4;
+    public static final int ANNOUNCE_FIELD_NUMBER = 4;
+    private eu.epitech.jcoinche.protocol.Coinche.Announce announce_;
+    /**
+     * <code>.protocol.Announce announce = 4;</code>
+     */
+    public boolean hasAnnounce() {
+      return announce_ != null;
+    }
+    /**
+     * <code>.protocol.Announce announce = 4;</code>
+     */
+    public eu.epitech.jcoinche.protocol.Coinche.Announce getAnnounce() {
+      return announce_ == null ? eu.epitech.jcoinche.protocol.Coinche.Announce.getDefaultInstance() : announce_;
+    }
+    /**
+     * <code>.protocol.Announce announce = 4;</code>
+     */
+    public eu.epitech.jcoinche.protocol.Coinche.AnnounceOrBuilder getAnnounceOrBuilder() {
+      return getAnnounce();
+    }
+
+    public static final int ARGUMENT_FIELD_NUMBER = 5;
     private com.google.protobuf.LazyStringList argument_;
     /**
-     * <code>repeated string argument = 4;</code>
+     * <code>repeated string argument = 5;</code>
      */
     public com.google.protobuf.ProtocolStringList
         getArgumentList() {
       return argument_;
     }
     /**
-     * <code>repeated string argument = 4;</code>
+     * <code>repeated string argument = 5;</code>
      */
     public int getArgumentCount() {
       return argument_.size();
     }
     /**
-     * <code>repeated string argument = 4;</code>
+     * <code>repeated string argument = 5;</code>
      */
     public java.lang.String getArgument(int index) {
       return argument_.get(index);
     }
     /**
-     * <code>repeated string argument = 4;</code>
+     * <code>repeated string argument = 5;</code>
      */
     public com.google.protobuf.ByteString
         getArgumentBytes(int index) {
@@ -4161,8 +5004,11 @@ public final class Coinche {
       if (contract_ != null) {
         output.writeMessage(3, getContract());
       }
+      if (announce_ != null) {
+        output.writeMessage(4, getAnnounce());
+      }
       for (int i = 0; i < argument_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, argument_.getRaw(i));
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, argument_.getRaw(i));
       }
       unknownFields.writeTo(output);
     }
@@ -4183,6 +5029,10 @@ public final class Coinche {
       if (contract_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getContract());
+      }
+      if (announce_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(4, getAnnounce());
       }
       {
         int dataSize = 0;
@@ -4219,6 +5069,11 @@ public final class Coinche {
         result = result && getContract()
             .equals(other.getContract());
       }
+      result = result && (hasAnnounce() == other.hasAnnounce());
+      if (hasAnnounce()) {
+        result = result && getAnnounce()
+            .equals(other.getAnnounce());
+      }
       result = result && getArgumentList()
           .equals(other.getArgumentList());
       result = result && unknownFields.equals(other.unknownFields);
@@ -4241,6 +5096,10 @@ public final class Coinche {
       if (hasContract()) {
         hash = (37 * hash) + CONTRACT_FIELD_NUMBER;
         hash = (53 * hash) + getContract().hashCode();
+      }
+      if (hasAnnounce()) {
+        hash = (37 * hash) + ANNOUNCE_FIELD_NUMBER;
+        hash = (53 * hash) + getAnnounce().hashCode();
       }
       if (getArgumentCount() > 0) {
         hash = (37 * hash) + ARGUMENT_FIELD_NUMBER;
@@ -4389,8 +5248,14 @@ public final class Coinche {
           contract_ = null;
           contractBuilder_ = null;
         }
+        if (announceBuilder_ == null) {
+          announce_ = null;
+        } else {
+          announce_ = null;
+          announceBuilder_ = null;
+        }
         argument_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         return this;
       }
 
@@ -4426,9 +5291,14 @@ public final class Coinche {
         } else {
           result.contract_ = contractBuilder_.build();
         }
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+        if (announceBuilder_ == null) {
+          result.announce_ = announce_;
+        } else {
+          result.announce_ = announceBuilder_.build();
+        }
+        if (((bitField0_ & 0x00000010) == 0x00000010)) {
           argument_ = argument_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000008);
+          bitField0_ = (bitField0_ & ~0x00000010);
         }
         result.argument_ = argument_;
         result.bitField0_ = to_bitField0_;
@@ -4482,10 +5352,13 @@ public final class Coinche {
         if (other.hasContract()) {
           mergeContract(other.getContract());
         }
+        if (other.hasAnnounce()) {
+          mergeAnnounce(other.getAnnounce());
+        }
         if (!other.argument_.isEmpty()) {
           if (argument_.isEmpty()) {
             argument_ = other.argument_;
-            bitField0_ = (bitField0_ & ~0x00000008);
+            bitField0_ = (bitField0_ & ~0x00000010);
           } else {
             ensureArgumentIsMutable();
             argument_.addAll(other.argument_);
@@ -4798,41 +5671,158 @@ public final class Coinche {
         return contractBuilder_;
       }
 
+      private eu.epitech.jcoinche.protocol.Coinche.Announce announce_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          eu.epitech.jcoinche.protocol.Coinche.Announce, eu.epitech.jcoinche.protocol.Coinche.Announce.Builder, eu.epitech.jcoinche.protocol.Coinche.AnnounceOrBuilder> announceBuilder_;
+      /**
+       * <code>.protocol.Announce announce = 4;</code>
+       */
+      public boolean hasAnnounce() {
+        return announceBuilder_ != null || announce_ != null;
+      }
+      /**
+       * <code>.protocol.Announce announce = 4;</code>
+       */
+      public eu.epitech.jcoinche.protocol.Coinche.Announce getAnnounce() {
+        if (announceBuilder_ == null) {
+          return announce_ == null ? eu.epitech.jcoinche.protocol.Coinche.Announce.getDefaultInstance() : announce_;
+        } else {
+          return announceBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.protocol.Announce announce = 4;</code>
+       */
+      public Builder setAnnounce(eu.epitech.jcoinche.protocol.Coinche.Announce value) {
+        if (announceBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          announce_ = value;
+          onChanged();
+        } else {
+          announceBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.Announce announce = 4;</code>
+       */
+      public Builder setAnnounce(
+          eu.epitech.jcoinche.protocol.Coinche.Announce.Builder builderForValue) {
+        if (announceBuilder_ == null) {
+          announce_ = builderForValue.build();
+          onChanged();
+        } else {
+          announceBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.Announce announce = 4;</code>
+       */
+      public Builder mergeAnnounce(eu.epitech.jcoinche.protocol.Coinche.Announce value) {
+        if (announceBuilder_ == null) {
+          if (announce_ != null) {
+            announce_ =
+              eu.epitech.jcoinche.protocol.Coinche.Announce.newBuilder(announce_).mergeFrom(value).buildPartial();
+          } else {
+            announce_ = value;
+          }
+          onChanged();
+        } else {
+          announceBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.Announce announce = 4;</code>
+       */
+      public Builder clearAnnounce() {
+        if (announceBuilder_ == null) {
+          announce_ = null;
+          onChanged();
+        } else {
+          announce_ = null;
+          announceBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.protocol.Announce announce = 4;</code>
+       */
+      public eu.epitech.jcoinche.protocol.Coinche.Announce.Builder getAnnounceBuilder() {
+        
+        onChanged();
+        return getAnnounceFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.protocol.Announce announce = 4;</code>
+       */
+      public eu.epitech.jcoinche.protocol.Coinche.AnnounceOrBuilder getAnnounceOrBuilder() {
+        if (announceBuilder_ != null) {
+          return announceBuilder_.getMessageOrBuilder();
+        } else {
+          return announce_ == null ?
+              eu.epitech.jcoinche.protocol.Coinche.Announce.getDefaultInstance() : announce_;
+        }
+      }
+      /**
+       * <code>.protocol.Announce announce = 4;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          eu.epitech.jcoinche.protocol.Coinche.Announce, eu.epitech.jcoinche.protocol.Coinche.Announce.Builder, eu.epitech.jcoinche.protocol.Coinche.AnnounceOrBuilder> 
+          getAnnounceFieldBuilder() {
+        if (announceBuilder_ == null) {
+          announceBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              eu.epitech.jcoinche.protocol.Coinche.Announce, eu.epitech.jcoinche.protocol.Coinche.Announce.Builder, eu.epitech.jcoinche.protocol.Coinche.AnnounceOrBuilder>(
+                  getAnnounce(),
+                  getParentForChildren(),
+                  isClean());
+          announce_ = null;
+        }
+        return announceBuilder_;
+      }
+
       private com.google.protobuf.LazyStringList argument_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       private void ensureArgumentIsMutable() {
-        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+        if (!((bitField0_ & 0x00000010) == 0x00000010)) {
           argument_ = new com.google.protobuf.LazyStringArrayList(argument_);
-          bitField0_ |= 0x00000008;
+          bitField0_ |= 0x00000010;
          }
       }
       /**
-       * <code>repeated string argument = 4;</code>
+       * <code>repeated string argument = 5;</code>
        */
       public com.google.protobuf.ProtocolStringList
           getArgumentList() {
         return argument_.getUnmodifiableView();
       }
       /**
-       * <code>repeated string argument = 4;</code>
+       * <code>repeated string argument = 5;</code>
        */
       public int getArgumentCount() {
         return argument_.size();
       }
       /**
-       * <code>repeated string argument = 4;</code>
+       * <code>repeated string argument = 5;</code>
        */
       public java.lang.String getArgument(int index) {
         return argument_.get(index);
       }
       /**
-       * <code>repeated string argument = 4;</code>
+       * <code>repeated string argument = 5;</code>
        */
       public com.google.protobuf.ByteString
           getArgumentBytes(int index) {
         return argument_.getByteString(index);
       }
       /**
-       * <code>repeated string argument = 4;</code>
+       * <code>repeated string argument = 5;</code>
        */
       public Builder setArgument(
           int index, java.lang.String value) {
@@ -4845,7 +5835,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>repeated string argument = 4;</code>
+       * <code>repeated string argument = 5;</code>
        */
       public Builder addArgument(
           java.lang.String value) {
@@ -4858,7 +5848,7 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>repeated string argument = 4;</code>
+       * <code>repeated string argument = 5;</code>
        */
       public Builder addAllArgument(
           java.lang.Iterable<java.lang.String> values) {
@@ -4869,16 +5859,16 @@ public final class Coinche {
         return this;
       }
       /**
-       * <code>repeated string argument = 4;</code>
+       * <code>repeated string argument = 5;</code>
        */
       public Builder clearArgument() {
         argument_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        bitField0_ = (bitField0_ & ~0x00000010);
         onChanged();
         return this;
       }
       /**
-       * <code>repeated string argument = 4;</code>
+       * <code>repeated string argument = 5;</code>
        */
       public Builder addArgumentBytes(
           com.google.protobuf.ByteString value) {
@@ -6112,6 +7102,11 @@ public final class Coinche {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protocol_Card_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_protocol_Announce_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_protocol_Announce_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protocol_Hand_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -6159,22 +7154,27 @@ public final class Coinche {
       "\n\006HEARTS\020\002\022\t\n\005CLUBS\020\003\022\n\n\006SPADES\020\004\"h\n\005Val" +
       "ue\022\016\n\nUNDEFINEDV\020\000\022\007\n\003ACE\020\001\022\010\n\004KING\020\002\022\t\n" +
       "\005QUEEN\020\003\022\010\n\004JACK\020\004\022\007\n\003TEN\020\005\022\010\n\004NINE\020\006\022\t\n" +
-      "\005EIGHT\020\007\022\t\n\005SEVEN\020\010\"$\n\004Hand\022\034\n\004card\030\001 \003(" +
-      "\0132\016.protocol.Card\"\230\001\n\010Contract\022\r\n\005score\030" +
-      "\001 \001(\r\022%\n\004type\030\002 \001(\0162\027.protocol.Contract." +
-      "Type\"V\n\004Type\022\r\n\tUNDEFINED\020\000\022\014\n\010DIAMONDS\020" +
-      "\001\022\n\n\006HEARTS\020\002\022\t\n\005CLUBS\020\003\022\n\n\006SPADES\020\004\022\006\n\002" +
-      "AA\020\005\022\006\n\002NA\020\006\"\250\002\n\005Event\022\"\n\004type\030\001 \001(\0162\024.p",
-      "rotocol.Event.Type\022\034\n\004card\030\002 \001(\0132\016.proto" +
-      "col.Card\022$\n\010contract\030\003 \001(\0132\022.protocol.Co" +
-      "ntract\022\020\n\010argument\030\004 \003(\t\"\244\001\n\004Type\022\r\n\tUND" +
-      "EFINED\020\000\022\010\n\004NAME\020\001\022\010\n\004HAND\020\002\022\010\n\004QUIT\020\003\022\014" +
-      "\n\010CONTRACT\020\004\022\010\n\004PASS\020\005\022\013\n\007COINCHE\020\006\022\016\n\nS" +
-      "URCOINCHE\020\007\022\010\n\004PLAY\020\010\022\010\n\004LAST\020\t\022\014\n\010ANNOU" +
-      "NCE\020\n\022\n\n\006BELOTE\020\013\022\014\n\010REBELOTE\020\014\"\034\n\006Promp" +
-      "t\022\022\n\nto_display\030\001 \003(\t\"(\n\005Reply\022\016\n\006number" +
-      "\030\001 \001(\r\022\017\n\007message\030\002 \001(\tB\'\n\034eu.epitech.jc" +
-      "oinche.protocolB\007Coincheb\006proto3"
+      "\005EIGHT\020\007\022\t\n\005SEVEN\020\010\"\226\001\n\010Announce\022%\n\004type" +
+      "\030\001 \001(\0162\027.protocol.Announce.Type\022\034\n\004card\030" +
+      "\002 \001(\0132\016.protocol.Card\"E\n\004Type\022\r\n\tUNDEFIN" +
+      "ED\020\000\022\t\n\005CARRE\020\001\022\010\n\004CENT\020\002\022\r\n\tCINQUANTE\020\003" +
+      "\022\n\n\006TIERCE\020\004\"$\n\004Hand\022\034\n\004card\030\001 \003(\0132\016.pro" +
+      "tocol.Card\"\230\001\n\010Contract\022\r\n\005score\030\001 \001(\r\022%",
+      "\n\004type\030\002 \001(\0162\027.protocol.Contract.Type\"V\n" +
+      "\004Type\022\r\n\tUNDEFINED\020\000\022\014\n\010DIAMONDS\020\001\022\n\n\006HE" +
+      "ARTS\020\002\022\t\n\005CLUBS\020\003\022\n\n\006SPADES\020\004\022\006\n\002AA\020\005\022\006\n" +
+      "\002NA\020\006\"\316\002\n\005Event\022\"\n\004type\030\001 \001(\0162\024.protocol" +
+      ".Event.Type\022\034\n\004card\030\002 \001(\0132\016.protocol.Car" +
+      "d\022$\n\010contract\030\003 \001(\0132\022.protocol.Contract\022" +
+      "$\n\010announce\030\004 \001(\0132\022.protocol.Announce\022\020\n" +
+      "\010argument\030\005 \003(\t\"\244\001\n\004Type\022\r\n\tUNDEFINED\020\000\022" +
+      "\010\n\004NAME\020\001\022\010\n\004HAND\020\002\022\010\n\004QUIT\020\003\022\014\n\010CONTRAC" +
+      "T\020\004\022\010\n\004PASS\020\005\022\013\n\007COINCHE\020\006\022\016\n\nSURCOINCHE",
+      "\020\007\022\010\n\004PLAY\020\010\022\010\n\004LAST\020\t\022\014\n\010ANNOUNCE\020\n\022\n\n\006" +
+      "BELOTE\020\013\022\014\n\010REBELOTE\020\014\"\034\n\006Prompt\022\022\n\nto_d" +
+      "isplay\030\001 \003(\t\"(\n\005Reply\022\016\n\006number\030\001 \001(\r\022\017\n" +
+      "\007message\030\002 \001(\tB\'\n\034eu.epitech.jcoinche.pr" +
+      "otocolB\007Coincheb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -6200,32 +7200,38 @@ public final class Coinche {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Card_descriptor,
         new java.lang.String[] { "Type", "Value", });
-    internal_static_protocol_Hand_descriptor =
+    internal_static_protocol_Announce_descriptor =
       getDescriptor().getMessageTypes().get(2);
+    internal_static_protocol_Announce_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_protocol_Announce_descriptor,
+        new java.lang.String[] { "Type", "Card", });
+    internal_static_protocol_Hand_descriptor =
+      getDescriptor().getMessageTypes().get(3);
     internal_static_protocol_Hand_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Hand_descriptor,
         new java.lang.String[] { "Card", });
     internal_static_protocol_Contract_descriptor =
-      getDescriptor().getMessageTypes().get(3);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_protocol_Contract_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Contract_descriptor,
         new java.lang.String[] { "Score", "Type", });
     internal_static_protocol_Event_descriptor =
-      getDescriptor().getMessageTypes().get(4);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_protocol_Event_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Event_descriptor,
-        new java.lang.String[] { "Type", "Card", "Contract", "Argument", });
+        new java.lang.String[] { "Type", "Card", "Contract", "Announce", "Argument", });
     internal_static_protocol_Prompt_descriptor =
-      getDescriptor().getMessageTypes().get(5);
+      getDescriptor().getMessageTypes().get(6);
     internal_static_protocol_Prompt_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Prompt_descriptor,
         new java.lang.String[] { "ToDisplay", });
     internal_static_protocol_Reply_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(7);
     internal_static_protocol_Reply_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protocol_Reply_descriptor,
