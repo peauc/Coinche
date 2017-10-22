@@ -211,40 +211,48 @@ public final class Coinche {
     public enum Type
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>HAND = 0;</code>
+       * <code>UNDEFINED = 0;</code>
        */
-      HAND(0),
+      UNDEFINED(0),
       /**
-       * <code>EVENT = 1;</code>
+       * <code>HAND = 1;</code>
        */
-      EVENT(1),
+      HAND(1),
       /**
-       * <code>PROMPT = 2;</code>
+       * <code>EVENT = 2;</code>
        */
-      PROMPT(2),
+      EVENT(2),
       /**
-       * <code>REPLY = 3;</code>
+       * <code>PROMPT = 3;</code>
        */
-      REPLY(3),
+      PROMPT(3),
+      /**
+       * <code>REPLY = 4;</code>
+       */
+      REPLY(4),
       UNRECOGNIZED(-1),
       ;
 
       /**
-       * <code>HAND = 0;</code>
+       * <code>UNDEFINED = 0;</code>
        */
-      public static final int HAND_VALUE = 0;
+      public static final int UNDEFINED_VALUE = 0;
       /**
-       * <code>EVENT = 1;</code>
+       * <code>HAND = 1;</code>
        */
-      public static final int EVENT_VALUE = 1;
+      public static final int HAND_VALUE = 1;
       /**
-       * <code>PROMPT = 2;</code>
+       * <code>EVENT = 2;</code>
        */
-      public static final int PROMPT_VALUE = 2;
+      public static final int EVENT_VALUE = 2;
       /**
-       * <code>REPLY = 3;</code>
+       * <code>PROMPT = 3;</code>
        */
-      public static final int REPLY_VALUE = 3;
+      public static final int PROMPT_VALUE = 3;
+      /**
+       * <code>REPLY = 4;</code>
+       */
+      public static final int REPLY_VALUE = 4;
 
 
       public final int getNumber() {
@@ -265,10 +273,11 @@ public final class Coinche {
 
       public static Type forNumber(int value) {
         switch (value) {
-          case 0: return HAND;
-          case 1: return EVENT;
-          case 2: return PROMPT;
-          case 3: return REPLY;
+          case 0: return UNDEFINED;
+          case 1: return HAND;
+          case 2: return EVENT;
+          case 3: return PROMPT;
+          case 4: return REPLY;
           default: return null;
         }
       }
@@ -433,7 +442,7 @@ public final class Coinche {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Message.Type.HAND.getNumber()) {
+      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Message.Type.UNDEFINED.getNumber()) {
         output.writeEnum(1, type_);
       }
       if (hand_ != null) {
@@ -456,7 +465,7 @@ public final class Coinche {
       if (size != -1) return size;
 
       size = 0;
-      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Message.Type.HAND.getNumber()) {
+      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Message.Type.UNDEFINED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, type_);
       }
@@ -1492,40 +1501,48 @@ public final class Coinche {
     public enum Type
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>DIAMONDS = 0;</code>
+       * <code>UNDEFINEDT = 0;</code>
        */
-      DIAMONDS(0),
+      UNDEFINEDT(0),
       /**
-       * <code>HEARTS = 1;</code>
+       * <code>DIAMONDS = 1;</code>
        */
-      HEARTS(1),
+      DIAMONDS(1),
       /**
-       * <code>CLUBS = 2;</code>
+       * <code>HEARTS = 2;</code>
        */
-      CLUBS(2),
+      HEARTS(2),
       /**
-       * <code>SPADES = 3;</code>
+       * <code>CLUBS = 3;</code>
        */
-      SPADES(3),
+      CLUBS(3),
+      /**
+       * <code>SPADES = 4;</code>
+       */
+      SPADES(4),
       UNRECOGNIZED(-1),
       ;
 
       /**
-       * <code>DIAMONDS = 0;</code>
+       * <code>UNDEFINEDT = 0;</code>
        */
-      public static final int DIAMONDS_VALUE = 0;
+      public static final int UNDEFINEDT_VALUE = 0;
       /**
-       * <code>HEARTS = 1;</code>
+       * <code>DIAMONDS = 1;</code>
        */
-      public static final int HEARTS_VALUE = 1;
+      public static final int DIAMONDS_VALUE = 1;
       /**
-       * <code>CLUBS = 2;</code>
+       * <code>HEARTS = 2;</code>
        */
-      public static final int CLUBS_VALUE = 2;
+      public static final int HEARTS_VALUE = 2;
       /**
-       * <code>SPADES = 3;</code>
+       * <code>CLUBS = 3;</code>
        */
-      public static final int SPADES_VALUE = 3;
+      public static final int CLUBS_VALUE = 3;
+      /**
+       * <code>SPADES = 4;</code>
+       */
+      public static final int SPADES_VALUE = 4;
 
 
       public final int getNumber() {
@@ -1546,10 +1563,11 @@ public final class Coinche {
 
       public static Type forNumber(int value) {
         switch (value) {
-          case 0: return DIAMONDS;
-          case 1: return HEARTS;
-          case 2: return CLUBS;
-          case 3: return SPADES;
+          case 0: return UNDEFINEDT;
+          case 1: return DIAMONDS;
+          case 2: return HEARTS;
+          case 3: return CLUBS;
+          case 4: return SPADES;
           default: return null;
         }
       }
@@ -1608,72 +1626,80 @@ public final class Coinche {
     public enum Value
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>ACE = 0;</code>
+       * <code>UNDEFINEDV = 0;</code>
        */
-      ACE(0),
+      UNDEFINEDV(0),
       /**
-       * <code>KING = 1;</code>
+       * <code>ACE = 1;</code>
        */
-      KING(1),
+      ACE(1),
       /**
-       * <code>QUEEN = 2;</code>
+       * <code>KING = 2;</code>
        */
-      QUEEN(2),
+      KING(2),
       /**
-       * <code>JACK = 3;</code>
+       * <code>QUEEN = 3;</code>
        */
-      JACK(3),
+      QUEEN(3),
       /**
-       * <code>TEN = 4;</code>
+       * <code>JACK = 4;</code>
        */
-      TEN(4),
+      JACK(4),
       /**
-       * <code>NINE = 5;</code>
+       * <code>TEN = 5;</code>
        */
-      NINE(5),
+      TEN(5),
       /**
-       * <code>EIGHT = 6;</code>
+       * <code>NINE = 6;</code>
        */
-      EIGHT(6),
+      NINE(6),
       /**
-       * <code>SEVEN = 7;</code>
+       * <code>EIGHT = 7;</code>
        */
-      SEVEN(7),
+      EIGHT(7),
+      /**
+       * <code>SEVEN = 8;</code>
+       */
+      SEVEN(8),
       UNRECOGNIZED(-1),
       ;
 
       /**
-       * <code>ACE = 0;</code>
+       * <code>UNDEFINEDV = 0;</code>
        */
-      public static final int ACE_VALUE = 0;
+      public static final int UNDEFINEDV_VALUE = 0;
       /**
-       * <code>KING = 1;</code>
+       * <code>ACE = 1;</code>
        */
-      public static final int KING_VALUE = 1;
+      public static final int ACE_VALUE = 1;
       /**
-       * <code>QUEEN = 2;</code>
+       * <code>KING = 2;</code>
        */
-      public static final int QUEEN_VALUE = 2;
+      public static final int KING_VALUE = 2;
       /**
-       * <code>JACK = 3;</code>
+       * <code>QUEEN = 3;</code>
        */
-      public static final int JACK_VALUE = 3;
+      public static final int QUEEN_VALUE = 3;
       /**
-       * <code>TEN = 4;</code>
+       * <code>JACK = 4;</code>
        */
-      public static final int TEN_VALUE = 4;
+      public static final int JACK_VALUE = 4;
       /**
-       * <code>NINE = 5;</code>
+       * <code>TEN = 5;</code>
        */
-      public static final int NINE_VALUE = 5;
+      public static final int TEN_VALUE = 5;
       /**
-       * <code>EIGHT = 6;</code>
+       * <code>NINE = 6;</code>
        */
-      public static final int EIGHT_VALUE = 6;
+      public static final int NINE_VALUE = 6;
       /**
-       * <code>SEVEN = 7;</code>
+       * <code>EIGHT = 7;</code>
        */
-      public static final int SEVEN_VALUE = 7;
+      public static final int EIGHT_VALUE = 7;
+      /**
+       * <code>SEVEN = 8;</code>
+       */
+      public static final int SEVEN_VALUE = 8;
 
 
       public final int getNumber() {
@@ -1694,14 +1720,15 @@ public final class Coinche {
 
       public static Value forNumber(int value) {
         switch (value) {
-          case 0: return ACE;
-          case 1: return KING;
-          case 2: return QUEEN;
-          case 3: return JACK;
-          case 4: return TEN;
-          case 5: return NINE;
-          case 6: return EIGHT;
-          case 7: return SEVEN;
+          case 0: return UNDEFINEDV;
+          case 1: return ACE;
+          case 2: return KING;
+          case 3: return QUEEN;
+          case 4: return JACK;
+          case 5: return TEN;
+          case 6: return NINE;
+          case 7: return EIGHT;
+          case 8: return SEVEN;
           default: return null;
         }
       }
@@ -1798,10 +1825,10 @@ public final class Coinche {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Card.Type.DIAMONDS.getNumber()) {
+      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Card.Type.UNDEFINEDT.getNumber()) {
         output.writeEnum(1, type_);
       }
-      if (value_ != eu.epitech.jcoinche.protocol.Coinche.Card.Value.ACE.getNumber()) {
+      if (value_ != eu.epitech.jcoinche.protocol.Coinche.Card.Value.UNDEFINEDV.getNumber()) {
         output.writeEnum(2, value_);
       }
       unknownFields.writeTo(output);
@@ -1812,11 +1839,11 @@ public final class Coinche {
       if (size != -1) return size;
 
       size = 0;
-      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Card.Type.DIAMONDS.getNumber()) {
+      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Card.Type.UNDEFINEDT.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, type_);
       }
-      if (value_ != eu.epitech.jcoinche.protocol.Coinche.Card.Value.ACE.getNumber()) {
+      if (value_ != eu.epitech.jcoinche.protocol.Coinche.Card.Value.UNDEFINEDV.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, value_);
       }
@@ -3078,56 +3105,64 @@ public final class Coinche {
     public enum Type
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>DIAMONDS = 0;</code>
+       * <code>UNDEFINED = 0;</code>
        */
-      DIAMONDS(0),
+      UNDEFINED(0),
       /**
-       * <code>HEARTS = 1;</code>
+       * <code>DIAMONDS = 1;</code>
        */
-      HEARTS(1),
+      DIAMONDS(1),
       /**
-       * <code>CLUBS = 2;</code>
+       * <code>HEARTS = 2;</code>
        */
-      CLUBS(2),
+      HEARTS(2),
       /**
-       * <code>SPADES = 3;</code>
+       * <code>CLUBS = 3;</code>
        */
-      SPADES(3),
+      CLUBS(3),
       /**
-       * <code>AA = 4;</code>
+       * <code>SPADES = 4;</code>
        */
-      AA(4),
+      SPADES(4),
       /**
-       * <code>NA = 5;</code>
+       * <code>AA = 5;</code>
        */
-      NA(5),
+      AA(5),
+      /**
+       * <code>NA = 6;</code>
+       */
+      NA(6),
       UNRECOGNIZED(-1),
       ;
 
       /**
-       * <code>DIAMONDS = 0;</code>
+       * <code>UNDEFINED = 0;</code>
        */
-      public static final int DIAMONDS_VALUE = 0;
+      public static final int UNDEFINED_VALUE = 0;
       /**
-       * <code>HEARTS = 1;</code>
+       * <code>DIAMONDS = 1;</code>
        */
-      public static final int HEARTS_VALUE = 1;
+      public static final int DIAMONDS_VALUE = 1;
       /**
-       * <code>CLUBS = 2;</code>
+       * <code>HEARTS = 2;</code>
        */
-      public static final int CLUBS_VALUE = 2;
+      public static final int HEARTS_VALUE = 2;
       /**
-       * <code>SPADES = 3;</code>
+       * <code>CLUBS = 3;</code>
        */
-      public static final int SPADES_VALUE = 3;
+      public static final int CLUBS_VALUE = 3;
       /**
-       * <code>AA = 4;</code>
+       * <code>SPADES = 4;</code>
        */
-      public static final int AA_VALUE = 4;
+      public static final int SPADES_VALUE = 4;
       /**
-       * <code>NA = 5;</code>
+       * <code>AA = 5;</code>
        */
-      public static final int NA_VALUE = 5;
+      public static final int AA_VALUE = 5;
+      /**
+       * <code>NA = 6;</code>
+       */
+      public static final int NA_VALUE = 6;
 
 
       public final int getNumber() {
@@ -3148,12 +3183,13 @@ public final class Coinche {
 
       public static Type forNumber(int value) {
         switch (value) {
-          case 0: return DIAMONDS;
-          case 1: return HEARTS;
-          case 2: return CLUBS;
-          case 3: return SPADES;
-          case 4: return AA;
-          case 5: return NA;
+          case 0: return UNDEFINED;
+          case 1: return DIAMONDS;
+          case 2: return HEARTS;
+          case 3: return CLUBS;
+          case 4: return SPADES;
+          case 5: return AA;
+          case 6: return NA;
           default: return null;
         }
       }
@@ -3246,7 +3282,7 @@ public final class Coinche {
       if (score_ != 0) {
         output.writeUInt32(1, score_);
       }
-      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Contract.Type.DIAMONDS.getNumber()) {
+      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Contract.Type.UNDEFINED.getNumber()) {
         output.writeEnum(2, type_);
       }
       unknownFields.writeTo(output);
@@ -3261,7 +3297,7 @@ public final class Coinche {
         size += com.google.protobuf.CodedOutputStream
           .computeUInt32Size(1, score_);
       }
-      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Contract.Type.DIAMONDS.getNumber()) {
+      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Contract.Type.UNDEFINED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(2, type_);
       }
@@ -3825,104 +3861,112 @@ public final class Coinche {
     public enum Type
         implements com.google.protobuf.ProtocolMessageEnum {
       /**
-       * <code>NAME = 0;</code>
+       * <code>UNDEFINED = 0;</code>
        */
-      NAME(0),
+      UNDEFINED(0),
       /**
-       * <code>HAND = 1;</code>
+       * <code>NAME = 1;</code>
        */
-      HAND(1),
+      NAME(1),
       /**
-       * <code>QUIT = 2;</code>
+       * <code>HAND = 2;</code>
        */
-      QUIT(2),
+      HAND(2),
       /**
-       * <code>CONTRACT = 3;</code>
+       * <code>QUIT = 3;</code>
        */
-      CONTRACT(3),
+      QUIT(3),
       /**
-       * <code>PASS = 4;</code>
+       * <code>CONTRACT = 4;</code>
        */
-      PASS(4),
+      CONTRACT(4),
       /**
-       * <code>COINCHE = 5;</code>
+       * <code>PASS = 5;</code>
        */
-      COINCHE(5),
+      PASS(5),
       /**
-       * <code>SURCOINCHE = 6;</code>
+       * <code>COINCHE = 6;</code>
        */
-      SURCOINCHE(6),
+      COINCHE(6),
       /**
-       * <code>PLAY = 7;</code>
+       * <code>SURCOINCHE = 7;</code>
        */
-      PLAY(7),
+      SURCOINCHE(7),
       /**
-       * <code>LAST = 8;</code>
+       * <code>PLAY = 8;</code>
        */
-      LAST(8),
+      PLAY(8),
       /**
-       * <code>ANNOUNCE = 9;</code>
+       * <code>LAST = 9;</code>
        */
-      ANNOUNCE(9),
+      LAST(9),
       /**
-       * <code>BELOTE = 10;</code>
+       * <code>ANNOUNCE = 10;</code>
        */
-      BELOTE(10),
+      ANNOUNCE(10),
       /**
-       * <code>REBELOTE = 11;</code>
+       * <code>BELOTE = 11;</code>
        */
-      REBELOTE(11),
+      BELOTE(11),
+      /**
+       * <code>REBELOTE = 12;</code>
+       */
+      REBELOTE(12),
       UNRECOGNIZED(-1),
       ;
 
       /**
-       * <code>NAME = 0;</code>
+       * <code>UNDEFINED = 0;</code>
        */
-      public static final int NAME_VALUE = 0;
+      public static final int UNDEFINED_VALUE = 0;
       /**
-       * <code>HAND = 1;</code>
+       * <code>NAME = 1;</code>
        */
-      public static final int HAND_VALUE = 1;
+      public static final int NAME_VALUE = 1;
       /**
-       * <code>QUIT = 2;</code>
+       * <code>HAND = 2;</code>
        */
-      public static final int QUIT_VALUE = 2;
+      public static final int HAND_VALUE = 2;
       /**
-       * <code>CONTRACT = 3;</code>
+       * <code>QUIT = 3;</code>
        */
-      public static final int CONTRACT_VALUE = 3;
+      public static final int QUIT_VALUE = 3;
       /**
-       * <code>PASS = 4;</code>
+       * <code>CONTRACT = 4;</code>
        */
-      public static final int PASS_VALUE = 4;
+      public static final int CONTRACT_VALUE = 4;
       /**
-       * <code>COINCHE = 5;</code>
+       * <code>PASS = 5;</code>
        */
-      public static final int COINCHE_VALUE = 5;
+      public static final int PASS_VALUE = 5;
       /**
-       * <code>SURCOINCHE = 6;</code>
+       * <code>COINCHE = 6;</code>
        */
-      public static final int SURCOINCHE_VALUE = 6;
+      public static final int COINCHE_VALUE = 6;
       /**
-       * <code>PLAY = 7;</code>
+       * <code>SURCOINCHE = 7;</code>
        */
-      public static final int PLAY_VALUE = 7;
+      public static final int SURCOINCHE_VALUE = 7;
       /**
-       * <code>LAST = 8;</code>
+       * <code>PLAY = 8;</code>
        */
-      public static final int LAST_VALUE = 8;
+      public static final int PLAY_VALUE = 8;
       /**
-       * <code>ANNOUNCE = 9;</code>
+       * <code>LAST = 9;</code>
        */
-      public static final int ANNOUNCE_VALUE = 9;
+      public static final int LAST_VALUE = 9;
       /**
-       * <code>BELOTE = 10;</code>
+       * <code>ANNOUNCE = 10;</code>
        */
-      public static final int BELOTE_VALUE = 10;
+      public static final int ANNOUNCE_VALUE = 10;
       /**
-       * <code>REBELOTE = 11;</code>
+       * <code>BELOTE = 11;</code>
        */
-      public static final int REBELOTE_VALUE = 11;
+      public static final int BELOTE_VALUE = 11;
+      /**
+       * <code>REBELOTE = 12;</code>
+       */
+      public static final int REBELOTE_VALUE = 12;
 
 
       public final int getNumber() {
@@ -3943,18 +3987,19 @@ public final class Coinche {
 
       public static Type forNumber(int value) {
         switch (value) {
-          case 0: return NAME;
-          case 1: return HAND;
-          case 2: return QUIT;
-          case 3: return CONTRACT;
-          case 4: return PASS;
-          case 5: return COINCHE;
-          case 6: return SURCOINCHE;
-          case 7: return PLAY;
-          case 8: return LAST;
-          case 9: return ANNOUNCE;
-          case 10: return BELOTE;
-          case 11: return REBELOTE;
+          case 0: return UNDEFINED;
+          case 1: return NAME;
+          case 2: return HAND;
+          case 3: return QUIT;
+          case 4: return CONTRACT;
+          case 5: return PASS;
+          case 6: return COINCHE;
+          case 7: return SURCOINCHE;
+          case 8: return PLAY;
+          case 9: return LAST;
+          case 10: return ANNOUNCE;
+          case 11: return BELOTE;
+          case 12: return REBELOTE;
           default: return null;
         }
       }
@@ -4107,7 +4152,7 @@ public final class Coinche {
 
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Event.Type.NAME.getNumber()) {
+      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Event.Type.UNDEFINED.getNumber()) {
         output.writeEnum(1, type_);
       }
       if (card_ != null) {
@@ -4127,7 +4172,7 @@ public final class Coinche {
       if (size != -1) return size;
 
       size = 0;
-      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Event.Type.NAME.getNumber()) {
+      if (type_ != eu.epitech.jcoinche.protocol.Coinche.Event.Type.UNDEFINED.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(1, type_);
       }
@@ -6101,33 +6146,35 @@ public final class Coinche {
   static {
     java.lang.String[] descriptorData = {
       "\n>src/main/java/eu/epitech/jcoinche/prot" +
-      "ocol/communication.proto\022\010protocol\"\343\001\n\007M" +
+      "ocol/communication.proto\022\010protocol\"\362\001\n\007M" +
       "essage\022$\n\004type\030\001 \001(\0162\026.protocol.Message." +
       "Type\022\034\n\004hand\030\002 \001(\0132\016.protocol.Hand\022\036\n\005ev" +
       "ent\030\003 \001(\0132\017.protocol.Event\022 \n\006prompt\030\004 \001" +
       "(\0132\020.protocol.Prompt\022\036\n\005reply\030\005 \001(\0132\017.pr" +
-      "otocol.Reply\"2\n\004Type\022\010\n\004HAND\020\000\022\t\n\005EVENT\020" +
-      "\001\022\n\n\006PROMPT\020\002\022\t\n\005REPLY\020\003\"\341\001\n\004Card\022!\n\004typ" +
-      "e\030\001 \001(\0162\023.protocol.Card.Type\022#\n\005value\030\002 " +
-      "\001(\0162\024.protocol.Card.Value\"7\n\004Type\022\014\n\010DIA",
-      "MONDS\020\000\022\n\n\006HEARTS\020\001\022\t\n\005CLUBS\020\002\022\n\n\006SPADES" +
-      "\020\003\"X\n\005Value\022\007\n\003ACE\020\000\022\010\n\004KING\020\001\022\t\n\005QUEEN\020" +
-      "\002\022\010\n\004JACK\020\003\022\007\n\003TEN\020\004\022\010\n\004NINE\020\005\022\t\n\005EIGHT\020" +
-      "\006\022\t\n\005SEVEN\020\007\"$\n\004Hand\022\034\n\004card\030\001 \003(\0132\016.pro" +
-      "tocol.Card\"\211\001\n\010Contract\022\r\n\005score\030\001 \001(\r\022%" +
-      "\n\004type\030\002 \001(\0162\027.protocol.Contract.Type\"G\n" +
-      "\004Type\022\014\n\010DIAMONDS\020\000\022\n\n\006HEARTS\020\001\022\t\n\005CLUBS" +
-      "\020\002\022\n\n\006SPADES\020\003\022\006\n\002AA\020\004\022\006\n\002NA\020\005\"\231\002\n\005Event" +
-      "\022\"\n\004type\030\001 \001(\0162\024.protocol.Event.Type\022\034\n\004" +
-      "card\030\002 \001(\0132\016.protocol.Card\022$\n\010contract\030\003",
-      " \001(\0132\022.protocol.Contract\022\020\n\010argument\030\004 \003" +
-      "(\t\"\225\001\n\004Type\022\010\n\004NAME\020\000\022\010\n\004HAND\020\001\022\010\n\004QUIT\020" +
-      "\002\022\014\n\010CONTRACT\020\003\022\010\n\004PASS\020\004\022\013\n\007COINCHE\020\005\022\016" +
-      "\n\nSURCOINCHE\020\006\022\010\n\004PLAY\020\007\022\010\n\004LAST\020\010\022\014\n\010AN" +
-      "NOUNCE\020\t\022\n\n\006BELOTE\020\n\022\014\n\010REBELOTE\020\013\"\034\n\006Pr" +
-      "ompt\022\022\n\nto_display\030\001 \003(\t\"(\n\005Reply\022\016\n\006num" +
-      "ber\030\001 \001(\r\022\017\n\007message\030\002 \001(\tB\'\n\034eu.epitech" +
-      ".jcoinche.protocolB\007Coincheb\006proto3"
+      "otocol.Reply\"A\n\004Type\022\r\n\tUNDEFINED\020\000\022\010\n\004H" +
+      "AND\020\001\022\t\n\005EVENT\020\002\022\n\n\006PROMPT\020\003\022\t\n\005REPLY\020\004\"" +
+      "\201\002\n\004Card\022!\n\004type\030\001 \001(\0162\023.protocol.Card.T" +
+      "ype\022#\n\005value\030\002 \001(\0162\024.protocol.Card.Value",
+      "\"G\n\004Type\022\016\n\nUNDEFINEDT\020\000\022\014\n\010DIAMONDS\020\001\022\n" +
+      "\n\006HEARTS\020\002\022\t\n\005CLUBS\020\003\022\n\n\006SPADES\020\004\"h\n\005Val" +
+      "ue\022\016\n\nUNDEFINEDV\020\000\022\007\n\003ACE\020\001\022\010\n\004KING\020\002\022\t\n" +
+      "\005QUEEN\020\003\022\010\n\004JACK\020\004\022\007\n\003TEN\020\005\022\010\n\004NINE\020\006\022\t\n" +
+      "\005EIGHT\020\007\022\t\n\005SEVEN\020\010\"$\n\004Hand\022\034\n\004card\030\001 \003(" +
+      "\0132\016.protocol.Card\"\230\001\n\010Contract\022\r\n\005score\030" +
+      "\001 \001(\r\022%\n\004type\030\002 \001(\0162\027.protocol.Contract." +
+      "Type\"V\n\004Type\022\r\n\tUNDEFINED\020\000\022\014\n\010DIAMONDS\020" +
+      "\001\022\n\n\006HEARTS\020\002\022\t\n\005CLUBS\020\003\022\n\n\006SPADES\020\004\022\006\n\002" +
+      "AA\020\005\022\006\n\002NA\020\006\"\250\002\n\005Event\022\"\n\004type\030\001 \001(\0162\024.p",
+      "rotocol.Event.Type\022\034\n\004card\030\002 \001(\0132\016.proto" +
+      "col.Card\022$\n\010contract\030\003 \001(\0132\022.protocol.Co" +
+      "ntract\022\020\n\010argument\030\004 \003(\t\"\244\001\n\004Type\022\r\n\tUND" +
+      "EFINED\020\000\022\010\n\004NAME\020\001\022\010\n\004HAND\020\002\022\010\n\004QUIT\020\003\022\014" +
+      "\n\010CONTRACT\020\004\022\010\n\004PASS\020\005\022\013\n\007COINCHE\020\006\022\016\n\nS" +
+      "URCOINCHE\020\007\022\010\n\004PLAY\020\010\022\010\n\004LAST\020\t\022\014\n\010ANNOU" +
+      "NCE\020\n\022\n\n\006BELOTE\020\013\022\014\n\010REBELOTE\020\014\"\034\n\006Promp" +
+      "t\022\022\n\nto_display\030\001 \003(\t\"(\n\005Reply\022\016\n\006number" +
+      "\030\001 \001(\r\022\017\n\007message\030\002 \001(\tB\'\n\034eu.epitech.jc" +
+      "oinche.protocolB\007Coincheb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {

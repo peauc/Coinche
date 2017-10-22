@@ -6,7 +6,7 @@ option java_outer_classname = "Coinche";
 
 message Message {
     enum Type {
-        NONE = 0;
+        UNDEFINED = 0;
         HAND = 1;
         EVENT = 2;
         PROMPT = 3;
@@ -21,14 +21,14 @@ message Message {
 
 message Card {
     enum Type {
-        NONE = 0;
+        UNDEFINEDT = 0;
         DIAMONDS = 1;
         HEARTS = 2;
         CLUBS = 3;
         SPADES = 4;
     }
     enum Value {
-        NONE = 0;
+        UNDEFINEDV = 0;
         ACE = 1;
         KING = 2;
         QUEEN = 3;
@@ -48,7 +48,7 @@ message Hand {
 
 message Contract {
     enum Type {
-        NONE = 0;
+        UNDEFINED = 0;
         DIAMONDS = 1;
         HEARTS = 2;
         CLUBS = 3;
@@ -62,7 +62,7 @@ message Contract {
 
 message Event {
     enum Type {
-        NONE = 0;
+        UNDEFINED = 0;
         NAME = 1;
         HAND = 2;
         QUIT = 3;
