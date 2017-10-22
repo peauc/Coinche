@@ -40,7 +40,8 @@ public class Main {
                             }
                             case REPLY: {
                                 switch (message.getReply().getNumber()) {
-                                    case 400: {
+                                    case 200: { }
+                                    default: {
                                         System.err.println("[ERROR] " + message.getReply().getMessage());
                                     }
                                 }
