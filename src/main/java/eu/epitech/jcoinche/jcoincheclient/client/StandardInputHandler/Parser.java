@@ -78,16 +78,6 @@ public class Parser {
         _string = _in.readLine();
     }
 
-    private void resetString() {
-        _string = "";
-    }
-
-    private void dumpString() {
-        System.out.print("|");
-        System.out.print(_string);
-        System.out.println("|");
-    }
-
     public void Parse() {
         try {
             Read();
