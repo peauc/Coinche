@@ -29,6 +29,9 @@ public class GameManager {
             createNewGame();
             addPlayerToGame(p);
         }
+        if (g != null && g.isReady()) {
+            g.start();
+        }
     }
 
     public Game findPlayerGame(Player p) {

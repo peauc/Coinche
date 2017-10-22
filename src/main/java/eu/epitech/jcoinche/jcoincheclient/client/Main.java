@@ -1,13 +1,13 @@
 package eu.epitech.jcoinche.jcoincheclient.client;
 
-import com.google.protobuf.Descriptors;
 import eu.epitech.jcoinche.jcoincheclient.client.networking.Connection;
 import eu.epitech.jcoinche.jcoincheclient.client.utils.BufferedPacket;
+import eu.epitech.jcoinche.jcoincheclient.client.utils.Utils;
 import eu.epitech.jcoinche.protocol.Coinche;
 
-import javax.management.Descriptor;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 import java.net.ConnectException;
-import java.net.InetAddress;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -22,6 +22,8 @@ public class Main {
             timer.schedule(new TimerTask() {
                 @Override
                 public void run() {
+                    BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
+
                     Coinche.Message message = BufferedPacket.get_packet();
                     if (message != null) {
                         switch (message.getType()) {
@@ -29,6 +31,11 @@ public class Main {
                                 for (String s : message.getPrompt().getToDisplayList()) {
                                     System.out.println(s);
                                 }
+                                break ;
+                            }
+                            case HAND: {
+                                Utils.HandToString(message.getHand());
+                                break ;
                             }
                         }
                         if (message.equals(BufferedPacket.get_packet()))
