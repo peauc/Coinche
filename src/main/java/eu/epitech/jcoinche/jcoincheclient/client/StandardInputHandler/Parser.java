@@ -148,9 +148,11 @@ public class Parser {
             }
             case 10: {
                 Belote();
+                break;
             }
             case 11: {
                 Rebelote();
+                break;
             }
             case 12: {
                 PrintHelp();
