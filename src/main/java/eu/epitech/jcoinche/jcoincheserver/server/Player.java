@@ -18,11 +18,12 @@ public class Player {
 
 	private ChannelHandlerContext chctx;
 	private String name;
-	private ArrayList<Coinche.Card> hand = new ArrayList<>();
+	private ArrayList<Coinche.Card> hand;
 	private beloteState belote;
 	private beloteState rebelote;
 
 	public Player(ChannelHandlerContext chctx, String name) {
+		this.hand = new ArrayList<>();
 		this.chctx = chctx;
 		this.name = name;
 		this.belote = beloteState.UNDECLARED;

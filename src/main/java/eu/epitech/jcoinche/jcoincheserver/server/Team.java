@@ -140,4 +140,54 @@ public class Team {
 	public void setTricksWon(int tricksWon) {
 		this.tricksWon = tricksWon;
 	}
+
+	public int getBonusRoundScore() {
+		return bonusRoundScore;
+	}
+
+	public void setBonusRoundScore(int bonusRoundScore) {
+		this.bonusRoundScore = bonusRoundScore;
+	}
+
+	public int validateAnnounces(int bonus) {
+		int ownScore = 0;
+		int otherScore = 0;
+		for (Announce announce : this.announces) {
+			if (announce.isComplete()) {
+				ownScore += announce.getReward();
+			} else {
+				otherScore += announce.getReward();
+			}
+		}
+		this.roundScore += ownScore + bonus;
+		return (otherScore);
+	}
+
+	public boolean hasValidatedContract() {
+		if (this.contractOptional.isPresent()) {
+			if (this.isCapot == true) {
+				return this.nbTricksRealised == 8;
+			} else {
+				return this.roundScore >= this.contractOptional.get().getScore();
+			}
+		} else {
+			return (false);
+		}
+	}
+
+	public void validateContract(boolean hasCoinched, boolean hasSurcoinched) {
+		int score = 0;
+
+		if (this.isCapot == true) {
+			score = this.roundScore + 500;
+		} else {
+			score += this.roundScore + this.contractOptional.get().getScore();
+		}
+		if (hasCoinched) {
+			score *= 2;
+		} else if (hasSurcoinched) {
+			score *= 4;
+		}
+		this.totalScore += score;
+	}
 }

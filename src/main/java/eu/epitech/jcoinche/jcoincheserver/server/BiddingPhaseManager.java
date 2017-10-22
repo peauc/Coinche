@@ -16,12 +16,14 @@ public class BiddingPhaseManager {
 	private boolean hasEnded;
 	private Coinche.Reply reply;
 	private boolean operationSuccess;
+	private boolean contractHasBeenSetup;
 
 	public BiddingPhaseManager(Team team1, Team team2) {
 		this.teams[0] = team1;
 		this.teams[1] = team2;
 		this.biddingPassTurn = 0;
 		this.hasEnded = false;
+		this.contractHasBeenSetup = false;
 	}
 
 	public int handleBiddingTurn(Coinche.Event message, Player player) {
@@ -61,7 +63,7 @@ public class BiddingPhaseManager {
 	}
 
 	private void handleBiddingEnd(Team ownTeam, Team oppositeTeam) {
-		if (this.biddingPassTurn >= 3) {
+		if (this.biddingPassTurn >= 3 && this.contractHasBeenSetup) {
 			this.toPrompt.get(ownTeam).add("End of the bidding phase");
 			this.toPrompt.get(oppositeTeam).add("End of the bidding phase");
 
@@ -187,6 +189,7 @@ public class BiddingPhaseManager {
 					.build();
 			this.biddingPassTurn = 0;
 			this.operationSuccess = true;
+			this.contractHasBeenSetup = true;
 		}
 	}
 
