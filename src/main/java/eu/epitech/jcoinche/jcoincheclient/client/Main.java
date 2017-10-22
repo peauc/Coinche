@@ -38,6 +38,13 @@ public class Main {
                                 Utils.HandToString(message.getHand());
                                 break ;
                             }
+                            case REPLY: {
+                                switch (message.getReply().getNumber()) {
+                                    case 400: {
+                                        System.err.println(message.getReply().getMessage());
+                                    }
+                                }
+                            }
                         }
                         if (message.equals(BufferedPacket.get_packet()))
                             BufferedPacket.set_packet(null);

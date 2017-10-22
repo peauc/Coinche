@@ -1,16 +1,16 @@
 package eu.epitech.jcoinche.jcoincheserver.server;
 
+import eu.epitech.jcoinche.jcoincheclient.client.utils.MessageFactory;
 import eu.epitech.jcoinche.protocol.Coinche;
 import io.netty.channel.ChannelHandlerContext;
 
 import java.util.ArrayList;
 import java.util.Map;
+import java.util.Objects;
 
 import static eu.epitech.jcoinche.jcoincheserver.server.Game.GameState.AWAITING_PLAYERS;
 import static eu.epitech.jcoinche.jcoincheserver.server.Game.GameState.BIDDING;
 import static eu.epitech.jcoinche.jcoincheserver.server.Game.GameState.GAME;
-
-import java.util.Optional;
 
 public class Game {
 
@@ -46,7 +46,47 @@ public class Game {
 		this.state = BIDDING;
 	}
 
+	private void changeNameAndTellPlayers(Player player, Coinche.Event message) {
+		Coinche.Message m;
+		String	exName;
+
+		if (Objects.equals(message.getArgument(0), "")) {
+			m = MessageFactory.createMessageAndReply(400, "You thought that would work didn't you");
+			player.getChctx().writeAndFlush(m);
+			return ;
+		}
+		if (isNameTaken(message.getArgument(0))) {
+			m = MessageFactory.createMessageAndReply(400, "Someone use that username already");
+			player.getChctx().writeAndFlush(m);
+			return;
+		}
+		if (player.getName() == "")
+			exName = "Player" + players.indexOf(player);
+		else
+			exName = player.getName();
+		promptToAllButPlayer(exName + " is now known as " + message.getArgument(0), player);
+		player.setName(message.getArgument(0));
+		System.out.println(player.getName());
+		m = MessageFactory.createMessageAndReply(200, "You are now known as " + player.getName());
+		player.getChctx().writeAndFlush(m);
+	}
+
+	private boolean isNameTaken(String argument) {
+		for (Player p : players) {
+			if (Objects.equals(p.getName(), argument))
+				return (true);
+		}
+		return (false);
+	}
+
 	public void handlePlay(Coinche.Message message, Player player) {
+		if (message.getType() == Coinche.Message.Type.EVENT && message.getEvent().getType() == Coinche.Event.Type.NAME) {
+			changeNameAndTellPlayers(player, message.getEvent());
+			if (this.checkIfGameCanStart()) {
+				this.start();
+			}
+			return;
+		}
 		if (this.state == AWAITING_PLAYERS) {
 			Coinche.Reply reply = Coinche.Reply.newBuilder()
 					.setNumber(404)
@@ -66,6 +106,7 @@ public class Game {
 				return;
 			} else {
 				if (state == BIDDING) {
+					System.out.println("GAME HAS STARTED YOUHOU");
 					this.bm.handleBiddingTurn(message.getEvent(), player);
 					if (this.bm.getHasEnded()) {
 						this.currentPlayerIndex = 0;
@@ -82,6 +123,17 @@ public class Game {
 				}
 			}
 		}
+	}
+
+	private Boolean checkIfGameCanStart() {
+		if (players.size() == 4) {
+			for (Player p : players) {
+				if (Objects.equals(p.getName(), ""))
+					return (false);
+			}
+			return (true);
+		}
+		return (false);
 	}
 
 	public boolean handleCommonCommands(Coinche.Message message, Player player) {
@@ -207,6 +259,19 @@ public class Game {
 				.build();
 		for (Player player : this.players) {
 			player.sendMessage(message);
+		}
+	}
+
+	public void promptToAllButPlayer(String toPrompt, Player p) {
+		Coinche.Message message;
+
+		if (p.getName() == "")
+			p.setName("Player" + this.players.indexOf(p));
+		message = Coinche.Message.newBuilder().setType(Coinche.Message.Type.PROMPT).setPrompt(Coinche.Prompt.newBuilder().addToDisplay(toPrompt).build()).build();
+		for (Player p2 : players) {
+			if (p2 != p) {
+				p2.getChctx().writeAndFlush(message);
+			}
 		}
 	}
 

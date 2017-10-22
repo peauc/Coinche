@@ -1,5 +1,6 @@
 package eu.epitech.jcoinche.jcoincheclient.client.StandardInputHandler;
 
+import eu.epitech.jcoinche.jcoincheclient.client.utils.MessageFactory;
 import eu.epitech.jcoinche.jcoincheclient.client.utils.Utils;
 import eu.epitech.jcoinche.protocol.Coinche;
 import io.netty.channel.Channel;
@@ -15,31 +16,26 @@ public class Parser {
     private Channel _channel;
     private String _string;
     private Map<String, Integer> _map = new HashMap<>();
-    {{
-        //IMSORRYJAVA
-        _map.put("NAME", 0);
-        _map.put("HAND", 1);
-        _map.put("QUIT", 2);
-        _map.put("CONTRACT", 3);
-        _map.put("PASS", 4);
-        _map.put("COINCHE", 5);
-        _map.put("SURCOINCHE", 6);
-        _map.put("PLAY", 7);
-        _map.put("LAST", 8);
-        _map.put("ANNOUNCE", 9);
-        _map.put("BELOTE", 10);
-        _map.put("REBELOTE", 11);
-        _map.put("HELP", 12);
-    }}
 
-    private void Name(String line) {
-        String arguments;
-
-        arguments = Utils.getArguments(line);
-        Coinche.Message mess = Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT)
-                .setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.NAME).addArgument(arguments).build()).build();
-        _channel.writeAndFlush(mess);
+    {
+        {
+            //IMSORRYJAVA
+            _map.put("NAME", 0);
+            _map.put("HAND", 1);
+            _map.put("QUIT", 2);
+            _map.put("CONTRACT", 3);
+            _map.put("PASS", 4);
+            _map.put("COINCHE", 5);
+            _map.put("SURCOINCHE", 6);
+            _map.put("PLAY", 7);
+            _map.put("LAST", 8);
+            _map.put("ANNOUNCE", 9);
+            _map.put("BELOTE", 10);
+            _map.put("REBELOTE", 11);
+            _map.put("HELP", 12);
+        }
     }
+
 
     public Parser(Channel channel) {
         _channel = channel;
@@ -71,7 +67,7 @@ public class Parser {
     public void Parse() {
         try {
             Read();
-           } catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
         Integer i = -1;
@@ -80,17 +76,37 @@ public class Parser {
                 i = m.getValue();
             }
         }
-            switch (i) {
-                case -1: {
-                    System.out.println("Please input a valid command, type HELP to see the list");
-                    break;
-                }
-                case 0: {
-                    Name(_string);
-                }
+        switch (i) {
+            case -1: {
+                System.out.println("Please input a valid command, type HELP to see the list");
+                break;
+            }
+            case 0: {
+                Name(_string);
+                break;
+            }
+            case 1: {
+                Hand();
+                break;
+            }
         }
 
         dumpString();
+    }
+
+    private void Name(String line) {
+        String arguments;
+
+        arguments = Utils.getArguments(line);
+        Coinche.Message mess = Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT)
+                .setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.NAME).addArgument(arguments).build()).build();
+        _channel.writeAndFlush(mess);
+    }
+
+    private void Hand() {
+        System.out.println("Calling method habd");
+        Coinche.Message m = Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT).setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.HAND).build()).build();
+        _channel.writeAndFlush(m);
     }
 
 }
