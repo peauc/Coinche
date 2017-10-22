@@ -76,6 +76,11 @@ public class Game {
 		this.teams[1] = new Team(this.players.get(1), this.players.get(3));
 	}
 
+	//TODO
+	private void resetGame() {
+
+	}
+
 	public void removePlayer(Player p) {
 	    players.remove(p);
 	    resetGame();
