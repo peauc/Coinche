@@ -28,6 +28,7 @@ public class Server {
                     .handler(new LoggingHandler(LogLevel.DEBUG))
                     .childHandler(new ServerInitializer(sslCtx));
             s.bind(Port).sync().channel().closeFuture().sync();
+            System.exit(1);
         } finally {
             stopServer();
         }

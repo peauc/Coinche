@@ -33,8 +33,18 @@ public class    PlayerHandler extends SimpleChannelInboundHandler<Coinche.Messag
         System.out.println("New client connected and greeted");
     }
     @Override
-    public void channelRead0(ChannelHandlerContext channelHandlerContext, Coinche.Message message) throws Exception {
+    public void channelRead0(ChannelHandlerContext ctx, Coinche.Message message) throws Exception {
+        Game g;
+        Player p;
 
+        if ((p = gm.findPlayerByCongext(ctx)) == null) {
+            System.out.println("Unknown player");
+            return;
+        }
+        if ((g = gm.findPlayerGame(p)) == null) {
+            System.out.println("Unknown game");
+            return;
+        }
         System.out.println(message.toString());
     }
 }

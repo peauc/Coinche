@@ -87,21 +87,21 @@ public class Game {
 	    resetGame();
 	}
 
-	public Boolean countainPlayer(ChannelHandlerContext ctx) {
+	public Player countainPlayer(ChannelHandlerContext ctx) {
 		for (Player p : players) {
 			if (p.getChctx() == ctx) {
-				return (true);
+				return (p);
 			}
 		}
-		return (false);
+		return (null);
 	}
 
-	public Boolean countainPlayer(Player pl) {
+	public Player countainPlayer(Player pl) {
 		for (Player p : players) {
 			if (p == pl)
-				return (true);
+				return (p);
 		}
-		return (false);
+		return (null);
 	}
 
 	public boolean isReady() {
