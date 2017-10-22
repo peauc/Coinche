@@ -213,6 +213,26 @@ public class Trick {
 							.setNumber(442)
 							.setMessage("You must always play a card that corresponds to the entame if you have one.")
 							.build();
+				} else {
+					if (trumpHasBeenPlayed && hasHigherTrumpInHand && this.cm.compareCards(message.getCard(), this.cardsPlayed.get(currentWinner)) < 0) {
+						this.reply = Coinche.Reply.newBuilder()
+								.setNumber(442)
+								.setMessage("You have to play a trump higher than the one on the (virtual) table.")
+								.build();
+					} else if (trumpHasBeenPlayed) {
+						this.cardIsValid(ownTeam, oppositeTeam, message, player);
+					} else {
+						if (ownTeam.isMember(currentWinner)) {
+							this.cardIsValid(ownTeam, oppositeTeam, message, player);
+						} else if (hasTrumpInHand && this.cm.compareCards(message.getCard(), this.cardsPlayed.get(currentWinner)) < 0) {
+							this.reply = Coinche.Reply.newBuilder()
+									.setNumber(443)
+									.setMessage("You have to play a trump card.")
+									.build();
+						} else {
+							this.cardIsValid(ownTeam, oppositeTeam, message, player);
+						}
+					}
 				}
 			}
 		} else {
@@ -222,6 +242,26 @@ public class Trick {
 	}
 
 	public void cardIsValid(Team ownTeam, Team oppositeTeam, Coinche.Event message, Player player) {
+		if (player.isBelote() == Player.beloteState.DECLARED) {
+			if (this.cm.isTrumpQueen(message.getCard())) {
+				player.setBelote(Player.beloteState.DONE);
+			} else {
+				player.setBelote(Player.beloteState.UNDECLARED);
+				this.toPrompt.get(ownTeam).add(player.getName() + " has not completed his BELOTE, the opposite team will get a 20 points bonus");
+				this.toPrompt.get(ownTeam).add(player.getName() + " has not completed his BELOTE, your team will get a 20 points bonus");
+			}
+		}
+		if (player.isRebelote() == Player.beloteState.DECLARED) {
+			if (this.cm.isTrumpQueen(message.getCard())) {
+				player.setRebelote(Player.beloteState.DONE);
+			} else {
+				player.setRebelote(Player.beloteState.UNDECLARED);
+				oppositeTeam.setBonusRoundScore(oppositeTeam.getBonusRoundScore() + 20);
+				this.toPrompt.get(ownTeam).add(player.getName() + " has not completed his REBELOTE, the opposite team will get a 20 points bonus");
+				this.toPrompt.get(ownTeam).add(player.getName() + " has not completed his REBELOTE, your team will get a 20 points bonus");
+			}
+		}
+
 		this.turn++;
 		this.chosenColor = message.getCard().getType();
 		this.cardsPlayed.put(player, message.getCard());
@@ -232,6 +272,10 @@ public class Trick {
 				.setMessage("SUCCESS")
 				.build();
 		this.operationSuccess = true;
+		for (Announce announce : ownTeam.getAnnounces()) {
+			if (announce.validate(message.getCard()))
+				return;
+		}
 	}
 
 	public boolean trumpHasBeenPlayed() {

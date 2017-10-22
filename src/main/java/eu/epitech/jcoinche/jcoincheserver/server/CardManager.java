@@ -99,8 +99,9 @@ public class CardManager {
 
 	public void distributeToAll(ArrayList<Player> playerList) {
 		List<Integer> nbCardsToDistribute = Arrays.asList(3, 2, 3);
-		ArrayList<Coinche.Card> cardsToDistribute = new ArrayList<>(this.cardList);
+		ArrayList<Coinche.Card> cardsToDistribute = new ArrayList<>();
 
+		cardsToDistribute.addAll(this.cardList);
 		for (int n = 0; n < 3; n++) {
 			for (Player aPlayerList : playerList) {
 				for (int j = 0; j < nbCardsToDistribute.get(n); j++) {
@@ -149,6 +150,14 @@ public class CardManager {
 			}
 		}
 		return (max);
+	}
+
+	public boolean isTrumpQueen(Coinche.Card card) {
+		return Objects.equals(card.getType().name(), this.getCurrentTrump().name()) && card.getValue() == Coinche.Card.Value.QUEEN;
+	}
+
+	public boolean isTrumpKing(Coinche.Card card) {
+		return Objects.equals(card.getType().name(), this.getCurrentTrump().name()) && card.getValue() == Coinche.Card.Value.KING;
 	}
 
 	public Trump getCurrentTrump() {

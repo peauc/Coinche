@@ -43,6 +43,8 @@ public class Game {
 	public void start() {
 		this.createTeams();
 		this.bm = new BiddingPhaseManager(this.teams[0], this.teams[1]);
+		this.cm.mix();
+		this.cm.distributeToAll(players);
 		this.state = BIDDING;
 	}
 
@@ -289,5 +291,26 @@ public class Game {
 			return (0);
 		}
 		return (-1);
+	}
+
+	public void countScores() {
+		Team takers;
+		Team passers;
+		int bonus = 0;
+
+		bonus = this.teams[0].validateAnnounces(this.teams[1].validateAnnounces(bonus));
+		this.teams[0].setRoundScore(this.teams[0].getRoundScore() + bonus);
+		if (this.teams[0].getContractOptional().isPresent()) {
+			takers = this.teams[0];
+			passers = this.teams[1];
+		} else {
+			takers = this.teams[1];
+			passers = this.teams[0];
+		}
+		if (takers.hasValidatedContract()) {
+			takers.validateContract(passers.hasCoinched(), passers.hasSurcoinched());
+			takers.setTotalScore(takers.getTotalScore() + takers.getRoundScore() * 2 + takers.getBonusRoundScore());
+			takers.setRoundScore(0);
+		}
 	}
 }
