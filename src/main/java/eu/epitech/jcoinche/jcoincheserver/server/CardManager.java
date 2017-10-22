@@ -31,15 +31,15 @@ public class CardManager {
 	private Trump currentTrump;
 
 	public CardManager() {
-		List<String> typeList = Arrays.asList("DIAMONDS", "HEARTS", "CLUBS", "SPADES");
-		List<String> valueList = Arrays.asList("ACE", "KING", "QUEEN", "JACK", "TEN", "NINE", "EIGHT", "SEVEN");
+		List<Coinche.Card.Type> typeList = Arrays.asList(Coinche.Card.Type.DIAMONDS, Coinche.Card.Type.HEARTS, Coinche.Card.Type.CLUBS, Coinche.Card.Type.SPADES);
+		List<Coinche.Card.Value> valueList = Arrays.asList(Coinche.Card.Value.ACE, Coinche.Card.Value.KING, Coinche.Card.Value.QUEEN, Coinche.Card.Value.JACK, Coinche.Card.Value.TEN, Coinche.Card.Value.NINE, Coinche.Card.Value.EIGHT, Coinche.Card.Value.SEVEN);
 		this.currentTrump = Trump.UNDEFINED;
 
-		for (String aTypeList : typeList) {
-			for (String aValueList : valueList) {
+		for (Coinche.Card.Type aTypeList : typeList) {
+			for (Coinche.Card.Value aValueList : valueList) {
 				Coinche.Card card = Coinche.Card.newBuilder()
-						.setType(Coinche.Card.Type.valueOf((String) aTypeList))
-						.setValue(Coinche.Card.Value.valueOf((String) aValueList))
+						.setType(aTypeList)
+						.setValue(aValueList)
 						.build();
 				this.cardList.add(card);
 			}
