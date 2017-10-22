@@ -24,7 +24,6 @@ public class ClientHandler extends SimpleChannelInboundHandler<Coinche.Message> 
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, Coinche.Message msg) throws Exception {
-        System.out.println("Client Channel Read0");
         System.out.println(msg.toString());
         BufferedPacket.set_packet(msg);
     }

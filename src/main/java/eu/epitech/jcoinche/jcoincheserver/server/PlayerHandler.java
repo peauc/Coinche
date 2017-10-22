@@ -23,7 +23,6 @@ public class    PlayerHandler extends SimpleChannelInboundHandler<Coinche.Messag
         gm.removePlayerAndStopGame(ctx);
     }
 
-    //Welcome to our Coinche Server hosted by " + InetAddress.getLocalHost().getHostName() + "\nRemember to chose a nickname by using \"NICKNAME yourNickname\""
     @Override
     public void channelActive(final ChannelHandlerContext ctx) throws UnknownHostException {
         Player p = new Player(ctx, "");
@@ -45,6 +44,7 @@ public class    PlayerHandler extends SimpleChannelInboundHandler<Coinche.Messag
             System.out.println("Unknown game");
             return;
         }
+        g.handlePlay(message, p);
         System.out.println(message.toString());
     }
 }
