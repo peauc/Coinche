@@ -25,6 +25,7 @@ public class Game {
 	private BiddingPhaseManager bm;
 	private ArrayList<Trick> tricks;
 	private int currentPlayerIndex;
+	private int roundNb;
 
 	public Game() {
 		this.players = new ArrayList<>();
@@ -33,6 +34,7 @@ public class Game {
 		this.cm = new CardManager();
 		this.currentPlayerIndex = 0;
 		this.tricks = new ArrayList<>();
+		this.roundNb = 0;
 	}
 
 	public void start() {
@@ -53,9 +55,8 @@ public class Game {
 		.build());
 	}
 
-	public void sendGameInfos()
+	public void sendGameInfos(Map<Team, ArrayList<String>> toPrompt)
 	{
-		Map<Team, ArrayList<String>> toPrompt = bm.getToPrompt();
 		for(Map.Entry<Team, ArrayList<String>> entry : toPrompt.entrySet()) {
 			Team team = entry.getKey();
 			Player[] players = team.getPlayers();
@@ -111,6 +112,33 @@ public class Game {
 				return (false);
 		}
 		return (true);
+	}
+
+	public void checkAnnounces() {
+		int winner;
+		if (this.teams[0].getAnnounces().size() == 0 || this.teams[1].getAnnounces().size() == 0)
+			return;
+		if (teams[0].getBestAnnounce().compareTo(teams[1].getBestAnnounce()) > 0) {
+			teams[1].getAnnounces().clear();
+			winner = 0;
+		} else {
+			teams[0].getAnnounces().clear();
+			winner = 1;
+		}
+		this.tricks.get(this.tricks.size() - 1).addToPrompt(this.teams[winner], "Your team has the best announce !");
+		this.tricks.get(this.tricks.size() - 1).addToPrompt(this.teams[(winner == 1) ? 0 : 1], "The opposite team has the best announce !");
+		for (Announce announce : this.teams[winner].getAnnounces()) {
+			this.tricks.get(this.tricks.size() - 1).addToPrompt(this.teams[winner],
+					"Your team must realize a " + announce.getType().name() + " with a " +
+							announce.getCardsToValidate().get(announce.getCardsToValidate().size() - 1).getCard().getValue().name() + " of " +
+							announce.getCardsToValidate().get(announce.getCardsToValidate().size() - 1).getCard().getType().name()
+			);
+			this.tricks.get(this.tricks.size() - 1).addToPrompt(this.teams[winner],
+					"The opposite team must realize a " + announce.getType().name() + " with a " +
+							announce.getCardsToValidate().get(announce.getCardsToValidate().size() - 1).getCard().getValue().name() + " of " +
+							announce.getCardsToValidate().get(announce.getCardsToValidate().size() - 1).getCard().getType().name()
+			);
+		}
 	}
 
 	public GameState getState() {

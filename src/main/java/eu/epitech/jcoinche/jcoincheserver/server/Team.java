@@ -2,12 +2,13 @@ package eu.epitech.jcoinche.jcoincheserver.server;
 
 import eu.epitech.jcoinche.protocol.Coinche;
 
+import java.util.ArrayList;
 import java.util.Objects;
 import java.util.Optional;
 
 public class Team {
 
-	private Player[] players = new Player[2];;
+	private Player[] players = new Player[2];
 	private int nbTricksRealised;
 	private boolean isCapot;
 	private boolean hasCoinched;
@@ -15,6 +16,8 @@ public class Team {
 	private Optional<Coinche.Contract> contractOptional;
 	private int totalScore;
 	private int roundScore;
+	private int tricksWon;
+	private ArrayList<Announce> announces;
 
 	public Team(Player player1, Player player2) {
 		this.players[0] = player1;
@@ -26,6 +29,7 @@ public class Team {
 		this.isCapot = isCapot;
 		this.hasCoinched = hasCoinched;
 		this.hasSurcoinched = hasSurcoinched;
+		this.announces = new ArrayList<>();
 		if (this.contractOptional.isPresent()) {
 			this.contractOptional = contractOptional;
 		} else {
@@ -100,5 +104,39 @@ public class Team {
 
 	public void setRoundScore(int roundScore) {
 		this.roundScore = roundScore;
+	}
+
+	public ArrayList<Announce> getAnnounces() {
+		return announces;
+	}
+
+	public void setAnnounces(ArrayList<Announce> announces) {
+		this.announces = announces;
+	}
+
+	public void addAnnounce(Announce announce) {
+		this.announces.add(announce);
+	}
+
+	public int getTricksWon() {
+		return tricksWon;
+	}
+
+	public void setTricksWon(int tricksWon) {
+		this.tricksWon = tricksWon;
+	}
+
+	public Announce getBestAnnounce() {
+		Announce koth;
+
+		if (this.announces.size() == 0)
+			return null;
+		koth = this.announces.get(0);
+		for (int i = 1; i < this.announces.size(); i++) {
+			if (koth.compareTo(this.announces.get(i)) < 0) {
+				koth = this.announces.get(i);
+			}
+		}
+		return (koth);
 	}
 }
