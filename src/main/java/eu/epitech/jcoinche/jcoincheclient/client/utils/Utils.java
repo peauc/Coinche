@@ -7,8 +7,12 @@ public class Utils {
         Integer i = 0;
 
         for (Coinche.Card card : hand.getCardList()) {
-            System.out.println("Card number " + i++ + " : " + card.getTypeValue() + " of "+ card.getType().name());
+            System.out.println("Card number " + i++ + " : " + card.getValue().name() + " of "+ card.getType().name());
         }
+    }
+
+    public static Boolean hasArguments(String line) {
+        return (line.contains(" ") && !line.startsWith(" "));
     }
 
     public static String getArguments(String line) {
