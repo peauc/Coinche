@@ -52,7 +52,7 @@ public class Parser {
         _number.put(Coinche.Card.Value.QUEEN, "QUEEN");
         _number.put(Coinche.Card.Value.JACK, "JACK");
         _number.put(Coinche.Card.Value.TEN, "TEN");
-        _number.put(Coinche.Card.Value.NINE, "NICE");
+        _number.put(Coinche.Card.Value.NINE, "NINE");
         _number.put(Coinche.Card.Value.EIGHT, "EIGHT");
         _number.put(Coinche.Card.Value.SEVEN, "SEVEN");
         _announces.put(Coinche.Announce.Type.CARRE, "CARRE");
@@ -181,7 +181,7 @@ public class Parser {
 
     private void Contract(String string) {
 
-        if (!Utils.hasArguments(string)) {
+        if (!Utils.hasArguments(string) || Utils.hasEnoughArguments(string, 2)) {
             System.err.println("CONTRACT [score] [CLUBS-DIAMONDS-HEARTS-SPADES-AA-NA]");
             return;
         }
