@@ -42,6 +42,18 @@ message Card {
     Value value = 2;
 }
 
+message Announce {
+    enum Type {
+        UNDEFINED = 0;
+        CARRE = 1;
+        CENT = 2;
+        CINQUANTE = 3;
+        TIERCE = 4;
+    }
+    Type type = 1;
+    Card card = 2;
+}
+
 message Hand {
     repeated Card card = 1;
 }
@@ -79,7 +91,8 @@ message Event {
     Type type = 1;
     Card card = 2;
     Contract contract = 3;
-    repeated string argument = 4;
+    Announce announce = 4;
+    repeated string argument = 5;
 }
 
 message Prompt {
