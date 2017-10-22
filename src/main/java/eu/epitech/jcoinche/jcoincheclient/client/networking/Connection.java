@@ -102,6 +102,8 @@ public class Connection {
             sslCtx = SslContextBuilder.forClient().trustManager(InsecureTrustManagerFactory.INSTANCE).build();
             bootsrap = new Bootstrap();
             loopGroup = new NioEventLoopGroup();
+            setPort("8090");
+            setHost("localhost");
             bootsrap.group(loopGroup).channel(NioSocketChannel.class).handler(new ClientInitializer(sslCtx));
 //            System.out.println("Please input server's host (enter set default values)");
 //            setHost(in.readLine());

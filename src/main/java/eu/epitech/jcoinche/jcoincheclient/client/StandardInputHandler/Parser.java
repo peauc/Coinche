@@ -149,11 +149,14 @@ public class Parser {
     }
 
     private void Rebelote() {
-        Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT).setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.REBELOTE).build()).build();
+        Coinche.Message m = Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT).setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.REBELOTE).build()).build();
+        _channel.writeAndFlush(m);
     }
 
     private void Belote() {
-        Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT).setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.BELOTE).build()).build();
+        Coinche.Message m = Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT).setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.BELOTE).build()).build();
+        _channel.writeAndFlush(m);
+
     }
 
     private void Last() {
@@ -161,17 +164,20 @@ public class Parser {
     }
 
     private void CoincheFct() {
-        Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT).setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.COINCHE).build()).build();
+        Coinche.Message m = Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT).setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.COINCHE).build()).build();
+        _channel.writeAndFlush(m);
 
     }
 
     private void Surcoinche() {
-        Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT).setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.SURCOINCHE).build()).build();
+        Coinche.Message m = Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT).setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.SURCOINCHE).build()).build();
+        _channel.writeAndFlush(m);
     }
 
     private void Pass() {
-        Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT).setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.PASS).build()).build();
-    }
+       Coinche.Message m =  Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT).setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.PASS).build()).build();
+        _channel.writeAndFlush(m);
+     }
 
     private void Contract(String string) {
 
