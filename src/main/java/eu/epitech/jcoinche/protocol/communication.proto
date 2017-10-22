@@ -6,10 +6,11 @@ option java_outer_classname = "Coinche";
 
 message Message {
     enum Type {
-        HAND = 0;
-        EVENT = 1;
-        PROMPT = 2;
-        REPLY = 3;
+        NONE = 0;
+        HAND = 1;
+        EVENT = 2;
+        PROMPT = 3;
+        REPLY = 4;
     }
     Type type = 1;
     Hand hand = 2;
@@ -20,20 +21,22 @@ message Message {
 
 message Card {
     enum Type {
-        DIAMONDS = 0;
-        HEARTS = 1;
-        CLUBS = 2;
-        SPADES = 3;
+        NONE = 0;
+        DIAMONDS = 1;
+        HEARTS = 2;
+        CLUBS = 3;
+        SPADES = 4;
     }
     enum Value {
-        ACE = 0;
-        KING = 1;
-        QUEEN = 2;
-        JACK = 3;
-        TEN = 4;
-        NINE = 5;
-        EIGHT = 6;
-        SEVEN = 7;
+        NONE = 0;
+        ACE = 1;
+        KING = 2;
+        QUEEN = 3;
+        JACK = 4;
+        TEN = 5;
+        NINE = 6;
+        EIGHT = 7;
+        SEVEN = 8;
     }
     Type type = 1;
     Value value = 2;
@@ -45,12 +48,13 @@ message Hand {
 
 message Contract {
     enum Type {
-        DIAMONDS = 0;
-        HEARTS = 1;
-        CLUBS = 2;
-        SPADES = 3;
-        AA = 4;
-        NA = 5;
+        NONE = 0;
+        DIAMONDS = 1;
+        HEARTS = 2;
+        CLUBS = 3;
+        SPADES = 4;
+        AA = 5;
+        NA = 6;
     }
     uint32 score = 1;
     Type type = 2;
@@ -58,18 +62,19 @@ message Contract {
 
 message Event {
     enum Type {
-        NAME = 0;
-        HAND = 1;
-        QUIT = 2;
-        CONTRACT = 3;
-        PASS = 4;
-        COINCHE = 5;
-        SURCOINCHE = 6;
-        PLAY = 7;
-        LAST = 8;
-        ANNOUNCE = 9;
-        BELOTE = 10;
-        REBELOTE = 11;
+        NONE = 0;
+        NAME = 1;
+        HAND = 2;
+        QUIT = 3;
+        CONTRACT = 4;
+        PASS = 5;
+        COINCHE = 6;
+        SURCOINCHE = 7;
+        PLAY = 8;
+        LAST = 9;
+        ANNOUNCE = 10;
+        BELOTE = 11;
+        REBELOTE = 12;
     }
     Type type = 1;
     Card card = 2;
