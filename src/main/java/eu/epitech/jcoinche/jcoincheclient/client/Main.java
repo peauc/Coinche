@@ -12,8 +12,6 @@ import java.util.TimerTask;
 
 public class Main {
     public static void main(String[] args) throws Exception {
-        System.out.println("HelloClient");
-
         Connection connect = new Connection();
         try {
             connect.connect();

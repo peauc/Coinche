@@ -19,12 +19,10 @@ public class ServerInitializer extends ChannelInitializer<SocketChannel> {
     private final SslContext ctx;
 
     public ServerInitializer(SslContext ctx) {
-        System.out.println("Server is initializing");
         this.ctx = ctx;
     }
 
     public void initChannel(SocketChannel ch) throws Exception {
-        System.out.print("Initchannel\n");
         ChannelPipeline pipeline = ch.pipeline();
 
         pipeline.addLast(ctx.newHandler(ch.alloc()));

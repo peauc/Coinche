@@ -18,7 +18,7 @@ public class ClientHandler extends SimpleChannelInboundHandler<Coinche.Message> 
 
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        System.out.println("Server did not respond in time");
+        System.out.println("Server timed out !");
         System.exit(84);
     }
 

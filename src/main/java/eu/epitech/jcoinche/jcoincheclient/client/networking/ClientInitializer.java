@@ -29,7 +29,6 @@ public class ClientInitializer extends ChannelInitializer<SocketChannel> {
     }
 
     public ClientInitializer(SslContext sslCtx) {
-        System.out.println("Client is initializing");
         this.ssc = sslCtx;
     }
 
