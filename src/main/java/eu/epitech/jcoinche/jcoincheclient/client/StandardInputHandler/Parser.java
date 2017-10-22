@@ -218,7 +218,7 @@ public class Parser {
         Coinche.Card.Type CardType = null;
         Coinche.Announce.Type AnnounceType = null;
         Coinche.Card.Value CardValue = null;
-        if (!Utils.hasArguments(string)) {
+        if (!Utils.hasArguments(string) || Utils.hasEnoughArguments(string, 3)) {
             System.err.println("PLAY [CARRE-CENT-CINQUANTE-TIERCE] [SEVEN-EIGHT-NINE-TEN-JACK-QUEEN-KING-ACE] [CLUBS-DIAMONDS-HEARTS-SPADES]");
             return;
         }
@@ -256,7 +256,7 @@ public class Parser {
     private void Play(String string) {
 
 
-        if (!Utils.hasArguments(string)) {
+        if (!Utils.hasArguments(string) || Utils.hasEnoughArguments(string, 2)) {
             System.err.println("PLAY [SEVEN-EIGHT-NINE-TEN-JACK-QUEEN-KING-ACE] [CLUBS-DIAMONDS-HEARTS-SPADES]");
             return;
         }
@@ -286,7 +286,7 @@ public class Parser {
     private void Name(String line) {
         String arguments;
 
-        if (!Utils.hasArguments(line)) {
+        if (!Utils.hasArguments(line) || Utils.hasEnoughArguments(line, 1)) {
             System.err.println("Name need an argument");
             return;
         }

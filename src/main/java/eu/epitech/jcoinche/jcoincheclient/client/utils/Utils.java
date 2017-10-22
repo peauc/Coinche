@@ -23,4 +23,8 @@ public class Utils {
             return ("");
         return (line.substring(pos));
     }
+
+    public static boolean hasEnoughArguments(String string, int i) {
+        return (string.split("\n").length == i);
+    }
 }
