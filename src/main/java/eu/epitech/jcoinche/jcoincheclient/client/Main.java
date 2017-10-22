@@ -42,7 +42,7 @@ public class Main {
                                 switch (message.getReply().getNumber()) {
                                     case 200: { }
                                     default: {
-                                        System.err.println("[ERROR] " + message.getReply().getMessage());
+                                        System.err.println("[SERVER] " + message.getReply().getMessage());
                                     }
                                 }
                             }
