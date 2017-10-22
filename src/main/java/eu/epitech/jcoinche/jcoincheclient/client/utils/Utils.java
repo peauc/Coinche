@@ -7,7 +7,7 @@ public class Utils {
         Integer i = 0;
 
         for (Coinche.Card card : hand.getCardList()) {
-            System.out.println("Card number " + i++ + " : " + card.getValue().name() + " of "+ card.getType().name());
+            System.out.println("[SERVER] " + i++ + " : " + card.getValue().name() + " of "+ card.getType().name());
         }
     }
 

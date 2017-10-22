@@ -41,7 +41,7 @@ public class Main {
                             case REPLY: {
                                 switch (message.getReply().getNumber()) {
                                     case 400: {
-                                        System.err.println(message.getReply().getMessage());
+                                        System.err.println("[ERROR] " + message.getReply().getMessage());
                                     }
                                 }
                             }

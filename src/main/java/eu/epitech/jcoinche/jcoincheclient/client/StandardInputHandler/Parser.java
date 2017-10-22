@@ -1,11 +1,8 @@
 package eu.epitech.jcoinche.jcoincheclient.client.StandardInputHandler;
 
-import eu.epitech.jcoinche.jcoincheclient.client.utils.MessageFactory;
 import eu.epitech.jcoinche.jcoincheclient.client.utils.Utils;
 import eu.epitech.jcoinche.protocol.Coinche;
 import io.netty.channel.Channel;
-import org.omg.CORBA.CODESET_INCOMPATIBLE;
-import org.omg.PortableInterceptor.SYSTEM_EXCEPTION;
 
 import java.io.BufferedReader;
 import java.io.IOException;
