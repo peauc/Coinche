@@ -16,6 +16,7 @@ public class Team {
 	private Optional<Coinche.Contract> contractOptional;
 	private int totalScore;
 	private int roundScore;
+	private int bonusRoundScore;
 	private int tricksWon;
 	private ArrayList<Announce> announces;
 
@@ -46,6 +47,20 @@ public class Team {
 		return (false);
 	}
 
+	public Announce getBestAnnounce() {
+		Announce koth;
+
+		if (this.announces.size() == 0)
+			return null;
+		koth = this.announces.get(0);
+		for (int i = 1; i < this.announces.size(); i++) {
+			if (koth.compareTo(this.announces.get(i)) < 0) {
+				koth = this.announces.get(i);
+			}
+		}
+		return (koth);
+	}
+
 	public Player[] getPlayers() {
 		return players;
 	}
@@ -66,7 +81,7 @@ public class Team {
 		isCapot = capot;
 	}
 
-	public boolean HasCoinched() {
+	public boolean hasCoinched() {
 		return hasCoinched;
 	}
 
@@ -74,7 +89,7 @@ public class Team {
 		this.hasCoinched = hasCoinched;
 	}
 
-	public boolean HasSurcoinched() {
+	public boolean hasSurcoinched() {
 		return hasSurcoinched;
 	}
 
@@ -124,19 +139,5 @@ public class Team {
 
 	public void setTricksWon(int tricksWon) {
 		this.tricksWon = tricksWon;
-	}
-
-	public Announce getBestAnnounce() {
-		Announce koth;
-
-		if (this.announces.size() == 0)
-			return null;
-		koth = this.announces.get(0);
-		for (int i = 1; i < this.announces.size(); i++) {
-			if (koth.compareTo(this.announces.get(i)) < 0) {
-				koth = this.announces.get(i);
-			}
-		}
-		return (koth);
 	}
 }

@@ -18,13 +18,17 @@ public class Trick {
 	private CardManager cm;
 	private Coinche.Card.Type chosenColor;
 	private int turn;
+	private boolean hasEnded;
+	private boolean operationSuccess;
 
 	public Trick(Team team1, Team team2, int trickNb, CardManager cm) {
+		this.cardsPlayed = new HashMap<>();
 		this.teams[0] = team1;
 		this.teams[1] = team2;
 		this.trickNb = trickNb;
 		this.cm = cm;
-		this.turn = -1;
+		this.turn = 0;
+		this.hasEnded = false;
 	}
 
 	public void handleTrickTurn(Player player, Coinche.Event message) {
@@ -32,7 +36,7 @@ public class Trick {
 		this.toPrompt.put(this.teams[0], new ArrayList<String>());
 		this.toPrompt.put(this.teams[1], new ArrayList<String>());
 		this.reply = null;
-		this.turn++;
+		this.operationSuccess = false;
 
 		switch (message.getType()) {
 			case PLAY:
@@ -52,7 +56,10 @@ public class Trick {
 						.setNumber(401)
 						.setMessage("You cannot perform this action while in the game phase.")
 						.build();
+				return;
 		}
+		if (turn == 4)
+			handleTrickEnd();
 	}
 
 	public void handleTrickEnd() {
@@ -61,6 +68,7 @@ public class Trick {
 		Team ownTeam;
 		Team oppositeTeam;
 
+		this.hasEnded = true;
 		ownTeam = (teams[0].isMember(winner)) ? teams[0] : teams[1];
 		oppositeTeam = (ownTeam == teams[0]) ? teams[1] : teams[0];
 		ownTeam.setTricksWon(ownTeam.getTricksWon() + 1);
@@ -75,7 +83,7 @@ public class Trick {
 
 		ownTeam = (teams[0].isMember(player)) ? teams[0] : teams[1];
 		oppositeTeam = (ownTeam == teams[0]) ? teams[1] : teams[0];
-		if (!player.isBelote()) {
+		if (player.isBelote() != Player.beloteState.DONE) {
 			this.reply = Coinche.Reply.newBuilder()
 					.setNumber(451)
 					.setMessage("To announce a REBELOTE you must first complete a BELOTE.")
@@ -84,8 +92,7 @@ public class Trick {
 		}
 		this.toPrompt.get(ownTeam).add(player.getName() + " has announced a REBELOTE");
 		this.toPrompt.get(oppositeTeam).add(player.getName() + " has announced a REBELOTE");
-		player.setBelote(false);
-		player.setRebelote(true);
+		player.setRebelote(Player.beloteState.DECLARED);
 		this.reply = Coinche.Reply.newBuilder()
 				.setNumber(200)
 				.setMessage("SUCCESS")
@@ -98,7 +105,7 @@ public class Trick {
 
 		ownTeam = (teams[0].isMember(player)) ? teams[0] : teams[1];
 		oppositeTeam = (ownTeam == teams[0]) ? teams[1] : teams[0];
-		if (player.isBelote()) {
+		if (player.isBelote() == Player.beloteState.DECLARED) {
 			this.reply = Coinche.Reply.newBuilder()
 					.setNumber(452)
 					.setMessage("You already announced a BELOTE")
@@ -107,7 +114,7 @@ public class Trick {
 		}
 		this.toPrompt.get(ownTeam).add(player.getName() + " has announced a BELOTE");
 		this.toPrompt.get(oppositeTeam).add(player.getName() + " has announced a BELOTE");
-		player.setBelote(true);
+		player.setBelote(Player.beloteState.DECLARED);
 		this.reply = Coinche.Reply.newBuilder()
 				.setNumber(200)
 				.setMessage("SUCCESS")
@@ -193,16 +200,30 @@ public class Trick {
 		}
 		if (turn != 0) {
 			hasEntameInHand = player.hasEntameInHand(this.chosenColor);
-			if (message.getCard().getType() != this.chosenColor && hasEntameInHand) {
-				this.reply = Coinche.Reply.newBuilder()
-						.setNumber(441)
-						.setMessage("You always have to play a card that corresponds to the entame if you can.")
-						.build();
-				return;
+			trumpHasBeenPlayed = trumpHasBeenPlayed();
+			hasTrumpInHand = player.hasTrumpInHand(this.cm.getCurrentTrump());
+			Player currentWinner = this.cm.getHighestCard(this.cardsPlayed);
+			if (hasTrumpInHand && currentWinner != null)
+				hasHigherTrumpInHand = player.hasHigherTrumpInHand(this.cm, this.cardsPlayed.get(currentWinner));
+			if (message.getCard().getType() == this.chosenColor) {
+				cardIsValid(ownTeam, oppositeTeam, message, player);
+			} else {
+				if (hasEntameInHand) {
+					this.reply = Coinche.Reply.newBuilder()
+							.setNumber(442)
+							.setMessage("You must always play a card that corresponds to the entame if you have one.")
+							.build();
+				}
 			}
 		} else {
 			this.chosenColor = message.getCard().getType();
+			this.cardIsValid(ownTeam, oppositeTeam, message, player);
 		}
+	}
+
+	public void cardIsValid(Team ownTeam, Team oppositeTeam, Coinche.Event message, Player player) {
+		this.turn++;
+		this.chosenColor = message.getCard().getType();
 		this.cardsPlayed.put(player, message.getCard());
 		this.toPrompt.get(ownTeam).add(player.getName() + " has just played a " + message.getCard().getValue().name() + " of " + message.getCard().getType().name());
 		this.toPrompt.get(oppositeTeam).add(player.getName() + " has just played a " + message.getCard().getValue().name() + " of " + message.getCard().getType().name());
@@ -210,6 +231,7 @@ public class Trick {
 				.setNumber(200)
 				.setMessage("SUCCESS")
 				.build();
+		this.operationSuccess = true;
 	}
 
 	public boolean trumpHasBeenPlayed() {
@@ -226,5 +248,13 @@ public class Trick {
 
 	public Map<Team, ArrayList<String>> getToPrompt() {
 		return toPrompt;
+	}
+
+	public boolean isHasEnded() {
+		return hasEnded;
+	}
+
+	public boolean isOperationSuccess() {
+		return operationSuccess;
 	}
 }

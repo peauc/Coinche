@@ -8,16 +8,25 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Player {
+
+	public enum beloteState {
+		UNDECLARED,
+		DECLARED,
+		AWAITING_VALIDATION,
+		DONE
+	}
+
 	private ChannelHandlerContext chctx;
 	private String name;
 	private ArrayList<Coinche.Card> hand = new ArrayList<>();
-	private boolean belote;
-	private boolean rebelote;
+	private beloteState belote;
+	private beloteState rebelote;
 
 	public Player(ChannelHandlerContext chctx, String name) {
 		this.chctx = chctx;
 		this.name = name;
-		this.belote = false;
+		this.belote = beloteState.UNDECLARED;
+		this.rebelote = beloteState.UNDECLARED;
 	}
 
 	public void sendMessage(Coinche.Message message) {
@@ -92,6 +101,24 @@ public class Player {
 		return (false);
 	}
 
+	@Override
+	public boolean equals(Object obj) {
+		if (obj == null) {
+			return false;
+		}
+		if (!Player.class.isAssignableFrom(obj.getClass())) {
+			return false;
+		}
+		final Player other = (Player)obj;
+		if ((this.name == null) ? (other.name != null) : !this.name.equals(other.name)) {
+			return false;
+		}
+		if (this.chctx != other.chctx) {
+			return false;
+		}
+		return true;
+	}
+
 	public void addToHand(Coinche.Card card) {
 		this.hand.add(card);
 	}
@@ -100,19 +127,19 @@ public class Player {
 		this.hand.remove(card);
 	}
 
-	public boolean isBelote() {
+	public beloteState isBelote() {
 		return belote;
 	}
 
-	public void setBelote(boolean belote) {
+	public void setBelote(beloteState belote) {
 		this.belote = belote;
 	}
 
-	public boolean isRebelote() {
+	public beloteState isRebelote() {
 		return rebelote;
 	}
 
-	public void setRebelote(boolean rebelote) {
+	public void setRebelote(beloteState rebelote) {
 		this.rebelote = rebelote;
 	}
 }

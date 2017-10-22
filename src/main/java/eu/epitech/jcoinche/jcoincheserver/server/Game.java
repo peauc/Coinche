@@ -6,7 +6,10 @@ import io.netty.channel.ChannelHandlerContext;
 import java.util.ArrayList;
 import java.util.Map;
 
+import static eu.epitech.jcoinche.jcoincheserver.server.Game.GameState.AWAITING_PLAYERS;
 import static eu.epitech.jcoinche.jcoincheserver.server.Game.GameState.BIDDING;
+import static eu.epitech.jcoinche.jcoincheserver.server.Game.GameState.GAME;
+
 import java.util.Optional;
 
 public class Game {
@@ -41,15 +44,69 @@ public class Game {
 		this.createTeams();
 		this.bm = new BiddingPhaseManager(this.teams[0], this.teams[1]);
 		this.state = BIDDING;
-		this.run();
 	}
 
-	public void run() {
+	public void handlePlay(Coinche.Message message, Player player) {
+		if (this.state == AWAITING_PLAYERS) {
+			Coinche.Reply reply = Coinche.Reply.newBuilder()
+					.setNumber(404)
+					.setMessage("The game is not ready.")
+					.build();
+			this.sendReply(reply, player);
+			return;
+		} else if (this.handleCommonCommands(message, player)) {
+			return;
+		} else {
+			if (!player.equals(this.players.get(this.currentPlayerIndex))) {
+				Coinche.Reply reply = Coinche.Reply.newBuilder()
+						.setNumber(403)
+						.setMessage("It's not your turn to play.")
+						.build();
+				this.sendReply(reply, player);
+				return;
+			} else {
+				if (state == BIDDING) {
+					this.bm.handleBiddingTurn(message.getEvent(), player);
+					if (this.bm.getHasEnded()) {
+						this.currentPlayerIndex = 0;
+						this.state = GAME;
+					} else if (this.bm.isOperationSuccess()) {
+						this.currentPlayerIndex++;
+						if (this.currentPlayerIndex >= this.players.size())
+							this.currentPlayerIndex = 0;
+					}
+				} else if (state == GAME) {
+					if (this.tricks.size() == 0)
+						this.promptToAll("Round " + this.roundNb + " starting !");
+
+				}
+			}
+		}
 	}
 
-	public void sendReply(Coinche.Reply reply)
+	public boolean handleCommonCommands(Coinche.Message message, Player player) {
+		if (message.getType() != Coinche.Message.Type.EVENT || !message.hasEvent()) {
+			Coinche.Reply reply = Coinche.Reply.newBuilder()
+					.setNumber(402)
+					.setMessage("Invalid message.")
+					.build();
+			this.sendReply(reply, player);
+			return (true);
+		} else if (message.getEvent().getType() == Coinche.Event.Type.HAND) {
+			Coinche.Reply reply = Coinche.Reply.newBuilder()
+					.setNumber(200)
+					.setMessage("SUCCESS")
+					.build();
+			this.sendReply(reply, player);
+			this.players.get(this.currentPlayerIndex).sendHand();
+			return (true);
+		}
+		return (false);
+	}
+
+	public void sendReply(Coinche.Reply reply, Player player)
 	{
-		this.players.get(this.currentPlayerIndex).sendMessage(Coinche.Message.newBuilder()
+		player.sendMessage(Coinche.Message.newBuilder()
 		.setType(Coinche.Message.Type.REPLY)
 		.setReply(reply)
 		.build());
@@ -133,6 +190,18 @@ public class Game {
 							announce.getCardsToValidate().get(announce.getCardsToValidate().size() - 1).getCard().getValue().name() + " of " +
 							announce.getCardsToValidate().get(announce.getCardsToValidate().size() - 1).getCard().getType().name()
 			);
+		}
+	}
+
+	public void promptToAll(String toPrompt) {
+		Coinche.Message message = Coinche.Message.newBuilder()
+				.setType(Coinche.Message.Type.PROMPT)
+				.setPrompt(Coinche.Prompt.newBuilder()
+					.addToDisplay(toPrompt)
+					.build())
+				.build();
+		for (Player player : this.players) {
+			player.sendMessage(message);
 		}
 	}
 
