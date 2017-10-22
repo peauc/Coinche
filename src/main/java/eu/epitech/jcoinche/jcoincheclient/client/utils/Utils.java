@@ -10,4 +10,13 @@ public class Utils {
             System.out.println("Card number " + i++ + " : " + card.getTypeValue() + " of "+ card.getType().name());
         }
     }
+
+    public static String getArguments(String line) {
+        Integer pos;
+
+        pos = line.indexOf(" ") + 1;
+        if (pos == -1)
+            return ("");
+        return (line.substring(pos));
+    }
 }

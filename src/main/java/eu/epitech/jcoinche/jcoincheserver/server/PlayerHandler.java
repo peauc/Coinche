@@ -28,7 +28,7 @@ public class    PlayerHandler extends SimpleChannelInboundHandler<Coinche.Messag
     public void channelActive(final ChannelHandlerContext ctx) throws UnknownHostException {
         Player p = new Player(ctx, "");
         gm.addPlayerToGame(p);
-        Coinche.Message message = Coinche.Message.newBuilder().setType(Coinche.Message.Type.PROMPT).setPrompt(Coinche.Prompt.newBuilder().addToDisplay("Welcome to our Coinche Server hosted by " + InetAddress.getLocalHost().getHostName() + "\nRemember to chose a nickname by using \"NICKNAME yourNickname\"").build()).build();
+        Coinche.Message message = Coinche.Message.newBuilder().setType(Coinche.Message.Type.PROMPT).setPrompt(Coinche.Prompt.newBuilder().addToDisplay("Welcome to our Coinche Server hosted by " + InetAddress.getLocalHost().getHostName() + "\nRemember to chose a nickname by using \"NAME yourNickname\"").build()).build();
         ctx.writeAndFlush(message);
         System.out.println("New client connected and greeted");
     }

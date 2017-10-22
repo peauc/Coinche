@@ -1,5 +1,7 @@
 package eu.epitech.jcoinche.jcoincheclient.client.StandardInputHandler;
 
+import eu.epitech.jcoinche.jcoincheclient.client.utils.Utils;
+import eu.epitech.jcoinche.protocol.Coinche;
 import io.netty.channel.Channel;
 
 import java.io.BufferedReader;
@@ -27,7 +29,17 @@ public class Parser {
         _map.put("ANNOUNCE", 9);
         _map.put("BELOTE", 10);
         _map.put("REBELOTE", 11);
+        _map.put("HELP", 12);
     }}
+
+    private void Name(String line) {
+        String arguments;
+
+        arguments = Utils.getArguments(line);
+        Coinche.Message mess = Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT)
+                .setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.NAME).addArgument(arguments).build()).build();
+        _channel.writeAndFlush(mess);
+    }
 
     public Parser(Channel channel) {
         _channel = channel;
@@ -62,6 +74,22 @@ public class Parser {
            } catch (IOException e) {
             e.printStackTrace();
         }
+        Integer i = -1;
+        for (Map.Entry<String, Integer> m : _map.entrySet()) {
+            if (_string.contains(m.getKey())) {
+                i = m.getValue();
+            }
+        }
+            switch (i) {
+                case -1: {
+                    System.out.println("Please input a valid command, type HELP to see the list");
+                    break;
+                }
+                case 0: {
+                    Name(_string);
+                }
+        }
+
         dumpString();
     }
 
