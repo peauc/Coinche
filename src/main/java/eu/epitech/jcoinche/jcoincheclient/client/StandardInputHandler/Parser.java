@@ -122,19 +122,66 @@ public class Parser {
                 Contract(_string);
                 break;
             }
+            case 4: {
+                Pass();
+                break;
+            }
+            case 5: {
+                CoincheFct();
+                break;
+            }
+            case 6: {
+                Surcoinche();
+                break;
+            }
             case 7: {
                 Play(_string);
+                break;
+            }
+            case 8: {
+                Last();
                 break;
             }
             case 9: {
                 Announce(_string);
                 break;
             }
+            case 10: {
+                Belote();
+            }
+            case 11: {
+                Rebelote();
+            }
             case 12: {
                 PrintHelp();
                 break;
             }
         }
+    }
+
+    private void Rebelote() {
+        Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT).setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.REBELOTE).build()).build();
+    }
+
+    private void Belote() {
+        Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT).setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.BELOTE).build()).build();
+    }
+
+    private void Last() {
+
+    }
+
+    private void CoincheFct() {
+        Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT).setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.COINCHE).build()).build();
+
+    }
+
+    private void Surcoinche() {
+        Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT).setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.SURCOINCHE).build()).build();
+    }
+
+    private void Pass() {
+        Coinche.Message.newBuilder().setType(Coinche.Message.Type.EVENT).setEvent(Coinche.Event.newBuilder().setType(Coinche.Event.Type.PASS).build()).build();
     }
 
     private void Contract(String string) {
